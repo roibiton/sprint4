@@ -1,7 +1,8 @@
 const initialState = {
     stays: [],
     cart:[],
-    lastRemovedStay: null
+    lastRemovedStay: null,
+    test:true 
 }
 export function stayReducer(state = initialState, action) {
     var newState = state
