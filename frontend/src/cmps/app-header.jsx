@@ -53,7 +53,7 @@ function _AppHeader({ onLogin, onSignup, onLogout, user }) {
         {!user && (
           <section className="user-info">
             <LoginSignup onLogin={onLogin} onSignup={onSignup} />
-                        <StayDetails />
+            <NavLink to='/stays' ><button className="" >Details</button></NavLink>
           </section>
         )}
       </nav>
