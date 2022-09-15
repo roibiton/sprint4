@@ -1,4 +1,6 @@
 .app-header {
+  display: flex;
+  border: 1px solid gray;
   // background-color: $clr4;
   padding: 10px;
   // padding: 20px;
@@ -56,4 +58,17 @@ nav a:not(:first-child) {
 
 nav .active {
   color: $clr1;
+}
+
+img.main-logo {
+  width: 70px;
+  height: 70px;
+}
+
+.search-header input {
+  width: 400px;
+  height: 50px;
+  border-radius: 2em;
+  color: black;
+  font-weight: bold;
 }

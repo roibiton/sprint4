@@ -4,59 +4,80 @@ import { Link, NavLink } from 'react-router-dom'
 import { StayDetails } from '../pages/stay-details'
 
 import routes from '../routes'
+import logo from '../assets/img/logo-airbnb.png'
+// import logo from '../assets/img/airbnb-logo.jpeg'
+import { SearchHeader } from './search-header'
 
-
-import { onLogin, onLogout, onSignup, loadUsers, removeUser } from '../store/user.actions.js'
+import {
+  onLogin,
+  onLogout,
+  onSignup,
+  loadUsers,
+  removeUser,
+} from '../store/user.actions.js'
 import { LoginSignup } from './login-signup.jsx'
 
 function _AppHeader({ onLogin, onSignup, onLogout, user }) {
+  return (
+    <header className="app-header">
+      <NavLink key="//" to="/">
+        {
+          <img
+            className="main-logo"
+            src={logo}
+            alt="Logo"
+            style={{ maxWidth: '300px' }}
+          />
+        }
+      </NavLink>
 
-    return (
-        <header className="app-header">
-            <nav>
-                {routes.map(route => <NavLink key={route.path} to={route.path}>{route.label}</NavLink>)}
+      <SearchHeader />
+      <nav>
+        {routes.map((route) => (
+          <NavLink key={route.path} to={route.path}>
+            {route.label}
+          </NavLink>
+        ))}
 
-                {user &&
-                    <span className="user-info">
-                        <Link to={`user/${user._id}`}>
-                            {user.imgUrl && <img src={user.imgUrl} />}
-                            {user.fullname}
-                        </Link>
-                        <span className="score">{user.score?.toLocaleString()}</span>
-                        <button onClick={onLogout}>Logout</button>
-                    </span>
-                }
+        {user && (
+          <span className="user-info">
+            <Link to={`user/${user._id}`}>
+              {user.imgUrl && <img src={user.imgUrl} />}
+              {user.fullname}
+            </Link>
+            <span className="score">{user.score?.toLocaleString()}</span>
+            <button onClick={onLogout}>Logout</button>
+          </span>
+        )}
 
-                {!user &&
-                    <section className="user-info">
-                        <LoginSignup onLogin={onLogin} onSignup={onSignup} />
+        {!user && (
+          <section className="user-info">
+            <LoginSignup onLogin={onLogin} onSignup={onSignup} />
                         <StayDetails />
-                    </section>
-                }
-
-            </nav>
-
-            <h1>My App</h1>
-        </header>
-    )
+          </section>
+        )}
+      </nav>
+    </header>
+  )
 }
 
 function mapStateToProps(state) {
-    return {
-        users: state.userModule.users,
-        user: state.userModule.user,
-        count: state.userModule.count,
-        isLoading: state.systemModule.isLoading
-    }
+  return {
+    users: state.userModule.users,
+    user: state.userModule.user,
+    count: state.userModule.count,
+    isLoading: state.systemModule.isLoading,
+  }
 }
 const mapDispatchToProps = {
-    onLogin,
-    onSignup,
-    onLogout,
-    loadUsers,
-    removeUser
+  onLogin,
+  onSignup,
+  onLogout,
+  loadUsers,
+  removeUser,
 }
 
-
-
-export const AppHeader = connect(mapStateToProps, mapDispatchToProps)(_AppHeader)
+export const AppHeader = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(_AppHeader)
