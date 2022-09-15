@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link, NavLink } from 'react-router-dom'
+import { StayDetails } from '../pages/stay-details'
 
 import routes from '../routes'
 
@@ -29,6 +30,7 @@ function _AppHeader({ onLogin, onSignup, onLogout, user }) {
                 {!user &&
                     <section className="user-info">
                         <LoginSignup onLogin={onLogin} onSignup={onSignup} />
+                        <StayDetails />
                     </section>
                 }
 
