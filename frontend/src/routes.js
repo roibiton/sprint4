@@ -4,6 +4,7 @@ import { StayApp } from './pages/stay-app.jsx'
 import { ReviewApp } from './pages/review-app.jsx'
 import { ChatApp } from './pages/chat-app.jsx'
 import { AdminApp } from './pages/admin-app.jsx'
+import { StayDetails } from './pages/stay-details.jsx'
 
 // Routes accesible from the main navigation (in AppHeader)
 const routes = [
@@ -21,6 +22,12 @@ const routes = [
         path: 'review',
         component: <ReviewApp />,
         label: 'Reviews'
+    },
+    {
+        // <Route path="user/:id" element={<UserDetails />} />
+        path: 'details/:id',
+        component: <StayDetails />,
+        label: 'Details'
     },
     {
         path: 'chat',

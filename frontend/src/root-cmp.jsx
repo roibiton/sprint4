@@ -26,7 +26,6 @@ export class RootCmp extends React.Component {
                 path={route.path}
               />
             ))}
-            <Route path="user/:id" element={<UserDetails />} />
           </Routes>
         </main>
         <AppFooter />
