@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
+import { stayService } from '../services/stay.service'
 
 import { FaCampground, FaCity, FaHome } from 'react-icons/fa'
 import { SiInkscape } from 'react-icons/si'
@@ -11,36 +12,27 @@ import {
 } from 'react-icons/gi'
 
 export const AppFilter = () => {
-  const state = {
-    idx: 0,
-    filterIcon: [
-      { cmp: 'GiFamilyHouse', tag: 'House' },
-      { cmp: 'GiIsland', tag: 'Island' },
-      { cmp: 'FaCity ', tag: 'City' },
-      { cmp: 'FaCampground', tag: 'Camping' },
-      { cmp: 'FaHome ', tag: 'Homes' },
-      { cmp: 'SiInkscape', tag: 'Mounte' },
-      { cmp: 'GiPalmTree ', tag: 'Tropical' },
-      { cmp: 'GiWaveSurfer  ', tag: ' Beach' },
-    ],
-  }
+  const idxCarouselIconsRef = useRef(0)
 
   // const [countIdx, setCountIdx] = useState(0)
 
   useEffect(() => {
     console.log('hi hi filter')
-
     return () => {
       console.log('bey bey filter')
+      idxCarouselIconsRef.current = 0
     }
   }, [])
 
-  const getFilterIcon = (val) => {
-    let idx = state.idx
-    const newIdx = val === 'increment' ? idx++ : idx--
-    state.idx = newIdx
+  const getFilterIcon = (val = false) => {
+    console.log('val:', val)
+    let idx = idxCarouselIconsRef.current
+    console.log('idx:', idx)
 
-    console.log('newIdx:', newIdx)
+    idxCarouselIconsRef.current = val === 'increment' ? idx + 1 : idx - 1
+
+    console.log('idxCarouselIconsRef.current:', idxCarouselIconsRef.current)
+    return stayService.getCarouselIcons(idxCarouselIconsRef.current)
   }
 
   return (
@@ -53,9 +45,9 @@ export const AppFilter = () => {
         <FiChevronLeft />
       </button>
       <ul className="ul-filter">
-        {/* {state.filterIcon.map((icon) => (
+        {/* {getFilterIcon().map((icon) => (
           <li key={icon.cmp}>
-            <{icon.cmp} /> <h3>{icon.tag}</h3>
+            < /> <h3>{icon.tag}</h3>
           </li>
         ))} */}
         <li>
