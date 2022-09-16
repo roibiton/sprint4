@@ -54,58 +54,56 @@ export function removeStay(stayId) {
 }
 
 export function addStay(stay) {
-    return (dispatch) => {
-
-        stayService.save(stay)
-            .then(savedStay => {
-                console.log('Added Stay', savedStay);
-                dispatch(getActionAddStay(savedStay))
-                showSuccessMsg('Stay added')
-            })
-            .catch(err => {
-                showErrorMsg('Cannot add stay')
-                console.log('Cannot add stay', err)
-            })
-    }
-}
-
-export function updateStay(stay) {
     return async (dispatch) => {
         try {
             const savedStay = await stayService.save(stay)
-            console.log('Updated Stay:', savedStay);
-            dispatch(getActionUpdateStay(savedStay))
-            showSuccessMsg('Stay updated')
+            console.log('Added Stay', savedStay);
+            dispatch(getActionAddStay(savedStay))
+            showSuccessMsg('Stay added')
         } catch (err) {
-            showErrorMsg('Cannot update stay')
-            console.log('Cannot save stay', err)
+            showErrorMsg('Cannot add stay')
+            console.log('Cannot add stay', err)
         }
     }
 }
 
-
-// Demo for Optimistic Mutation 
-// (IOW - Assuming the server call will work, so updating the UI first)
-export function onRemoveStayOptimistic(stayId) {
-
-    return (dispatch, getState) => {
-
-        dispatch({
-            type: 'REMOVE_STAY',
-            stayId: stayId
-        })
-        showSuccessMsg('Stay removed')
-
-        stayService.remove(stayId)
-            .then(() => {
-                console.log('Server Reported - Deleted Succesfully');
-            })
-            .catch(err => {
-                showErrorMsg('Cannot remove stay')
-                console.log('Cannot load stays', err)
-                dispatch({
-                    type: 'UNDO_REMOVE_STAY',
-                })
-            })
+export function updateStay(stay) {
+        return async (dispatch) => {
+            try {
+                const savedStay = await stayService.save(stay)
+                console.log('Updated Stay:', savedStay);
+                dispatch(getActionUpdateStay(savedStay))
+                showSuccessMsg('Stay updated')
+            } catch (err) {
+                showErrorMsg('Cannot update stay')
+                console.log('Cannot save stay', err)
+            }
+        }
     }
-}
+
+
+    // Demo for Optimistic Mutation 
+    // (IOW - Assuming the server call will work, so updating the UI first)
+    export function onRemoveStayOptimistic(stayId) {
+
+        return (dispatch, getState) => {
+
+            dispatch({
+                type: 'REMOVE_STAY',
+                stayId: stayId
+            })
+            showSuccessMsg('Stay removed')
+
+            stayService.remove(stayId)
+                .then(() => {
+                    console.log('Server Reported - Deleted Succesfully');
+                })
+                .catch(err => {
+                    showErrorMsg('Cannot remove stay')
+                    console.log('Cannot load stays', err)
+                    dispatch({
+                        type: 'UNDO_REMOVE_STAY',
+                    })
+                })
+        }
+    }

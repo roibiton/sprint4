@@ -1,17 +1,18 @@
-.stay-list {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-}
-.stay-preview {
-    background-color: $clr7;
-    color: whitesmoke;
-    border-radius: .2em;
-    margin: 5px;
-    text-align: center;
-    padding: 5px;
-}
-.stay-preview span {
+// .stay-list {
+//     list-style: none;
+//     display: flex;
+//     flex-wrap: wrap;
+    
+// }
+// .stay-preview {
+//     background-color: $clr7;
+//     color: whitesmoke;
+//     border-radius: .2em;
+//     margin: 5px;
+//     text-align: center;
+//     padding: 5px;
+// }
+.stay-preview span span {
     color: greenyellow;
 }
 

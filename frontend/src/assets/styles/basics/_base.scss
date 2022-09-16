@@ -36,13 +36,16 @@ img {
 }
 
 p {
-    margin: 0 0 1em;
+    margin: 0;
+}
+span {
+margin-right: 2px;
 }
 
 a {
     text-decoration: none;
 }
-a:hover {
-    text-decoration: underline;
-}
+// a:hover {
+//     text-decoration: underline;
+// }
 

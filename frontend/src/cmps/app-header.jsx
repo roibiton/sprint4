@@ -12,27 +12,38 @@ function _AppHeader({ onLogin, onSignup, onLogout, user }) {
 
     return (
         <header className="app-header">
-            <nav>
-                {routes.map(route => <NavLink key={route.path} to={route.path}>{route.label}</NavLink>)}
 
-                {user &&
-                    <span className="user-info">
-                        <Link to={`user/${user._id}`}>
-                            {user.imgUrl && <img src={user.imgUrl} />}
-                            {user.fullname}
-                        </Link>
-                        <span className="score">{user.score?.toLocaleString()}</span>
-                        <button onClick={onLogout}>Logout</button>
-                    </span>
-                }
-
-                {!user &&
-                    <section className="user-info">
-                        <LoginSignup onLogin={onLogin} onSignup={onSignup} />
-                    </section>
-                }
+            <nav className="back">
+                <NavLink to=''>Stays</NavLink>
+                <NavLink to='about'>About</NavLink>
+                <NavLink to='map'>Map</NavLink>
+                <NavLink to='stat'>Stat</NavLink>
+                <NavLink to='home'>Home 🏠</NavLink>
+                <NavLink to='admin'>Admin </NavLink>
+                <NavLink to='review'>Review </NavLink>
+                <NavLink to='chat'>Chat </NavLink>
+               
 
             </nav>
+
+            {user &&
+                <span className="user-info">
+                    <Link to={`user/${user._id}`}>
+                        {user.imgUrl && <img src={user.imgUrl} />}
+                        {user.fullname}
+                    </Link>
+                    <span className="score">{user.score?.toLocaleString()}</span>
+                    <button onClick={onLogout}>Logout</button>
+                </span>
+            }
+
+            {!user &&
+                <section className="user-info">
+                    <LoginSignup onLogin={onLogin} onSignup={onSignup} />
+                </section>
+            }
+
+
 
             <h1>My App</h1>
         </header>

@@ -1,0 +1,30 @@
+// .stay-list {
+//     padding-top: 60px;
+//     position: static;
+//     display: grid;
+//     grid-template-columns: repeat(auto-fill,minmax(326px,1fr));
+//     -moz-column-gap: 24px;
+//     column-gap: 24px;
+//     row-gap: 40px;
+//     padding-top: 16px;
+//     padding-bottom: 250px;
+// }
+// .main-layout {
+//     margin-top: 175px;
+//     display: grid;
+//     grid-template-columns: 80px 1fr 80px;
+//     padding: 0 40px;
+
+//     // .main-layout>* {
+//     //     grid-column: 2;
+//     // }
+// }
+
+.main-layout{
+    display: grid;
+    grid-template-columns: minmax(40px,1fr) minmax(auto,1600px) minmax(40px,1fr);
+    
+}
+.main-layout>* {
+    grid-column: 2;
+}

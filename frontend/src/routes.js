@@ -4,16 +4,34 @@ import { StayApp } from './pages/stay-app.jsx'
 import { ReviewApp } from './pages/review-app.jsx'
 import { ChatApp } from './pages/chat-app.jsx'
 import { AdminApp } from './pages/admin-app.jsx'
+import { StayEdit } from './pages/stay-edit.jsx'
+import { StayDetails } from './pages/stay-details.jsx'
+
 
 // Routes accesible from the main navigation (in AppHeader)
 const routes = [
     {
-        path: '/',
+        path: 'stay/edit/:id',
+        component: <StayEdit />,
+        label: 'Edit'
+    },
+    {
+        path: 'stay/edit',
+        component: <StayEdit />,
+        label: 'Edit'
+    },
+    {
+        path: 'stay/:id',
+        component: <StayDetails />,
+        label: 'Details'
+    },
+    {
+        path: 'home',
         component: <HomePage />,
         label: 'Home 🏠',
     },
     {
-        path: 'stay',
+        path: '',
         component: <StayApp />,
         label: 'Stays'
     },
@@ -36,7 +54,8 @@ const routes = [
         path: 'admin',
         component: <AdminApp />,
         label: 'Admin Only'
-    }
+    },
+    
 ]
 
 export default routes
