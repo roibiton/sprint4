@@ -4,10 +4,9 @@ import { Link, NavLink } from 'react-router-dom'
 import { StayDetails } from '../pages/stay-details'
 
 import routes from '../routes'
-import logo from '../assets/img/logo-airbnb.png'
-// import logo from '../assets/img/airbnb-logo.jpeg'
-import { SearchHeader } from './search-header'
 
+import { SearchHeader } from './search-header'
+import { FaAirbnb } from 'react-icons/fa'
 import {
   onLogin,
   onLogout,
@@ -21,14 +20,7 @@ function _AppHeader({ onLogin, onSignup, onLogout, user }) {
   return (
     <header className="app-header">
       <NavLink key="//" to="/">
-        {
-          <img
-            className="main-logo"
-            src={logo}
-            alt="Logo"
-            style={{ maxWidth: '300px' }}
-          />
-        }
+        <FaAirbnb className="main-logo" />
       </NavLink>
 
       <SearchHeader />

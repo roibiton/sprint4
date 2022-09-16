@@ -12,17 +12,20 @@ import {
   removeUser,
 } from '../store/user.actions.js'
 import { LoginSignup } from './login-signup.jsx'
+import { BiSearch } from 'react-icons/bi'
 
 function _SearchHeader({ onLogin, onSignup, onLogout, user }) {
   return (
     <section className="search-header">
       <form>
-        <label htmlFor="search-header"></label>
-        <input
-          type="text"
-          id="search-header"
-          placeholder="     Start your search"
-        />
+        <label htmlFor="search-header">
+          <input
+            type="text"
+            id="search-header"
+            placeholder="Start your search "
+          />
+          <BiSearch className=" search-icon" />
+        </label>
       </form>
     </section>
   )
