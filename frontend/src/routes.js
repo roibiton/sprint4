@@ -41,6 +41,12 @@ const routes = [
         label: 'Reviews'
     },
     {
+        // <Route path="user/:id" element={<UserDetails />} />
+        path: 'details/:id',
+        component: <StayDetails />,
+        label: 'Details'
+    },
+    {
         path: 'chat',
         component: <ChatApp />,
         label: 'Chat'
