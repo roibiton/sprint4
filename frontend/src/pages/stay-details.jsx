@@ -46,14 +46,14 @@ export const StayDetails = (props) => {
                     <div className='location-name'>
                         <button className='location-link'><span className='location-contnet'>stay.location</span></button>
                     </div>
-                    <div className='headline-buttons'>
-                        <div className='share-buttons'>
+                    <div className='headline-btns'>
+                        <div className='share-btns'>
                             <button className='share-icon'>share.icon</button>
-                            <button className='share-button'>Share</button>
+                            <button className='share-btn'>Share</button>
                         </div>
-                        <div className='save-buttons'>
+                        <div className='save-btns'>
                             <button className='like-icon'>heart.icon</button>
-                            <button className='like-button'>Save</button>
+                            <button className='like-btn'>Save</button>
                         </div>
                     </div>
                 </header>
@@ -80,6 +80,20 @@ export const StayDetails = (props) => {
                         </div>
                     </section>
                     <br></br>
+                    <section className='stay-highlights'>host choice icon and few words
+                        <div className='host-highlight-fst-opt'>
+                            <div className='highlight-icon'>pool.icon</div>
+                            <p className='highlight-header'>Dive right in</p>
+                            <p className='highlight-desc'>This is one of the few places in the area with a pool</p>
+                        </div>
+                    </section>
+                    <br></br>
+                    <section className='air-cover'>
+                        <div className='air-cover-headline'></div>
+                        <p className='air-cover-desc'>Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</p>
+                        <button className='air-cover-btn'>Learn more</button>
+                        {/* learn more opens modal with booking protection */}
+                    </section>
                 </main>
         </div>
 
