@@ -17,7 +17,7 @@ export const AppFilter = () => {
   // const [countIdx, setCountIdx] = useState(0)
 
   useEffect(() => {
-    console.log('hi hi filter')
+    // console.log('hi hi filter')
     return () => {
       console.log('bey bey filter')
       idxCarouselIconsRef.current = 0
