@@ -8,6 +8,7 @@ import routes from './routes'
 import { AppHeader } from './cmps/app-header'
 import { AppFooter } from './cmps/app-footer'
 import { UserDetails } from './pages/user-details'
+import { StayEdit } from './pages/stay-edit'
 import { AppFilter } from './cmps/app-filter'
 
 export class RootCmp extends React.Component {
