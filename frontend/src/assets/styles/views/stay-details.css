@@ -1,3 +1,8 @@
+.show-stay {
+    max-width: 1024px;
+    margin: auto;
+}
+
 .sub-headline-container {
     display: flex;
     justify-content: space-between;
