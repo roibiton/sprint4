@@ -29,8 +29,16 @@ export const stayService = {
 }
 window.cs = stayService
 
-function query(filterBy) {
-  return storageService.query(STORAGE_KEY)
+async function query(filterBy) {
+  var stays = await storageService.query(STORAGE_KEY)
+  stays = stays.map(stay => {
+
+    stay.rate = 4.5
+
+    return stay
+
+  })
+  return stays
 }
 function getById(stayId) {
   return storageService.get(STORAGE_KEY, stayId)
@@ -58,6 +66,9 @@ function getEmptyStay() {
   return {
     name: 'Susita-' + (Date.now() % 1000),
     price: utilService.getRandomIntInclusive(1000, 9000),
+    type : "House",
+    imgUrls :["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large",],
+    summary : "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
   }
 }
 

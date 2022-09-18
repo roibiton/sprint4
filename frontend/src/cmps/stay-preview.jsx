@@ -14,10 +14,10 @@ export function StayPreview({ stay, onRemoveStay, onUpdateStay }) {
                         <div className='preview-title'>{stay.name}</div>
                         <div>
                             <img className='preview-star-img' src="https://stayinn-vacation.herokuapp.com/assets/star.692b808f.svg" alt="" />
-                            <span>5.0</span>
+                            <span>{stay.rate}</span>
                         </div>
                     </section>
-                    <p><small>{stay.type}</small>|
+                    <p><small>{stay.type}</small>-|-
                     <small>Owner: <span>{stay.owner && stay.owner.fullname}</span></small>
                     </p>
                     <span> <span>{stay.price.toLocaleString()}$</span>\night</span>

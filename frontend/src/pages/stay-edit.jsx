@@ -11,10 +11,7 @@ export const StayEdit = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const [stay, handleChange, setStay] = useForm({
-    name: '',
-    price: '',
-  })
+  const [stay, handleChange, setStay] = useForm(stayService.getEmptyStay())
 
   const inputRef = useRef()
 
@@ -40,9 +37,7 @@ export const StayEdit = () => {
           navigate('/')
         })
     } else {
-      stay.imgUrls=["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large",]
-      stay.summary="Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)..."
-      stay.type= "House"
+      
       dispatch(addStay(stay))
         .then(() => {
           navigate('/')
@@ -76,6 +71,9 @@ export const StayEdit = () => {
             id="price"
           />
         </div>
+<pre>
+  {JSON.stringify(stay, null, 2)}
+</pre>
         <button>Save</button>
       </form>
       </div>
