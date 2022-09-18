@@ -8,6 +8,17 @@ import {
 } from '../store/stay.actions.js'
 import { store } from '../store/store'
 
+//REACT-ICONS
+import {
+  GiFamilyHouse,
+  GiIsland,
+  GiPalmTree,
+  GiWaveSurfer,
+} from 'react-icons/gi'
+import { FaCampground, FaCity, FaHome } from 'react-icons/fa'
+import { SiInkscape } from 'react-icons/si'
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
+
 // This file demonstrates how to use a BroadcastChannel to notify other browser tabs
 
 const STORAGE_KEY = 'stay'
@@ -62,14 +73,14 @@ function getEmptyStay() {
 }
 
 const defaultCarouselIcons = [
-  { cmp: 'GiFamilyHouse', tag: 'House' },
-  { cmp: 'GiIsland', tag: 'Island' },
-  { cmp: 'FaCity ', tag: 'City' },
-  { cmp: 'FaCampground', tag: 'Camping' },
-  { cmp: 'FaHome ', tag: 'Homes' },
-  { cmp: 'SiInkscape', tag: 'Mounte' },
-  { cmp: 'GiPalmTree ', tag: 'Tropical' },
-  { cmp: 'GiWaveSurfer  ', tag: ' Beach' },
+  { cmp: <GiIsland />, tag: 'Island' },
+  { cmp: <FaHome />, tag: 'Homes' },
+  { cmp: <GiFamilyHouse />, tag: 'House' },
+  { cmp: <FaCity />, tag: 'City' },
+  { cmp: <FaCampground />, tag: 'Camping' },
+  { cmp: <SiInkscape />, tag: 'Mounte' },
+  { cmp: <GiPalmTree />, tag: 'Tropical' },
+  { cmp: <GiWaveSurfer />, tag: ' Beach' },
 ]
 
 function getCarouselIcons(idx) {
