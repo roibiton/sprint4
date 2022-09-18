@@ -7,6 +7,9 @@ import { StayDetails } from '../pages/stay-details'
 import routes from '../routes'
 
 import { SearchHeader } from './search-header'
+import { SimpelSearch } from './simpel-search'
+import { MainSearch } from './main-search'
+import { DisplayMainSearch } from './display-main-search'
 import { AppUser } from './app-user'
 
 import { BsPersonCircle } from 'react-icons/bs'
@@ -23,14 +26,22 @@ import { FaAirbnb } from 'react-icons/fa'
 
 export const AppHeader = () => {
   const [isOpenUser, setIsOpenUser] = useState(false)
+  const [isOpenMainSearch, setIsOpenMainSearch] = useState(true)
+  const [isOpenDetails, setIsOpenDetails] = useState(false)
+
+  const toggleSearch = () => {
+    setIsOpenMainSearch(!isOpenMainSearch)
+  }
 
   return (
-    <header className="app-header">
+    <header className="app-header ">
       <NavLink key="//" to="/">
         <FaAirbnb className="main-logo" />
       </NavLink>
 
-      <SearchHeader />
+      {isOpenMainSearch && <MainSearch toggleSearch={toggleSearch} />}
+      {!isOpenMainSearch && <DisplayMainSearch />}
+      {isOpenDetails && <SimpelSearch />}
 
       {isOpenUser && <AppUser />}
 
