@@ -12,83 +12,73 @@ import {
 } from 'react-icons/gi'
 
 export const AppFilter = () => {
-  const idxCarouselIconsRef = useRef(0)
+  const [carouselIcons, setCarouselIcons] = useState([])
 
-  // const [countIdx, setCountIdx] = useState(0)
+  const idxCarouselIconsRef = useRef()
 
   useEffect(() => {
-    // console.log('hi hi filter')
+    idxCarouselIconsRef.current = 0
+    loadCarouselIcons()
     return () => {
       console.log('bey bey filter')
       idxCarouselIconsRef.current = 0
     }
   }, [])
 
-  const getFilterIcon = (val = false) => {
-    console.log('val:', val)
+  useEffect(() => {
+    console.log('update filter')
+  }, [carouselIcons])
+
+  const loadCarouselIcons = () => {
+    const arr = stayService.getCarouselIcons(idxCarouselIconsRef.current)
+    console.log('arr:', arr)
+    setCarouselIcons(arr)
+  }
+
+  const setCarouselIdx = (val = false) => {
     let idx = idxCarouselIconsRef.current
-    console.log('idx:', idx)
 
-    idxCarouselIconsRef.current = val === 'increment' ? idx + 1 : idx - 1
-
-    console.log('idxCarouselIconsRef.current:', idxCarouselIconsRef.current)
-    return stayService.getCarouselIcons(idxCarouselIconsRef.current)
+    if (!val || idx > 2 || idx < 0) {
+      loadCarouselIcons()
+      return
+    } else if (idx < 2 && val === 'increment') {
+      idxCarouselIconsRef.current = idx + 1
+    } else if (idx > 0 && val === 'decrement') {
+      idxCarouselIconsRef.current = idx - 1
+    }
+    loadCarouselIcons()
   }
 
   return (
     <section className="app-filter">
       <button
+        className="btn-page"
         onClick={() => {
-          getFilterIcon('decrement')
+          setCarouselIdx('decrement')
         }}
       >
         <FiChevronLeft />
       </button>
-      <ul className="ul-filter">
-        {/* {getFilterIcon().map((icon) => (
+      <ul className="ul-carousel">
+        {carouselIcons.map((icon) => (
           <li key={icon.cmp}>
-            < /> <h3>{icon.tag}</h3>
+            <div>
+              {icon.cmp}
+              {icon.tag}
+            </div>
           </li>
-        ))} */}
-        <li>
-          {' '}
-          <GiFamilyHouse /> House
-        </li>
-        <li>
-          {' '}
-          <GiIsland /> Island
-        </li>
-        <li>
-          {' '}
-          <GiPalmTree /> Tropical
-        </li>
-        <li>
-          {' '}
-          <GiWaveSurfer /> Beach
-        </li>
-        <li>
-          <SiInkscape /> Homes
-        </li>
-
-        <li>
-          <FaHome /> Homes
-        </li>
-        <li>
-          <FaCampground />
-          Camping
-        </li>
-        <li>
-          <FaCity /> City
-        </li>
+        ))}
       </ul>
+
       <button
+        className="btn-page"
         onClick={() => {
-          getFilterIcon('increment')
+          setCarouselIdx('increment')
         }}
       >
         <FiChevronRight />
       </button>
-      <button>Filters</button>
+      <button className="btn-main-filter">Filters</button>
     </section>
   )
 }
