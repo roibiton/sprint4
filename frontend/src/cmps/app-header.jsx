@@ -1,22 +1,29 @@
-import React from 'react'
-import { connect } from 'react-redux'
+// import React from 'react'
+import { useEffect, useState, useRef } from 'react'
+// import { connect } from 'react-redux'
 import { Link, NavLink } from 'react-router-dom'
 import { StayDetails } from '../pages/stay-details'
 
 import routes from '../routes'
 
 import { SearchHeader } from './search-header'
-import { FaAirbnb } from 'react-icons/fa'
-import {
-  onLogin,
-  onLogout,
-  onSignup,
-  loadUsers,
-  removeUser,
-} from '../store/user.actions.js'
-import { LoginSignup } from './login-signup.jsx'
+import { AppUser } from './app-user'
 
-function _AppHeader({ onLogin, onSignup, onLogout, user }) {
+import { BsPersonCircle } from 'react-icons/bs'
+import { FiMenu } from 'react-icons/fi'
+import { FaAirbnb } from 'react-icons/fa'
+// import {
+//   onLogin,
+//   onLogout,
+//   onSignup,
+//   loadUsers,
+//   removeUser,
+// } from '../store/user.actions.js'
+// import { LoginSignup } from './login-signup.jsx'
+
+export const AppHeader = () => {
+  const [isOpenUser, setIsOpenUser] = useState(false)
+
   return (
     <header className="app-header">
       <NavLink key="//" to="/">
@@ -24,61 +31,39 @@ function _AppHeader({ onLogin, onSignup, onLogout, user }) {
       </NavLink>
 
       <SearchHeader />
-      <nav className="back">
-        <NavLink to=''>Stays</NavLink>
-        <NavLink to='about'>About</NavLink>
-        <NavLink to='map'>Map</NavLink>
-        <NavLink to='stat'>Stat</NavLink>
-        <NavLink to='home'>Home 🏠</NavLink>
-        <NavLink to='admin'>Admin </NavLink>
-        <NavLink to='review'>Review </NavLink>
-        <NavLink to='chat'>Chat </NavLink>
 
+      {isOpenUser && <AppUser />}
 
-      </nav>
-
-
-      {user && (
-        <span className="user-info">
-          <Link to={`user/${user._id}`}>
-            {user.imgUrl && <img src={user.imgUrl} />}
-            {user.fullname}
-          </Link>
-          <span className="score">{user.score?.toLocaleString()}</span>
-          <button onClick={onLogout}>Logout</button>
-        </span>
-      )}
-
-      {!user &&
-        <section className="user-info">
-          <LoginSignup onLogin={onLogin} onSignup={onSignup} />
-        </section>
-      }
-
-
-
-      <h1>My App</h1>
+      <button
+        className="btn-user-menu"
+        onClick={() => {
+          setIsOpenUser(!isOpenUser)
+        }}
+      >
+        <FiMenu />
+        <BsPersonCircle />
+      </button>
     </header>
   )
 }
 
-function mapStateToProps(state) {
-  return {
-    users: state.userModule.users,
-    user: state.userModule.user,
-    count: state.userModule.count,
-    isLoading: state.systemModule.isLoading,
-  }
-}
-const mapDispatchToProps = {
-  onLogin,
-  onSignup,
-  onLogout,
-  loadUsers,
-  removeUser,
-}
+// function mapStateToProps(state) {
+//   return {
+//     users: state.userModule.users,
+//     user: state.userModule.user,
+//     count: state.userModule.count,
+//     isLoading: state.systemModule.isLoading,
+//   }
+// }
+// const mapDispatchToProps = {
+//   onLogin,
+//   onSignup,
+//   onLogout,
+//   loadUsers,
+//   removeUser,
+// }
 
-export const AppHeader = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(_AppHeader)
+// export const AppHeader = connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(_AppHeader)

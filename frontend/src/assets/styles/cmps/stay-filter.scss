@@ -1,14 +1,32 @@
 .app-filter {
   display: flex;
 }
-ul.ul-filter {
+ul.ul-carousel {
   display: flex;
   list-style: none;
   margin: auto;
 }
-ul.ul-filter li {
+ul.ul-carousel li {
   margin: 1em;
   // width: 50px;
   // height: 50px;
   // font-size: 30px;
+}
+
+button.btn-page {
+  background: none;
+  color: black;
+  border: 1px solid gray;
+  border-radius: 50%;
+  width: 3em;
+  height: 3em;
+}
+
+button.btn-main-filter {
+  background: none;
+  color: black;
+  border: 1px solid gray;
+  border-radius: 1em;
+  width: 6em;
+  height: 4em;
 }

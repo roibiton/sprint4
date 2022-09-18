@@ -72,22 +72,26 @@ export const StayDetails = (props) => {
             </header>
             <section>
                 <ol className='preview-imgs'>
-                    <li className='large-img'>
-                        <img src="https://stayinn-vacation.herokuapp.com/assets/202.7a346774.jpeg" className='large-preview'></img>
+                    <li className='large-preview'>
+                        <img className='large-img' src="https://stayinn-vacation.herokuapp.com/assets/202.7a346774.jpeg"></img>
                     </li>
-                    <li className='fst-imgs-row'>
-                        <img src="https://stayinn-vacation.herokuapp.com/assets/016.788b9ce3.jpeg" className='small-preview'></img>
-                        <img src="https://stayinn-vacation.herokuapp.com/assets/121.d365d6fa.jpeg" className='small-preview'></img>
+                    <li className='small-preview-1'>
+                        <img className='small-img' src="https://stayinn-vacation.herokuapp.com/assets/016.788b9ce3.jpeg"></img>
                     </li>
-                    <li className='snd-imgs-row'>
-                        <img src="https://stayinn-vacation.herokuapp.com/assets/070.822f9f43.jpeg" className='small-preview'></img>
-                        <img src="https://stayinn-vacation.herokuapp.com/assets/141.84d5af48.jpeg" className='small-preview'></img>
+                    <li className='small-preview-2'>
+                        <img className='small-img' src="https://stayinn-vacation.herokuapp.com/assets/121.d365d6fa.jpeg"></img>
+                    </li>
+                    <li className='small-preview-3'>
+                        <img className='small-img' src="https://stayinn-vacation.herokuapp.com/assets/070.822f9f43.jpeg"></img>
+                    </li>
+                    <li className='small-preview-4'>
+                        <img className='small-img' src="https://stayinn-vacation.herokuapp.com/assets/141.84d5af48.jpeg"></img>
                     </li>
                 </ol>
             </section>
 
             <main className='main-details'>
-                
+
                 <section className='place-details-container'>
                     <div className='place-details'>
                         <div className='place-desc'>
@@ -113,8 +117,15 @@ export const StayDetails = (props) => {
                         <div className='check-in'>check-in</div>
                         <div className='check-out'>check-out</div>
                     </div>
-                    <div className='guests-dropdown'></div>
-                    <button className='sidenav-submit'>Reserve</button>
+                    <label for="touch"><span className='dropdown-txt'>0 guests</span></label>
+                    <input className='dropdown' type="checkbox" id="touch" />
+                        <ul className="slide">
+                            <li><a href="#">Adults</a></li>
+                            <li><a href="#">Children</a></li>
+                            <li><a href="#">Infants</a></li>
+                            <li><a href="#">Pets</a></li>
+                        </ul>
+                        <button className='sidenav-submit'>Reserve</button>
                 </form>
                 <br></br>
                 <section className='stay-summary'>
@@ -130,19 +141,19 @@ export const StayDetails = (props) => {
                 {/* learn more opens modal with booking protection */}
                 {/* </section> */}
                 <section className='amenities-container'>
-                    
-                <div className='ameneties-headline'>What this place offers</div>
-                        <ol className='amenities'>
-                            <li>Essentials</li>
-                            <li>Bathtub</li>
-                            <li>Elevator</li>
-                            <li>BBQ grill</li>
-                            <li>Stove</li>
-                            <li>Dishes and silverware</li>
-                            <li>Hot water</li>
-                            <li>Free parking on premises</li>
-                        </ol>
-                    
+
+                    <div className='ameneties-headline'>What this place offers</div>
+                    <ol className='amenities'>
+                        <li>Essentials</li>
+                        <li>Bathtub</li>
+                        <li>Elevator</li>
+                        <li>BBQ grill</li>
+                        <li>Stove</li>
+                        <li>Dishes and silverware</li>
+                        <li>Hot water</li>
+                        <li>Free parking on premises</li>
+                    </ol>
+
                 </section>
             </main>
             <section className='reviews-specs'>
@@ -166,9 +177,9 @@ export const StayDetails = (props) => {
                                 <label className='read-more' for="readmore">Read </label>
                             </ol>
                         </div>
-                        
+
                     </div>
-                    
+
 
 
 
@@ -184,9 +195,9 @@ export const StayDetails = (props) => {
                             </ol>
                         </div>
                     </div>
-                    
+
                 </div>
-                
+
                 {/*
                 <div className='review'>
                     <div className='reviewer-avatar-container'>
@@ -250,7 +261,7 @@ export const StayDetails = (props) => {
                     <h2>Hosted by Halis</h2>
                     <span>Joined in October 2019</span>
                 </div> */}
-                
+
             </section>
         </div>
     )
