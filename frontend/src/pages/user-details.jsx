@@ -5,9 +5,10 @@ import { loadUser } from '../store/user.actions'
 
 export function _UserDetails({ user, loadUser }) {
   const params = useParams()
-
+console.log('hello')
   useEffect(() => {
     loadUser(params.id)
+    
   }, [])
 
   return (

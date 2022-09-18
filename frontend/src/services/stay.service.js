@@ -31,6 +31,9 @@ window.cs = stayService
 
 async function query(filterBy) {
   var stays = await storageService.query(STORAGE_KEY)
+
+
+  
   stays = stays.map(stay => {
 
     stay.rate = 4.5
