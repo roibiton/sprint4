@@ -3,16 +3,10 @@ import { BiSearch } from 'react-icons/bi'
 export const SimpelSearch = () => {
   return (
     <section className="simple-search">
-      <form>
-        <label htmlFor="search-header">
-          <input
-            type="text"
-            id="search-header"
-            placeholder="Start your search "
-          />
-          <BiSearch className=" search-icon" />
-        </label>
-      </form>
+      <h2>Start your search</h2>
+      <h3>
+        <BiSearch className=" search-icon" />
+      </h3>
     </section>
   )
 }

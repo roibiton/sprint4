@@ -65,8 +65,8 @@ export const AppFilter = () => {
           <li key={icon.cmp}>
             <div>
               <Link to={`/stay/explore/${icon.tag}`} className="explore-list">
-                {icon.cmp}
-                {icon.tag}
+                <h2> {icon.cmp}</h2>
+                <h4>{icon.tag}</h4>
               </Link>
             </div>
           </li>

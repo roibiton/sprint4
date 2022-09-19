@@ -1,5 +1,8 @@
 .app-filter {
   display: flex;
+  width: 100%;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
 }
 ul.ul-carousel {
   display: flex;
@@ -29,4 +32,14 @@ button.btn-main-filter {
   border-radius: 1em;
   width: 6em;
   height: 4em;
+}
+.explore-list {
+  color: rgb(152, 149, 149);
+  text-align: center;
+  h2 {
+    font-size: 30px;
+  }
+  h4 {
+    font-size: 14px;
+  }
 }

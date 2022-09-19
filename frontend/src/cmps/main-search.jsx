@@ -8,10 +8,11 @@ export const MainSearch = ({ toggleSearch }) => {
           toggleSearch()
         }}
       >
-        Anywhere | Any Week | Add guests
-        <span>
+        <h3>Anywhere | Any Week | Add guests</h3>
+
+        <h2>
           <BiSearch className=" search-icon" />
-        </span>
+        </h2>
       </button>
     </section>
   )
