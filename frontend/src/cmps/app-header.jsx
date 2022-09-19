@@ -3,12 +3,9 @@ import { useEffect, useState, useRef } from 'react'
 // import { connect } from 'react-redux'
 import { Link, NavLink, useParams, useLocation } from 'react-router-dom'
 
-import { StayDetails } from '../pages/stay-details'
-import { AppFilter } from './app-filter'
-
 import routes from '../routes'
 
-import { SearchHeader } from './search-header'
+import { AppFilter } from './app-filter'
 import { SimpelSearch } from './simpel-search'
 import { MainSearch } from './main-search'
 import { DisplayMainSearch } from './display-main-search'
