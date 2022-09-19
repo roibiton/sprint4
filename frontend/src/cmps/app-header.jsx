@@ -36,7 +36,12 @@ export const AppHeader = () => {
   return (
     <header className="app-header ">
       <NavLink key="//" to="/">
-        <FaAirbnb className="main-logo" />
+        <div className="main-logo">
+          <h1>
+            <FaAirbnb />
+          </h1>
+          <h1>Travelo</h1>
+        </div>
       </NavLink>
 
       {isOpenMainSearch && <MainSearch toggleSearch={toggleSearch} />}

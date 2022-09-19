@@ -16,28 +16,34 @@ export const DisplayMainSearch = () => {
         <button>Online Experiences</button>
       </div>
       <div className="second-header-selected">
-        <button className="btn btn-where">
-          <h2>Where</h2>
-          <h3>Search destinations</h3>
-        </button>
-        <button className="btn btn-check-in">
-          <h2>Check in</h2>
-          <h3>Add dates</h3>
-        </button>
-        <button className="btn btn-check-out">
-          <h2>Check out</h2>
-          <h3>Add dates</h3>
-        </button>
-        <div className="btn-design">
-          <button className="btn-who">
+        <article className="where">
+          <button className=" btn-where">
+            <h2>Where</h2>
+            <h3>Search destinations</h3>
+          </button>
+        </article>
+        <article className="check-in">
+          <button className="btn-border btn-check-in">
+            <h2>Check in</h2>
+            <h3>Add dates</h3>
+          </button>
+        </article>
+        <article className="check-out">
+          <button className="btn-border btn-check-out">
+            <h2>Check out</h2>
+            <h3>Add dates</h3>
+          </button>
+        </article>
+        <article className="who-search">
+          <button className="btn-border btn-who">
             <h2>Who</h2>
             <h3>Add guests</h3>
           </button>
           <button className="btn-search">
-            <BiSearch className=" search-icon" />
+            <BiSearch className="search-icon" />
             <span> Search</span>
           </button>
-        </div>
+        </article>
       </div>
     </section>
   )

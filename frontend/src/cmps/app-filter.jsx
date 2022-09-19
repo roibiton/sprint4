@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import { stayService } from '../services/stay.service'
+import { Link } from 'react-router-dom'
 
 import { FaCampground, FaCity, FaHome } from 'react-icons/fa'
 import { SiInkscape } from 'react-icons/si'
@@ -63,8 +64,10 @@ export const AppFilter = () => {
         {carouselIcons.map((icon) => (
           <li key={icon.cmp}>
             <div>
-              {icon.cmp}
-              {icon.tag}
+              <Link to={`/stay/explore/${icon.tag}`} className="explore-list">
+                {icon.cmp}
+                {icon.tag}
+              </Link>
             </div>
           </li>
         ))}
