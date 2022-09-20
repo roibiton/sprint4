@@ -1,4 +1,4 @@
-// import React from 'react'
+import React from 'react'
 import { useEffect, useState, useRef } from 'react'
 // import { connect } from 'react-redux'
 import { Link, NavLink, useParams, useLocation } from 'react-router-dom'
@@ -11,8 +11,6 @@ import { MainSearch } from './main-search'
 import { DisplayMainSearch } from './display-main-search'
 import { AppUser } from './app-user'
 
-import { BsPersonCircle } from 'react-icons/bs'
-import { FiMenu } from 'react-icons/fi'
 import { FaAirbnb } from 'react-icons/fa'
 
 export const AppHeader = () => {
@@ -51,9 +49,10 @@ export const AppHeader = () => {
         {!isOpenMainSearch && !isOpenDetails() && <DisplayMainSearch />}
         {isOpenDetails() && <SimpelSearch />}
 
-        {isOpenUser && <AppUser />}
+        {/* {isOpenUser && <AppUser />} */}
+        <AppUser />
 
-        <button
+        {/* <button
           className="btn-user-menu"
           onClick={() => {
             setIsOpenUser(!isOpenUser)
@@ -61,7 +60,7 @@ export const AppHeader = () => {
         >
           <FiMenu />
           <BsPersonCircle />
-        </button>
+        </button> */}
       </div>
 
       <div className="bottom-header">{isOpenMainSearch && <AppFilter />}</div>

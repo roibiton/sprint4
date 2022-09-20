@@ -19,12 +19,16 @@
       font-size: 2em;
       margin-bottom: 0;
     }
+
     .slick-arrow {
       // border: 1px gray solid;
-      background-color: rgb(156, 155, 153);
+      background-color: rgb(167, 167, 165);
       color: black;
       border-radius: 50%;
     }
+  }
+  .explore {
+    color: gray;
   }
   button.btn-filter {
     border: 1px solid gray;

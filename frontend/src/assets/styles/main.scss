@@ -4,6 +4,9 @@
 @import 'setup/mixins';
 @import 'setup/typography';
 
+// Lib
+@import '~bootstrap/scss/bootstrap';
+
 // Basic
 @import 'basics/helpers';
 @import 'basics/layout';
@@ -27,3 +30,4 @@
 @import 'cmps/stay-filter';
 @import 'cmps/display-main-search';
 @import 'cmps/simpel-search';
+@import 'cmps/app-user';
