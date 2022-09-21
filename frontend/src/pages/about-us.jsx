@@ -1,15 +1,20 @@
-// import React, {useState} from 'react'
+// import React, { useState } from 'react'
 // import PropTypes from 'prop-types'
-// // import { CSSTransitionGroup } from 'react-transition-group'
+// import { Carousel } from 'react-responsive-carousel'
+
+// import 'react-responsive-carousel/lib/styles/carousel.min.css';
+// import { ImgCarousel } from '../cmps/img-carousel'
 
 
-// function FancyBox(props) {
-//         return <div className="fancy-box">
-//             <button style={{ float: 'right' }} onClick={props.onClose}>x</button>
-//             {props.children}
-//         </div>
-//     }
-    
+
+
+// function FancyBox(props) {
+//     return <div className="fancy-box">
+//         <button style={{ float: 'right' }} onClick={props.onClose}>x</button>
+//         {props.children}
+//     </div>
+// }
+
 // FancyBox.propTypes = {
 //     onClose: PropTypes.func.isRequired
 // }
@@ -68,11 +73,13 @@
 // }
 
 
+
+
 // export class AboutUs extends React.Component {
 //     state = {
 //         count: 1000,
 //     }
-//     componentDidMount(){
+//     componentDidMount() {
 //         // this.interval = setInterval(() => {
 //         //     console.log('Setting Followers Count');
 //         //     this.setState(({ count }) => ({ count: count + utilService.getRandomIntInclusive(5, 20) }))
@@ -85,18 +92,31 @@
 //     shouldComponentUpdate() {
 //         return true
 //     }
-    
-//     onTellMeMore = () =>{
+
+//     onTellMeMore = () => {
 //         console.log('Telling you more');
 //     }
 //     render() {
-//         const {count} = this.state
+//         const { count } = this.state
 //         return (
 //             <section>
 //                 <h2>About Us</h2>
+//                 {/* <Carousel autoPlay>
+//                     <div>
+//                         <img alt="" src="https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large" />
+//                         <p className="legend">Legend 1</p>
+//                     </div>
+//                     <div>
+//                         <img alt="" src="https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large" />
+//                         <p className="legend">Legend 2</p>
+//                     </div>
+//                 </Carousel> */}
+//                 {/* <ImgCarousel imgUrls={['https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large', 'https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large', 'https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large', 'https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large']} /> */}
+
+
 //                 <MyErrorBoundary>
 
-//                 <SplitPane
+//                     <SplitPane
 //                         left={
 //                             <Contacts />
 //                         }
@@ -104,22 +124,27 @@
 //                             <Projects />
 //                         } />
 
-//                 </MyErrorBoundary>
+// //                 </MyErrorBoundary>
 
-//                 <FancyBox onClose={() => console.log('ok, closing')}>
-//                     <h3>{count.toLocaleString()} Followers</h3>
-//                     <button onClick={this.onTellMeMore}>Tell me More</button>
-//                 </FancyBox>
+// //                 <FancyBox onClose={() => console.log('ok, closing')}>
+// //                     <h3>{count.toLocaleString()} Followers</h3>
+// //                     <button onClick={this.onTellMeMore}>Tell me More</button>
+// //                 </FancyBox>
 
-//                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni aperiam quo veniam velit dolor reprehenderit, laudantium consequatur neque numquam labore quae. Accusamus libero perferendis ducimus? Alias unde hic quisquam doloremque.</p>
-//             </section>
-//         )
-//     }
-// }
+// //                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni aperiam quo veniam velit dolor reprehenderit, laudantium consequatur neque numquam labore quae. Accusamus libero perferendis ducimus? Alias unde hic quisquam doloremque.</p>
+// //             </section>
+// //         )
+// //     }
+// // }
 
+// //                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni aperiam quo veniam velit dolor reprehenderit, laudantium consequatur neque numquam labore quae. Accusamus libero perferendis ducimus? Alias unde hic quisquam doloremque.</p>
+// //             </section>
+// //         )
+// //     }
+// // }
 
-// class MyErrorBoundary extends React.Component {
-//     state = { error: null, errorInfo: null };
+// // class MyErrorBoundary extends React.Component {
+// //     state = { error: null, errorInfo: null };
 
 //     componentDidCatch(error, errorInfo) {
 //         // Catch errors in children and re-render with error message
@@ -137,7 +162,7 @@
 //             return (
 //                 <div>
 //                     <h2>Something went wrong.</h2>
-                    
+
 //                     <details style={{ whiteSpace: 'pre-wrap' }}>
 //                         {this.state.error && this.state.error.toString()}
 //                         <br />

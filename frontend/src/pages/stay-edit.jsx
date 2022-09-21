@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useForm } from '../hooks/useForm'
 import { stayService } from '../services/stay.service'
-import { addStay, updateStay } from '../store/stay.actions'
+import { addStay, updateStay, removeStay } from '../store/stay.actions.js'
 
 export const StayEdit = () => {
   const params = useParams()
@@ -44,6 +44,12 @@ export const StayEdit = () => {
         })
     }
   }
+  const onRemoveStay = (stayId) => {
+    dispatch(removeStay(stayId))
+        .then(() => {
+          navigate('/')
+        })
+}
 
   return (
     <section >
@@ -76,6 +82,9 @@ export const StayEdit = () => {
 </pre>
         <button>Save</button>
       </form>
+      <button onClick={() => { 
+        console.log('stay.id edit',stay._id)
+        onRemoveStay(stay._id) }}>❌</button>
       </div>
     </section>
   )
