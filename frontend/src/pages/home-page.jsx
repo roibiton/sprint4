@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+
 import logo from '../assets/img/logo.png'
 
 class _HomePage extends React.Component {
@@ -26,6 +27,9 @@ class _HomePage extends React.Component {
                         this.changeCount(10)
                     }}>+10</button>
                 </h2 >
+
+
+
             </section >
         )
     }

@@ -40,6 +40,7 @@ export function loadStays() {
 }
 
 export function removeStay(stayId) {
+    
     return async (dispatch) => {
         try {
             await stayService.remove(stayId)

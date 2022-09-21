@@ -60,8 +60,8 @@ export const AppFilter = () => {
         <FiChevronLeft />
       </button>
       <ul className="ul-carousel">
-        {carouselIcons.map((icon) => (
-          <li key={icon.cmp}>
+        {carouselIcons.map((icon, idx) => (
+          <li key={idx}>
             <div>
               {icon.cmp}
               {icon.tag}

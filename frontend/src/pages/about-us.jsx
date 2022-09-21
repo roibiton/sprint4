@@ -1,15 +1,20 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-// import { CSSTransitionGroup } from 'react-transition-group'
+import { Carousel } from 'react-responsive-carousel'
+
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { ImgCarousel } from '../cmps/img-carousel'
 
 
-function FancyBox(props) {
-        return <div className="fancy-box">
-            <button style={{ float: 'right' }} onClick={props.onClose}>x</button>
-            {props.children}
-        </div>
-    }
-    
+
+
+function FancyBox(props) {
+    return <div className="fancy-box">
+        <button style={{ float: 'right' }} onClick={props.onClose}>x</button>
+        {props.children}
+    </div>
+}
+
 FancyBox.propTypes = {
     onClose: PropTypes.func.isRequired
 }
@@ -26,13 +31,13 @@ function Projects() {
             ev.stopPropagation();
             setProjs(projs.filter(p => p !== proj))
         }}>
-          {proj}
+            {proj}
         </div>
-      ));
+    ));
     return <section style={{ height: '50vh', backgroundColor: 'lightblue' }}>
         <h2>Projects</h2>
         {/* <CSSTransitionGroup transitionName="example" transitionEnterTimeout={500} */}
-            {/* transitionLeaveTimeout={300}>
+        {/* transitionLeaveTimeout={300}>
             {projList} */}
         {/* </CSSTransitionGroup> */}
         <button onClick={ev => {
@@ -68,11 +73,13 @@ function SplitPane(props) {
 }
 
 
+
+
 export class AboutUs extends React.Component {
     state = {
         count: 1000,
     }
-    componentDidMount(){
+    componentDidMount() {
         // this.interval = setInterval(() => {
         //     console.log('Setting Followers Count');
         //     this.setState(({ count }) => ({ count: count + utilService.getRandomIntInclusive(5, 20) }))
@@ -85,18 +92,31 @@ export class AboutUs extends React.Component {
     shouldComponentUpdate() {
         return true
     }
-    
-    onTellMeMore = () =>{
+
+    onTellMeMore = () => {
         console.log('Telling you more');
     }
     render() {
-        const {count} = this.state
+        const { count } = this.state
         return (
             <section>
                 <h2>About Us</h2>
+                {/* <Carousel autoPlay>
+                    <div>
+                        <img alt="" src="https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large" />
+                        <p className="legend">Legend 1</p>
+                    </div>
+                    <div>
+                        <img alt="" src="https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large" />
+                        <p className="legend">Legend 2</p>
+                    </div>
+                </Carousel> */}
+                {/* <ImgCarousel imgUrls={['https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large', 'https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large', 'https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large', 'https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large']} /> */}
+
+
                 <MyErrorBoundary>
 
-                <SplitPane
+                    <SplitPane
                         left={
                             <Contacts />
                         }
@@ -137,7 +157,7 @@ class MyErrorBoundary extends React.Component {
             return (
                 <div>
                     <h2>Something went wrong.</h2>
-                    
+
                     <details style={{ whiteSpace: 'pre-wrap' }}>
                         {this.state.error && this.state.error.toString()}
                         <br />

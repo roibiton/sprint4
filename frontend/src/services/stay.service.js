@@ -18,17 +18,17 @@ import {
 import { FaCampground, FaCity, FaHome } from 'react-icons/fa'
 import { SiInkscape } from 'react-icons/si'
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
-
+// import {jQuery }  from ''
 // This file demonstrates how to use a BroadcastChannel to notify other browser tabs
 
 const STORAGE_KEY = 'stay'
 const stayChannel = new BroadcastChannel('stayChannel')
 
-;(() => {
-  stayChannel.addEventListener('message', (ev) => {
-    store.dispatch(ev.data)
-  })
-})()
+  ; (() => {
+    stayChannel.addEventListener('message', (ev) => {
+      store.dispatch(ev.data)
+    })
+  })()
 
 export const stayService = {
   query,
@@ -41,10 +41,14 @@ export const stayService = {
 window.cs = stayService
 
 async function query(filterBy) {
+  // $.getJSON( "ajax/test.json", function( STORAGE_KEY ) {
+  //   var items = [];
+  //   console.log('items',items)
+  // });
+  
   var stays = await storageService.query(STORAGE_KEY)
 
 
-  
   stays = stays.map(stay => {
 
     stay.rate = 4.5
@@ -80,9 +84,19 @@ function getEmptyStay() {
   return {
     name: 'Susita-' + (Date.now() % 1000),
     price: utilService.getRandomIntInclusive(1000, 9000),
-    type : "House",
-    imgUrls :["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large",],
-    summary : "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
+    type: "House",
+    imgUrls: [
+      "https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large"
+    ],
+    summary: "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
+    loc: {
+      country: 'Turkey',
+      city: 'Kemer',
+      countryCode: "PT",
+      address: "17 Kombo st",
+      lat: 36.597718,
+      lng: 30.546619
+    }
   }
 }
 
