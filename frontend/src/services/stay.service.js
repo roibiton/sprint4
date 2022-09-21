@@ -36,7 +36,6 @@ export const stayService = {
   save,
   remove,
   getEmptyStay,
-  getCarouselIcons,
 }
 window.cs = stayService
 
@@ -54,7 +53,6 @@ async function query(filterBy) {
     stay.rate = 4.5
 
     return stay
-
   })
   return stays
 }
@@ -98,29 +96,6 @@ function getEmptyStay() {
       lng: 30.546619
     }
   }
-}
-
-const defaultCarouselIcons = [
-  { cmp: <GiIsland />, tag: 'Island' },
-  { cmp: <FaHome />, tag: 'Homes' },
-  { cmp: <GiFamilyHouse />, tag: 'House' },
-  { cmp: <FaCity />, tag: 'City' },
-  { cmp: <FaCampground />, tag: 'Camping' },
-  { cmp: <SiInkscape />, tag: 'Mounte' },
-  { cmp: <GiPalmTree />, tag: 'Tropical' },
-  { cmp: <GiWaveSurfer />, tag: ' Beach' },
-]
-
-function getCarouselIcons(idx) {
-  let first = idx * 3
-  let end = idx * 3 + 3
-  end = end > defaultCarouselIcons.length ? defaultCarouselIcons.length : end
-  console.log('first:', first)
-  console.log('end:', end)
-  const carouselIcons = defaultCarouselIcons.slice(first, end)
-  console.log('carouselIcons:', carouselIcons)
-  console.log('defaultCarouselIcons:', defaultCarouselIcons)
-  return carouselIcons
 }
 
 // TEST DATA

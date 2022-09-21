@@ -1,32 +1,33 @@
-.app-filter {
-  display: flex;
-}
-ul.ul-carousel {
-  display: flex;
-  list-style: none;
-  margin: auto;
-}
-ul.ul-carousel li {
-  margin: 1em;
-  // width: 50px;
-  // height: 50px;
-  // font-size: 30px;
-}
-
-button.btn-page {
-  background: none;
-  color: black;
-  border: 1px solid gray;
-  border-radius: 50%;
-  width: 3em;
-  height: 3em;
-}
-
-button.btn-main-filter {
-  background: none;
-  color: black;
-  border: 1px solid gray;
-  border-radius: 1em;
-  width: 6em;
+.container-carousel {
+  width: 95%;
   height: 4em;
+
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+
+  .main-carousel {
+    width: 90%;
+    height: 100%;
+    margin-right: 30px;
+    color: gray;
+    h3,
+    h4 {
+      text-align: center;
+    }
+    h3 {
+      font-size: 2em;
+      margin-bottom: 0;
+    }
+
+    .slick-arrow {
+      // border: 1px gray solid;
+      background-color: rgb(167, 167, 165);
+      color: black;
+      border-radius: 50%;
+    }
+  }
+  .explore {
+    color: gray;
+  }
 }

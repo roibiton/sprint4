@@ -4,7 +4,10 @@
 @import 'setup/mixins';
 @import 'setup/typography';
 
-// Basics
+// Lib
+@import '~bootstrap/scss/bootstrap';
+
+// Basic
 @import 'basics/helpers';
 @import 'basics/layout';
 @import 'basics/base';
@@ -19,13 +22,17 @@
 @import 'views/stay-details';
 
 // Components
-@import "cmps/app-header";
-@import "cmps/app-footer";
-@import "cmps/user-msg";
-@import "cmps/stay-preview";
-@import "cmps/stay-list";
-@import "cmps/stay-filter";
-@import "cmps/like-btn-preview";
+@import 'cmps/app-header';
+@import 'cmps/app-footer';
+@import 'cmps/user-msg';
+@import 'cmps/stay-preview';
+@import 'cmps/stay-list';
+@import 'cmps/stay-filter';
+@import 'cmps/display-main-search';
+@import 'cmps/simpel-search';
+@import 'cmps/app-user';
+@import 'cmps/modal-filter';
+@import 'cmps/modal-map-filter';@import "cmps/like-btn-preview";
 
 
 

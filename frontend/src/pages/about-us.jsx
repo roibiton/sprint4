@@ -31,13 +31,13 @@ function Projects() {
             ev.stopPropagation();
             setProjs(projs.filter(p => p !== proj))
         }}>
-            {proj}
+          {proj}
         </div>
-    ));
+      ));
     return <section style={{ height: '50vh', backgroundColor: 'lightblue' }}>
         <h2>Projects</h2>
         {/* <CSSTransitionGroup transitionName="example" transitionEnterTimeout={500} */}
-        {/* transitionLeaveTimeout={300}>
+            {/* transitionLeaveTimeout={300}>
             {projList} */}
         {/* </CSSTransitionGroup> */}
         <button onClick={ev => {
@@ -124,22 +124,27 @@ export class AboutUs extends React.Component {
                             <Projects />
                         } />
 
-                </MyErrorBoundary>
+//                 </MyErrorBoundary>
 
-                <FancyBox onClose={() => console.log('ok, closing')}>
-                    <h3>{count.toLocaleString()} Followers</h3>
-                    <button onClick={this.onTellMeMore}>Tell me More</button>
-                </FancyBox>
+//                 <FancyBox onClose={() => console.log('ok, closing')}>
+//                     <h3>{count.toLocaleString()} Followers</h3>
+//                     <button onClick={this.onTellMeMore}>Tell me More</button>
+//                 </FancyBox>
 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni aperiam quo veniam velit dolor reprehenderit, laudantium consequatur neque numquam labore quae. Accusamus libero perferendis ducimus? Alias unde hic quisquam doloremque.</p>
-            </section>
-        )
-    }
-}
+//                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni aperiam quo veniam velit dolor reprehenderit, laudantium consequatur neque numquam labore quae. Accusamus libero perferendis ducimus? Alias unde hic quisquam doloremque.</p>
+//             </section>
+//         )
+//     }
+// }
 
+//                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni aperiam quo veniam velit dolor reprehenderit, laudantium consequatur neque numquam labore quae. Accusamus libero perferendis ducimus? Alias unde hic quisquam doloremque.</p>
+//             </section>
+//         )
+//     }
+// }
 
-class MyErrorBoundary extends React.Component {
-    state = { error: null, errorInfo: null };
+// class MyErrorBoundary extends React.Component {
+//     state = { error: null, errorInfo: null };
 
     componentDidCatch(error, errorInfo) {
         // Catch errors in children and re-render with error message

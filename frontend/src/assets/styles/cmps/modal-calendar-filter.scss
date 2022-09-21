@@ -1,0 +1,23 @@
+.calendar-filter {
+  button.btn.btn-primary {
+    width: 9em;
+    height: 100%;
+    left: 30%;
+    top: -3px;
+
+    display: flex;
+    flex-direction: column;
+    background: none;
+    border: none;
+  }
+  button.btn.btn-primary:hover {
+    border: none;
+    box-shadow: none;
+  }
+}
+.modal-calendar {
+  background-color: aquamarine;
+  .modal-content {
+    top: 40%;
+  }
+}
