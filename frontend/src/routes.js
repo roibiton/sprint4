@@ -7,7 +7,7 @@ import { AdminApp } from './pages/admin-app.jsx'
 import { StayEdit } from './pages/stay-edit.jsx'
 import { StayDetails } from './pages/stay-details.jsx'
 import { UserDetails } from './pages/user-details.jsx'
-import { Explore } from './cmps/explore.jsx'
+import { Explore } from './pages/explore.jsx'
 import { LogInApp } from './pages/login.jsx'
 
 // Routes accesible from the main navigation (in AppHeader)
