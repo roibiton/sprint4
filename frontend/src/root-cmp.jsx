@@ -15,7 +15,6 @@ export class RootCmp extends React.Component {
     return (
       <div>
         <AppHeader />
-
         <main>
           <Routes>
             {routes.map((route) => (

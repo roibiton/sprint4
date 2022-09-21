@@ -1,21 +1,17 @@
-// import React from 'react'
+import React from 'react'
 import { useEffect, useState, useRef } from 'react'
 // import { connect } from 'react-redux'
 import { Link, NavLink, useParams, useLocation } from 'react-router-dom'
 
-import { StayDetails } from '../pages/stay-details'
-import { AppFilter } from './app-filter'
-
 import routes from '../routes'
 
-import { SearchHeader } from './search-header'
+import { AppFilter } from './app-filter'
+import { ModalFilter } from './modal-filter'
 import { SimpelSearch } from './simpel-search'
 import { MainSearch } from './main-search'
 import { DisplayMainSearch } from './display-main-search'
 import { AppUser } from './app-user'
 
-import { BsPersonCircle } from 'react-icons/bs'
-import { FiMenu } from 'react-icons/fi'
 import { FaAirbnb } from 'react-icons/fa'
 
 export const AppHeader = () => {
@@ -54,20 +50,15 @@ export const AppHeader = () => {
         {!isOpenMainSearch && !isOpenDetails() && <DisplayMainSearch />}
         {isOpenDetails() && <SimpelSearch />}
 
-        {isOpenUser && <AppUser />}
-
-        <button
-          className="btn-user-menu"
-          onClick={() => {
-            setIsOpenUser(!isOpenUser)
-          }}
-        >
-          <FiMenu />
-          <BsPersonCircle />
-        </button>
+        <AppUser />
       </div>
 
-      <div className="bottom-header">{isOpenMainSearch && <AppFilter />}</div>
+      <div className="bottom-header">
+        {isOpenMainSearch && <AppFilter />}
+        <div className="btn-filter">
+          <ModalFilter />
+        </div>
+      </div>
     </header>
   )
 }

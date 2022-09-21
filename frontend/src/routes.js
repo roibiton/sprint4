@@ -8,6 +8,7 @@ import { StayEdit } from './pages/stay-edit.jsx'
 import { StayDetails } from './pages/stay-details.jsx'
 import { UserDetails } from './pages/user-details.jsx'
 import { Explore } from './cmps/explore.jsx'
+import { LogInApp } from './pages/login.jsx'
 
 // Routes accesible from the main navigation (in AppHeader)
 const routes = [
@@ -60,6 +61,11 @@ const routes = [
     path: 'admin',
     component: <AdminApp />,
     label: 'Admin Only',
+  },
+  {
+    path: 'login',
+    component: <LogInApp />,
+    label: 'log in',
   },
 ]
 
