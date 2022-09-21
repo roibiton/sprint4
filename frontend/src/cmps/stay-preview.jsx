@@ -35,13 +35,13 @@ export function StayPreview({ stay, onRemoveStay, onUpdateStay }) {
             </svg> */}
             <div className='preview-img-container'>
                 <ImgCarousel imgUrls={stay.imgUrls} />
+                {/* <img className='preview-img' src='https://a0.muscache.com/im/pictures/47d23608-568e-4a1d-b2c0-5cd74a20bc22.jpg?im_w=1200' alt="" /> */}
                 <div className='like-btn-preview-container' >
                     <LikeBtn />
                 </div>
             </div>
             <Link to={`/stay/${stay._id}`} className='info'>
 
-                {/* <img className='preview-img' src='https://stayinn-vacation.herokuapp.com/assets/253.fe906c29.jpeg' alt="" /> */}
                 <div className='preview-text-container'>
                     {/* <div><i className="fa-solid fa-gamepad"></i></div> */}
                     <section className='preview-title-container'>

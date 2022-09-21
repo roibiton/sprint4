@@ -5,7 +5,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css" // requires a loa
 import { Carousel } from 'react-responsive-carousel'
 
 export function ImgCarousel({ imgUrls }) {
-    // console.log('imgUrls', imgUrls)
+    console.log('imgUrls', imgUrls)
     return (
         <Carousel showThumbs={false}showStatus={false}>
             {imgUrls.map((imgUrl, idx) => 

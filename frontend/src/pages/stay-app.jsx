@@ -28,10 +28,10 @@ function _StayApp({ loadStays, addStay, updateStay, removeStay, stays }) {
     // }
     
     return (
+        
+        
+        
         <div className='main-layout'>
-
-            
-
 
             {/* <h3>Stays App</h3> */}
             <main className="stay-app">

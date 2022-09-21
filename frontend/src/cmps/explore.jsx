@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { stayService } from '../services/stay.service'
-import { StayPreview } from './stay-preview'
+import { StayList } from './stay-list'
 
 export const Explore = () => {
   const [stays, setStays] = useState([])
@@ -21,6 +21,8 @@ export const Explore = () => {
 
   const onRemoveStay = () => {
     console.log('remove!!!')
+    stayService.remove()
+
   }
   const onUpdateStay = () => {
     console.log('update!!!')
@@ -28,19 +30,11 @@ export const Explore = () => {
 
   if (!stays) return <div>Loading...</div>
   return (
-    <section className="explore">
-      <ul className="card-layout">
-        {stays.map((stay) => (
-          <li className="preview-card-explore" key={stay._id}>
-            <StayPreview
-              key={stay._id}
-              stay={stay}
-              onRemoveStay={onRemoveStay}
-              onUpdateStay={onUpdateStay}
-            />
-          </li>
-        ))}
-      </ul>
+    <section className="explore main-layout">
+     
+      <StayList stays={stays} 
+       onRemoveStay={onRemoveStay}
+       />
     </section>
   )
 }
