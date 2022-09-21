@@ -180,9 +180,6 @@ export const StayDetails = (props) => {
 
                     </div>
 
-
-
-
                     <div className='review'>
                         <div className='reviewer-avatar-container'>
                             <img src='https://xsgames.co/randomusers/assets/avatars/male/0.jpg' className='reviewer-avatar'></img>

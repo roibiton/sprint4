@@ -222,19 +222,20 @@ input:checked~label:after {
     left: 10px; */
     background: #eee;
     overflow-x: hidden;
+    align-items: center;
     /* padding: 8px 0; */
 }
-
 
 .reserve-calendar {
     display: flex;
     justify-content: space-around;
+    
     /* gap: 2em; */
 }
 
 .dropdown-txt {
-    padding: 30px;
-    font-size: 1.2em;
+    padding: 10px;
+    font-size: 1em;
     font-variant: small-caps;
     cursor: pointer;
     display: block;
@@ -243,14 +244,14 @@ input:checked~label:after {
 
 .dropdown-txt::after {
     float: right;
-    right: 10%;
+    /* right: 10%; */
     content: "+";
 
 }
 
 .slide {
-    clear: both;
-    width: 100%;
+    /* clear: both; */
+    /* width: 100%; */
     height: 0px;
     overflow: hidden;
     text-align: center;
@@ -263,11 +264,11 @@ input:checked~label:after {
 }
 
 .dropdown {
-    position: absolute;
-    opacity: 0;
-    height: 0px;
+    /* position: absolute; */
+    /* opacity: 0; */
+    /* height: 0px; */
 }
 
 .dropdown:checked+.slide {
-    height: 300px;
+    height: 20em;
 }
