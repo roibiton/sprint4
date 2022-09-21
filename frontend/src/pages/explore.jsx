@@ -1,22 +1,23 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { stayService } from '../services/stay.service'
-import { StayPreview } from './stay-preview'
+import { loadStays, setFilterBy } from '../store/stay.actions'
+import { StayPreview } from '../cmps/stay-preview'
 
 export const Explore = () => {
-  const [stays, setStays] = useState([])
+  const { stays } = useSelector((state) => state.stayModule)
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    loadStays()
+    setTimeout(() => doLoadStays, 400)
   }, [])
 
   const params = useParams()
 
-  const loadStays = () => {
-    setTimeout(() => {
-      stayService.query().then((stays) => setStays(stays))
-    }, 400)
+  const doLoadStays = () => {
+    dispatch(loadStays())
   }
 
   const onRemoveStay = () => {
@@ -27,6 +28,7 @@ export const Explore = () => {
   }
 
   if (!stays) return <div>Loading...</div>
+  console.log('stays from explore:', stays)
   return (
     <section className="explore">
       <ul className="card-layout">

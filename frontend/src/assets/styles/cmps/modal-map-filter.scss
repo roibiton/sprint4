@@ -16,3 +16,18 @@
     box-shadow: none;
   }
 }
+.gallery-img-filter {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  article {
+    margin: 10px 40px;
+    img {
+      width: 180px;
+      height: 180px;
+    }
+  }
+}

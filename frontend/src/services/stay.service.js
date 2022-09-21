@@ -8,17 +8,6 @@ import {
 } from '../store/stay.actions.js'
 import { store } from '../store/store'
 
-//REACT-ICONS
-import {
-  GiFamilyHouse,
-  GiIsland,
-  GiPalmTree,
-  GiWaveSurfer,
-} from 'react-icons/gi'
-import { FaCampground, FaCity, FaHome } from 'react-icons/fa'
-import { SiInkscape } from 'react-icons/si'
-import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
-
 // This file demonstrates how to use a BroadcastChannel to notify other browser tabs
 
 const STORAGE_KEY = 'stay'
@@ -40,13 +29,35 @@ export const stayService = {
 window.cs = stayService
 
 async function query(filterBy) {
+  console.log('hello from query:')
   var stays = await storageService.query(STORAGE_KEY)
-
+  console.log('stays from sevice:', stays)
   stays = stays.map((stay) => {
     stay.rate = 4.5
-
     return stay
   })
+
+  if (filterBy) {
+    const { name, type, maxPrice, minPrice } = filterBy
+
+    maxPrice = maxPrice || Infinity
+    minPrice = minPrice || 0
+    stays = stays.filter(
+      (stay) => stay.maxPrice < maxPrice && stay.minPrice > minPrice
+    )
+
+    if (name) {
+      stays = stays.filter((stay) =>
+        stay.name.toLowerCase().includes(name.toLowerCase())
+      )
+    }
+
+    if (type) {
+      stays = stays.filter((stay) =>
+        stay.type.toLowerCase().includes(type.toLowerCase())
+      )
+    }
+  }
   return stays
 }
 function getById(stayId) {

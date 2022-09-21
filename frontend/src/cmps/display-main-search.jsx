@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 
-import { CalendarFilter } from './calendar-filter'
+import { ModalCalendarFilter } from './modal-calendar-filter'
 import { ModalMapFilter } from './modal-map-filter'
 import { WhoFilter } from './modal-who-filter'
 
@@ -27,12 +27,12 @@ export const DisplayMainSearch = () => {
         </article>
         <article className="check-in">
           <button className="btn-border btn-check-in">
-            <CalendarFilter />
+            <ModalCalendarFilter />
           </button>
         </article>
         <article className="check-out">
           <button className="btn-border btn-check-out">
-            <CalendarFilter />
+            <ModalCalendarFilter />
           </button>
         </article>
         <article className="who-search">
