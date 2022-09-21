@@ -1,5 +1,5 @@
 .container-carousel {
-  width: 100%;
+  width: 95%;
   height: 4em;
 
   display: flex;
@@ -29,14 +29,5 @@
   }
   .explore {
     color: gray;
-  }
-  button.btn-filter {
-    border: 1px solid gray;
-    border-radius: 1em;
-    color: black;
-    font-size: 16px;
-    padding: 10px;
-    background: none;
-    width: 6em;
   }
 }

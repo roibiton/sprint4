@@ -1,5 +1,9 @@
 import { useEffect, useState, useRef } from 'react'
 
+import { CalendarFilter } from './calendar-filter'
+import { ModalMapFilter } from './modal-map-filter'
+import { WhoFilter } from './modal-who-filter'
+
 import { BiSearch } from 'react-icons/bi'
 
 export const DisplayMainSearch = () => {
@@ -10,34 +14,30 @@ export const DisplayMainSearch = () => {
   })
   return (
     <section className="display-main-search">
-      <div className="main-header-selected">
+      <div className="top-header-selected">
         <button>Stays</button>
         <button>Experiences</button>
         <button>Online Experiences</button>
       </div>
-      <div className="second-header-selected">
+      <div className="bottom-header-selected">
         <article className="where">
           <button className=" btn-where">
-            <h2>Where</h2>
-            <h3>Search destinations</h3>
+            <ModalMapFilter />
           </button>
         </article>
         <article className="check-in">
           <button className="btn-border btn-check-in">
-            <h2>Check in</h2>
-            <h3>Add dates</h3>
+            <CalendarFilter />
           </button>
         </article>
         <article className="check-out">
           <button className="btn-border btn-check-out">
-            <h2>Check out</h2>
-            <h3>Add dates</h3>
+            <CalendarFilter />
           </button>
         </article>
         <article className="who-search">
           <button className="btn-border btn-who">
-            <h2>Who</h2>
-            <h3>Add guests</h3>
+            <WhoFilter />
           </button>
           <button className="btn-search">
             <BiSearch className="search-icon" />

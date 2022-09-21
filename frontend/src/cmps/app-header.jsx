@@ -6,6 +6,7 @@ import { Link, NavLink, useParams, useLocation } from 'react-router-dom'
 import routes from '../routes'
 
 import { AppFilter } from './app-filter'
+import { ModalFilter } from './modal-filter'
 import { SimpelSearch } from './simpel-search'
 import { MainSearch } from './main-search'
 import { DisplayMainSearch } from './display-main-search'
@@ -49,21 +50,15 @@ export const AppHeader = () => {
         {!isOpenMainSearch && !isOpenDetails() && <DisplayMainSearch />}
         {isOpenDetails() && <SimpelSearch />}
 
-        {/* {isOpenUser && <AppUser />} */}
         <AppUser />
-
-        {/* <button
-          className="btn-user-menu"
-          onClick={() => {
-            setIsOpenUser(!isOpenUser)
-          }}
-        >
-          <FiMenu />
-          <BsPersonCircle />
-        </button> */}
       </div>
 
-      <div className="bottom-header">{isOpenMainSearch && <AppFilter />}</div>
+      <div className="bottom-header">
+        {isOpenMainSearch && <AppFilter />}
+        <div className="btn-filter">
+          <ModalFilter />
+        </div>
+      </div>
     </header>
   )
 }

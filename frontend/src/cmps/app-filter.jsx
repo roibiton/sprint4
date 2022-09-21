@@ -256,10 +256,6 @@ export class AppFilter extends Component {
             </Link>
           </Slider>
         </div>
-
-        <button className="btn-filter">
-          <BiSliderAlt /> Filter
-        </button>
       </section>
     )
   }
