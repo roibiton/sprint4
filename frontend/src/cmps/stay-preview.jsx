@@ -35,6 +35,7 @@ export function StayPreview({ stay, onRemoveStay, onUpdateStay }) {
                 <path d="m16 28c7-4.733 14-10 14-17 0-1.792-.683-3.583-2.05-4.95-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05l-2.051 2.05
                 1-2.05-2.051c-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05-1.367 1.367-2.051 3.158-2.051 4.95 0 7 7 12.267 14 17z"></path>
             </svg> */}
+<<<<<<< HEAD
       <div className="preview-img-container">
         <ImgCarousel imgUrls={stay.imgUrls} />
         <div className="like-btn-preview-container">
@@ -59,6 +60,27 @@ export function StayPreview({ stay, onRemoveStay, onUpdateStay }) {
             </div>
           </section>
           {/* <p><small>{stay.type}</small>-|-
+=======
+            <div className='preview-img-container'>
+                <ImgCarousel imgUrls={stay.imgUrls} />
+                {/* <img className='preview-img' src='https://a0.muscache.com/im/pictures/47d23608-568e-4a1d-b2c0-5cd74a20bc22.jpg?im_w=1200' alt="" /> */}
+                <div className='like-btn-preview-container' >
+                    <LikeBtn />
+                </div>
+            </div>
+            <Link to={`/stay/${stay._id}`} className='info'>
+
+                <div className='preview-text-container'>
+                    {/* <div><i className="fa-solid fa-gamepad"></i></div> */}
+                    <section className='preview-title-container'>
+                        <div className='preview-title'><span>{stay.loc.city}</span>,<span>{stay.loc.country}</span></div>
+                        <div>
+                            <img className='preview-star-img' src="https://stayinn-vacation.herokuapp.com/assets/star.692b808f.svg" alt="" />
+                            <span>{stay.rate}</span>
+                        </div>
+                    </section>
+                    {/* <p><small>{stay.type}</small>-|-
+>>>>>>> 2b1fdc79da7141f9d0282b55fd2a738284a68396
                         <small>Owner: <span>{stay.owner && stay.owner.fullname}</span></small>
                     </p> */}
           <section className="preview-details-container">
