@@ -67,6 +67,11 @@ const routes = [
     component: <LogInApp />,
     label: 'log in',
   },
+  {
+    path: 'user-details/:id',
+    component: <UserDetails />,
+    label: 'user-details',
+  },
 ]
 
 export default routes

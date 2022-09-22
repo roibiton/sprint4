@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -30,6 +31,7 @@ export const LogInApp = () => {
   const { user } = useSelector((state) => state.userModule)
   console.log('user:', user)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   if (!user.username) console.log('empty user')
   if (user.username) console.log('hello user')
   const logout = user.username ? true : false
@@ -48,8 +50,13 @@ export const LogInApp = () => {
       password: data.get('password'),
       username: data.get('username'),
     })
-    dispatch(onSignup(user))
-    // dispatch(onLogout(user))
+    if (logout) {
+      dispatch(onSignup(user))
+    } else {
+      dispatch(onLogout(user))
+    }
+    navigate(`/`)
+
   }
 
   return (
