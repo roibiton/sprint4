@@ -66,7 +66,7 @@ export function StayPreview({ stay, onRemoveStay, onUpdateStay }) {
               <small>{stay.type}</small>
             </p>
             <small>
-              <span>{(destination / 1000).toLocaleString()}</span>
+              {/* <span>{(destination / 1000).toLocaleString()}</span> */}
               <span>kilometers</span>
             </small>
           </section>

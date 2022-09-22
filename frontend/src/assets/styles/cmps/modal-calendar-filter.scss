@@ -15,9 +15,18 @@
     box-shadow: none;
   }
 }
+
 .modal-calendar {
-  background-color: aquamarine;
-  .modal-content {
-    top: 40%;
+  // top: 10vh;
+  // width: 70vw;
+  // height: 70vh;
+  // background-color: aqua;
+  .calendar-filter-body {
+    // background-color: aquamarine;
+
+    .calendar-filter {
+      width: 90%;
+      height: 50%;
+    }
   }
 }
