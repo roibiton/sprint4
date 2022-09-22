@@ -1,6 +1,8 @@
 import React from 'react'
 import Dropdown from 'react-bootstrap/Dropdown'
 
+import { ModalLogin } from './modal-login'
+
 import { BsPersonCircle } from 'react-icons/bs'
 import { FiMenu } from 'react-icons/fi'
 
@@ -20,7 +22,6 @@ export function AppUser() {
 
         <Dropdown.Menu>
           <Dropdown.Item href="/login">sign up</Dropdown.Item>
-          <Dropdown.Item href="/login">log in</Dropdown.Item>
           <Dropdown.Item href="#/action-3">log out</Dropdown.Item>
           <Dropdown.Item href="#/action-1">Wishlist</Dropdown.Item>
           <Dropdown.Item href="#/action-2">About</Dropdown.Item>

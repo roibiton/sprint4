@@ -163,3 +163,15 @@
     height: 70vh;
   }
 }
+
+.input-search-filter {
+  // background-color: aqua;
+  background: none;
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  border: 1px solid gray;
+  border-radius: 1em;
+  text-align: center;
+  height: 3em;
+}

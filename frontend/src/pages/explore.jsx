@@ -11,31 +11,25 @@ export const Explore = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    setTimeout(() => doLoadStays, 400)
+    setTimeout(doLoadStays, 400)
   }, [])
 
   const params = useParams()
+  console.log('params:', params)
 
   const doLoadStays = () => {
-    dispatch(loadStays())
+    dispatch(loadStays(params))
   }
 
   const onRemoveStay = () => {
     console.log('remove!!!')
     stayService.remove()
-
-  }
-  const onUpdateStay = () => {
-    console.log('update!!!')
   }
 
   if (!stays) return <div>Loading...</div>
   return (
     <section className="explore main-layout">
-     
-      <StayList stays={stays} 
-       onRemoveStay={onRemoveStay}
-       />
+      <StayList stays={stays} onRemoveStay={onRemoveStay} />
     </section>
   )
 }

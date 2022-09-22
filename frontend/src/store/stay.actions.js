@@ -22,11 +22,12 @@ export function getActionUpdateStay(stay) {
   }
 }
 
-export function loadStays() {
+export function loadStays(filterBy) {
   return async (dispatch) => {
     try {
-      const stays = await stayService.query()
-      console.log('Stays from DB:', stays)
+      console.log('filterBy from action:', filterBy)
+      const stays = await stayService.query(filterBy)
+      console.log('Stays from DB action:', stays)
       dispatch({
         type: 'SET_STAYS',
         stays,

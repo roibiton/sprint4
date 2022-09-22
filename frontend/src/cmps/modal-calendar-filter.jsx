@@ -4,7 +4,7 @@ import Modal from 'react-bootstrap/Modal'
 
 // const flatpickr = require('flatpickr')
 
-// import { CalendarFilter } from './calendar-filter'
+import { CalendarFilter } from './calendar-filter'
 
 export const ModalCalendarFilter = () => {
   const [show, setShow] = useState(false)
@@ -24,9 +24,9 @@ export const ModalCalendarFilter = () => {
           <Modal.Header closeButton>
             <Modal.Title>choose dates</Modal.Title>
           </Modal.Header>
-          <Modal.Body>
-            <section className="calendar-filter">
-              {/* <CalendarFilter /> */}
+          <Modal.Body className="calendar-filter-body">
+            <section>
+              <CalendarFilter />
             </section>
           </Modal.Body>
           <Modal.Footer>
