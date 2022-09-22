@@ -24,7 +24,7 @@ export const ModalMapFilter = () => {
             <h3>Search destinations</h3>
           </section>
         )}
-        {show && <input type="text" placeholder="search..." />}
+        {/* {show && <input type="text" placeholder="search..." />} */}
       </Button>
 
       <Modal show={show} onHide={handleClose} className="modal-map-filter">

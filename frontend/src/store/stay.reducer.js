@@ -11,6 +11,7 @@ export function stayReducer(state = initialState, action) {
   var cart
   switch (action.type) {
     case 'SET_STAYS':
+      console.log('SET_STAYS:', action)
       newState = { ...state, stays: action.stays }
       break
     case 'REMOVE_STAY':

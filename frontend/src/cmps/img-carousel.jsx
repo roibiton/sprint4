@@ -1,21 +1,20 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import "react-responsive-carousel/lib/styles/carousel.min.css" // requires a loader
+import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
 // import styles from 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel'
 
 export function ImgCarousel({ imgUrls }) {
-    console.log('imgUrls', imgUrls)
-    return (
-        <Carousel showThumbs={false}showStatus={false}>
-            {imgUrls.map((imgUrl, idx) => 
-                <div className='preview-img-container' key={idx}>
-                    <img className='preview-img' src={imgUrl} />
-                </div>
-            )}
-        </Carousel>
-    )
-
+  // console.log('imgUrls', imgUrls)
+  return (
+    <Carousel showThumbs={false} showStatus={false}>
+      {imgUrls.map((imgUrl, idx) => (
+        <div className="preview-img-container" key={idx}>
+          <img className="preview-img" src={imgUrl} />
+        </div>
+      ))}
+    </Carousel>
+  )
 }
 
 // ReactDOM.render(<ImgCarousel />, document.querySelector('.demo-carousel'))
@@ -24,11 +23,8 @@ export function ImgCarousel({ imgUrls }) {
 
 // Using webpack or parcel with a style loader
 
-
 // Using html tag:
 // <link rel="stylesheet" href="<NODE_MODULES_FOLDER>/react-responsive-carousel/lib/styles/carousel.min.css"/>
-
-
 
 // {imgUrls.map((imgUrl, idx) => {
 //     <div key={idx}>
