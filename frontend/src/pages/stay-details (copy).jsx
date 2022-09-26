@@ -24,7 +24,6 @@ import Dropdown from 'react-bootstrap/Dropdown'
 // import process from 'process';
 
 
-
 export const StayDetails = () => {
 
 
@@ -205,44 +204,53 @@ export const StayDetails = () => {
                     {/* <div className='reserve-border'><CalendarDetails /></div> */}
                 </div >
                 {/* <section className='side-row'> */}
-                <section className='sidenav-container'>
-                    <section className="order-container">
-                        <div className="order-form-header">
-                            <p><span className="reserve-span reserve-cost">${stay.price}</span> / night</p>
-                            <p><AiFillStar />4.38 ·<span className="reserve-span reserve-reviews">{stay.reviews.length} reviews</span></p>
-                        </div>
-                        <div className="order-data">
-                            <div className="date-picker">
-                                <div className="date-input">
-                                    <label className="reserve-lavel">CHECK IN</label>
-                                    <input className="reserve-input" value="Tue Sep 07 2021"></input>
-                                </div>
-                                <DateRangePickerWrapper />
-                                <div className="date-input">
-                                    <label className="reserve-lavel">CHECK OUT</label>
-                                    <input className="reserve-input" value="Tue Sep 07 2021"></input>
-                                </div>
-                            </div>
+                < section className='sidenav-container' >
+                    <form className="sidenav-form">
+                        <div className='reserve-header'>
+                            <span>${stay.price} night</span>
+                            <span><FiStar />{rate} · {stay.reviews.length}</span>
 
-                            <div className="guest-input">
-                                <label className="reserve-lavel">GUESTS</label>
-                                <input className="reserve-input" value="1 guest"></input>
-                                <svg viewBox="0 0 320 512" width="100" title="angle-down">
-                                    <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z" />
-                                </svg>
-                            </div>
+                        </div>
+                        <div className='reserve-calendar'>
+                            <DateRangePickerWrapper />
+                            {/* <div className='check-in'>check-in</div> */}
+                            {/* <div className='check-out'>check-out</div> */}
                         </div>
 
-                        <div className="reserve-btn-container">
-                            <div className="cell"></div>
-                            <div className="reserve-content">
-                                <button className="reserve-action-btn">
-                                    <span className="reserve-span">Check availability</span>
-                                </button>
+                     
+                            {/* <Dropdown.Toggle variant="success" id="dropdown-basic">
+          <div className="icon-humburger">
+            <FiMenu />
+          </div>
+          <div className="icon-user">
+            <BsPersonCircle />
+          </div>
+        </Dropdown.Toggle> */}
+                            <Dropdown>
+                                <Dropdown.Menu>
+                                    <Dropdown.Item>Adults</Dropdown.Item>
+                                    <Dropdown.Item>Children</Dropdown.Item>
+                                    <Dropdown.Item>Infants</Dropdown.Item>
+                                    <Dropdown.Item>Pets</Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
+
+
+                            <button className='sidenav-submit'>Reserve</button>
+                            <p className='under-line-reserve'>You won't be charged yet</p>
+                            <div className='fees'>
+                                <span className='total-nights'>{stay.price} x 5 nights</span>
+                                <span className='nights-fee'>₪981</span>
                             </div>
-                        </div>
-                    </section>
-                    <p className="reserve-footer">Report this listing</p>
+                            <div className='service'>
+                                <span className='service-txt'>Service fee</span>
+                                <span className='service-fee'>₪150</span>
+                            </div>
+                            <div className='reserve-total'>
+                                <span>Total</span>
+                                <span>₪1,216</span>
+                            </div>
+                    </form>
                 </section >
 
                 <section className='details-calendar reserve-border'>
@@ -266,10 +274,12 @@ export const StayDetails = () => {
                             stay.reviews.map((review, index) => {
                                 if (index < 6) {
                                     console.log(review.txt.length)
-                                    if (review.txt.length > 140) { // prep for read more
+                                    if (review.txt.length > 140) {
                                         const reviewText = review
+                                        console.log('first', reviewText)
                                     } else {
                                         const reviewText = review
+                                        console.log('second', reviewText)
                                     }
                                     return (
                                         <div className='review'>
