@@ -398,47 +398,6 @@
     /* gap: 2em; */
 }
 
-
-
-.dropdown-txt {
-    padding: 10px;
-    font-size: 1em;
-    font-variant: small-caps;
-    cursor: pointer;
-    display: block;
-    border: solid 1px black;
-}
-
-.dropdown-txt::after {
-    float: right;
-    /* right: 10%; */
-    content: "+";
-
-}
-
-/* .slide {
-    
-    height: 0px;
-    overflow: hidden;
-    text-align: left;
-    
-    list-style: none;
-}
-
-.slide li {
-    padding: 30px;
-} */
-
-.dropdown-reserve {
-    /* position: absolute; */
-    /* opacity: 0; */
-    /* height: 0px; */
-}
-
-.dropdown-reserve:checked+.slide {
-    height: 20em;
-}
-
 .reserve-header {
     display: flex;
     justify-content: space-between;
@@ -540,26 +499,6 @@
     border-left: 1px solid #00000050;
 }
 
-.guest-input {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    border-top: 1px solid #00000050;
-    padding: 7px 12px;
-    color: gray;
-    font-size: 0.75rem;
-}
-
-.guest-input svg {
-    position: absolute;
-    height: 20px;
-    width: 20px;
-    top: 50%;
-    right: 0;
-    transform: translatex(-12px) translatey(-50%);
-}
-
 .reserve-input {
     border: none;
     padding: 0 0;
@@ -636,4 +575,111 @@ span.reserve-reviews {
     display: inline-block;
     width: 100%;
     text-align: center;
+}
+
+
+/* DropDown reserve */
+
+
+
+.guests-input {
+    position: relative;
+    /* top: 10px; */
+    /* left: 45%; */
+    /* margin-top: 15px; */
+    width: 100%;
+    height: 50px;
+    cursor: pointer;
+    caret-color: transparent;
+    border-top: 1px solid #00000050;
+
+}
+
+.guests-input::before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 1000;
+    width: 8px;
+    height: 8px;
+    border: 2px solid #333;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: rotate(-45deg);
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.guests-input:active::before {
+    top: 22px;
+    transform: rotate(-225deg);
+}
+
+.guests-input input {
+    /* position: absolute; */
+    /* top: 0; */
+    /* left: 0; */
+    width: 100%;
+    /* height: 100%; */
+    cursor: pointer;
+    /* background: #fff; */
+    font-size: .8em;
+    border: none;
+    outline: none;
+    /* box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); */
+    /* padding: 12px 20px; */
+    /* border-radius: 10px; */
+}
+
+.guests-input .reserve-guests-options {
+    position: absolute;
+    top: 4em;
+    width: 130%;
+    margin-left: -5em;
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    /* border-radius: 10px; */
+    overflow: hidden;
+    z-index: 1;
+    display: block;
+    border-radius: 4px;
+    
+    /* box-shadow: rgb(0 0 0) 0px 2px 6px, rgb(0 0 0) 0px 0px 0px 1px; */
+
+}
+
+.guests-input:active .reserve-guests-options {
+    display: block;
+}
+
+.showDropdown-reserve {
+    display: block;
+}
+
+.guests-input .reserve-guests-options div {
+    padding: .9em 1.8em;
+    cursor: pointer;
+    
+}
+
+.guests-input .reserve-guests-options div:hover {
+    background: #62baea;
+    color: #fff;
+}
+
+.reserve-counter-headline {
+    display: flex;
+}
+
+.reserve-counter {
+    display: flex;
+}
+
+/* .reserve-participants {
+    display: flex;
+} */
+
+.guest-count {
+    display: flex;
 }

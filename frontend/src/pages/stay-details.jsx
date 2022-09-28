@@ -18,7 +18,6 @@ import { VscKey } from 'react-icons/vsc';
 import { GiPoolDive } from 'react-icons/gi';
 import DatePicker from '../cmps/calendar-large';
 import "react-dates/lib/css/_datepicker.css";
-import Dropdown from 'react-bootstrap/Dropdown'
 
 // import { memoryUsage } from 'node:process';
 // import process from 'process';
@@ -34,6 +33,7 @@ export const StayDetails = () => {
 
     // Prints the output as an object
     const [stay, setStay] = useState(null)
+    const [showDropdown, setShowDropdown] = useState('showDropdown-reserve')
     const params = useParams()
     // const navigate = useNavigate()
     useEffect(() => {
@@ -49,7 +49,19 @@ export const StayDetails = () => {
         const stayId = params.id
         stayService.getById(stayId).then(stay => {
             setStay(stay)
+
         })
+    }
+
+    const handleClick = (ev) => {
+        // console.log('Event', ev.target.style.display)
+        setShowDropdown(showDropdown === '' ? 'showDropdown-reserve' : '')
+        console.log('showDropdown', showDropdown)
+        // ev.target.style.display = ev.target.style.display === 'block' ? '' : 'block'
+    }
+
+    const toggleShowDropdown = (ev) => {
+        // .guests-input.style.display = ev.target.style.display === 'block' ? '' : 'block '
     }
 
     if (!stay) return <LoadingScreen
@@ -224,14 +236,57 @@ export const StayDetails = () => {
                                 </div>
                             </div>
 
-                            <div className="guest-input">
-                                <label className="reserve-lavel">GUESTS</label>
-                                <input className="reserve-input" value="1 guest"></input>
-                                <svg viewBox="0 0 320 512" width="100" title="angle-down">
-                                    <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z" />
-                                </svg>
+                            <div className='guests-input'>
+                                <input className={`reserve-text-box ${showDropdown}`} onClick={(ev) => handleClick(ev)} type="text" value="GUESTS" readonly />
+                                <div className="reserve-guests-options">
+                                    <div className="reserve-counter-headline" onSelect={() => handleClick()} value="Adults">Adults
+                                        <span className="reserve-participants">Age 13+</span>
+                                        <div className="reserve-counter">
+                                            <button className="guest-count-down">-</button>
+                                            <span className="guest-count-num">5</span>
+                                            <button className="guest-count-up">+</button>
+                                        </div>
+                                    </div>
+                                    <div className="reserve-counter-headline" onSelect={() => handleClick()} value="Children">Children
+                                        <div className="reserve-participants">Ages 2-12</div>
+                                        <div className="reserve-counter">
+                                            <div className="guest-count-down">-</div>
+                                            <div className="guest-count-num">5</div>
+                                            <div className="guest-count-up">+</div>
+                                        </div>
+                                    </div>
+                                    <div className="reserve-counter-headline" onSelect={() => handleClick()} value="Infants">Infants
+                                        <div className="reserve-participants">Under 2</div>
+                                        <div className="reserve-counter">
+                                            <div className="guest-count-down">-</div>
+                                            <div className="guest-count-num">5</div>
+                                            <div className="guest-count-up">+</div>
+                                        </div>
+                                    </div>
+                                    <div className="reserve-counter-headline" onSelect={() => handleClick()} value="Pats">Pats
+                                    <div className="reserve-participants">Bringing a service animal?</div>
+                                    <div className="reserve-counter">
+                                            <div className="guest-count-down">-</div>
+                                            <div className="guest-count-num">5</div>
+                                            <div className="guest-count-up">+</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* <form>
+                                    <label htmlFor="guests" className="reserve-form-guests">GUESTS</label>
+                                    <select className="reserve-dropdown" name="guests" id="guests" onChange={(value) => handleClick(value)}>
+                                        <option className="reserve-dropdown-options" onSelect={() => handleClick()} value="Adults">Adults</option>
+                                        <option className="reserve-dropdown-options" onSelect={() => handleClick()} value="Kids">Kids</option>
+                                        <option className="reserve-dropdown-options" onClick={() => handleClick()} value="Infant">Infant</option>
+                                        <option className="reserve-dropdown-options" onClick={() => handleClick()} value="Pats">Pats</option>
+                                    </select>
+                                </form> */}
                             </div>
                         </div>
+                        {/* <svg viewBox="0 0 320 512" width="100" title="angle-down"> */}
+                        {/* <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z" /> */}
+                        {/* </svg> */}
 
                         <div className="reserve-btn-container">
                             <div className="cell"></div>
@@ -265,7 +320,7 @@ export const StayDetails = () => {
                         {
                             stay.reviews.map((review, index) => {
                                 if (index < 6) {
-                                    console.log(review.txt.length)
+                                    // console.log(review.txt.length)
                                     if (review.txt.length > 140) { // prep for read more
                                         const reviewText = review
                                     } else {
