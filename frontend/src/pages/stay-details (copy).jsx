@@ -13,17 +13,15 @@ import LoadingScreen from "react-loading-screen"
 import { MdIosShare } from 'react-icons/md'
 import { FiHeart, FiStar } from 'react-icons/fi'
 import { AiFillStar } from 'react-icons/ai'
-import { orderService } from '../services/order.service';
-import { userService } from '../services/user.service';
 import DateRangePickerWrapper from '../cmps/calendar-small';
 import { VscKey } from 'react-icons/vsc';
 import { GiPoolDive } from 'react-icons/gi';
 import DatePicker from '../cmps/calendar-large';
 import "react-dates/lib/css/_datepicker.css";
+import Dropdown from 'react-bootstrap/Dropdown'
 
 // import { memoryUsage } from 'node:process';
 // import process from 'process';
-
 
 
 export const StayDetails = () => {
@@ -33,88 +31,24 @@ export const StayDetails = () => {
     // console.log(process.showMemory())
 
 
-        // Prints the output as an object
-            const [stay, setStay] = useState(null)
-        const [showDropdown, setShowDropdown] = useState('showDropdown-reserve')
-        const params = useParams()
-        const loggedInUser = userService.getLoggedinUser()
-    const navigate = useNavigate()
-        
-
+    // Prints the output as an object
+    const [stay, setStay] = useState(null)
+    const params = useParams()
+    // const navigate = useNavigate()
     useEffect(() => {
-            // console.log('details params', params)
-            console.log('stay', typeof stay)
-            console.log('details is up')
-            loadStay()
+        // console.log('details params', params)
+        console.log('stay', typeof stay)
+        console.log('details is up')
+        loadStay()
         // console.log(stay.reviews)
-        }, [])
+    }, [])
 
 
-        const loadStay = () => {
-            const stayId = params.id
-            stayService.getById(stayId).then(stay => {
-                setStay(stay)
-
-            })
-        }
-    const addOrder = () => {
-        const order = {
-
-            hostId: stay.host._id,
-            createdAt: Date.now(),
-            buyer: {
-                _id: loggedInUser._id,
-                fullname: loggedInUser.fullname
-            },
-            totalPrice: 160,
-            startDate: "2025/10/15",
-            endDate: "2025/10/17",
-            guests: {
-                adults: 2,
-                kids: 1
-            },
-            stay: {
-                _id: stay._id,
-                name: stay.name,
-                price: stay.price
-            },
-            status: "pending"
-        }
-        toggleReservemodal()
-        orderService.save(order)
-        // navigate(`user/${loggedInUser._id}`)
-    }
-    const toggleReservemodal = () => {
-        const modal = document.querySelector(".reserve-modal");
-        const trigger = document.querySelector(".reserve-trigger");
-        const closeButton = document.querySelector(".reserve-close-button");
-
-        function toggleModal() {
-            modal.classList.toggle("show-reserve-modal");
-        }
-
-        function windowOnClick(event) {
-            if (event.target === modal) {
-                toggleModal();
-            }
-        }
-
-        trigger.addEventListener("click", toggleModal);
-        closeButton.addEventListener("click", toggleModal);
-        window.addEventListener("click", windowOnClick);
-        toggleModal()
-        // windowOnClick()
-    }
-
-    const handleClick = (ev) => {
-        // console.log('Event', ev.target.style.display)
-        setShowDropdown(showDropdown === '' ? 'showDropdown-reserve' : '')
-        console.log('showDropdown', showDropdown)
-        // ev.target.style.display = ev.target.style.display === 'block' ? '' : 'block'
-    }
-
-    const toggleShowDropdown = (ev) => {
-        // .guests-input.style.display = ev.target.style.display === 'block' ? '' : 'block '
+    const loadStay = () => {
+        const stayId = params.id
+        stayService.getById(stayId).then(stay => {
+            setStay(stay)
+        })
     }
 
     if (!stay) return <LoadingScreen
@@ -270,87 +204,53 @@ export const StayDetails = () => {
                     {/* <div className='reserve-border'><CalendarDetails /></div> */}
                 </div >
                 {/* <section className='side-row'> */}
-                <section className='sidenav-container'>
-                    <section className="order-container">
-                        <div className="order-form-header">
-                            <p><span className="reserve-span reserve-cost">${stay.price}</span> / night</p>
-                            <p><AiFillStar />4.38 ·<span className="reserve-span reserve-reviews">{stay.reviews.length} reviews</span></p>
-                        </div>
-                        <div className="order-data">
-                            <div className="date-picker">
-                                <div className="date-input">
-                                    <label className="reserve-lavel">CHECK IN</label>
-                                    <input className="reserve-input" value="Tue Sep 07 2021"></input>
-                                </div>
-                                <DateRangePickerWrapper />
-                                <div className="date-input">
-                                    <label className="reserve-lavel">CHECK OUT</label>
-                                    <input className="reserve-input" value="Tue Sep 07 2021"></input>
-                                </div>
-                            </div>
+                < section className='sidenav-container' >
+                    <form className="sidenav-form">
+                        <div className='reserve-header'>
+                            <span>${stay.price} night</span>
+                            <span><FiStar />{rate} · {stay.reviews.length}</span>
 
-                            <div className='guests-input'>
-                                <input className={`reserve-text-box ${showDropdown}`} onClick={(ev) => handleClick(ev)} type="text" value="GUESTS" readonly />
-                                <div className="reserve-guests-options">
-                                    <div className="reserve-counter-headline" onSelect={() => handleClick()} value="Adults">Adults
-                                        <span className="reserve-participants">Age 13+</span>
-                                        <div className="reserve-counter">
-                                            <button className="guest-count-down">-</button>
-                                            <span className="guest-count-num">5</span>
-                                            <button className="guest-count-up">+</button>
-                                        </div>
-                                    </div>
-                                    <div className="reserve-counter-headline" onSelect={() => handleClick()} value="Children">Children
-                                        <div className="reserve-participants">Ages 2-12</div>
-                                        <div className="reserve-counter">
-                                            <div className="guest-count-down">-</div>
-                                            <div className="guest-count-num">5</div>
-                                            <div className="guest-count-up">+</div>
-                                        </div>
-                                    </div>
-                                    <div className="reserve-counter-headline" onSelect={() => handleClick()} value="Infants">Infants
-                                        <div className="reserve-participants">Under 2</div>
-                                        <div className="reserve-counter">
-                                            <div className="guest-count-down">-</div>
-                                            <div className="guest-count-num">5</div>
-                                            <div className="guest-count-up">+</div>
-                                        </div>
-                                    </div>
-                                    <div className="reserve-counter-headline" onSelect={() => handleClick()} value="Pats">Pats
-                                    <div className="reserve-participants">Bringing a service animal?</div>
-                                    <div className="reserve-counter">
-                                            <div className="guest-count-down">-</div>
-                                            <div className="guest-count-num">5</div>
-                                            <div className="guest-count-up">+</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* <form>
-                                    <label htmlFor="guests" className="reserve-form-guests">GUESTS</label>
-                                    <select className="reserve-dropdown" name="guests" id="guests" onChange={(value) => handleClick(value)}>
-                                        <option className="reserve-dropdown-options" onSelect={() => handleClick()} value="Adults">Adults</option>
-                                        <option className="reserve-dropdown-options" onSelect={() => handleClick()} value="Kids">Kids</option>
-                                        <option className="reserve-dropdown-options" onClick={() => handleClick()} value="Infant">Infant</option>
-                                        <option className="reserve-dropdown-options" onClick={() => handleClick()} value="Pats">Pats</option>
-                                    </select>
-                                </form> */}
-                            </div>
                         </div>
-                        {/* <svg viewBox="0 0 320 512" width="100" title="angle-down"> */}
-                        {/* <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z" /> */}
-                        {/* </svg> */}
-
-                        <div className="reserve-btn-container">
-                            <div className="cell"></div>
-                            <div className="reserve-content">
-                                <button className="reserve-action-btn">
-                                    <span className="reserve-span">Check availability</span>
-                                </button>
-                            </div>
+                        <div className='reserve-calendar'>
+                            <DateRangePickerWrapper />
+                            {/* <div className='check-in'>check-in</div> */}
+                            {/* <div className='check-out'>check-out</div> */}
                         </div>
-                    </section>
-                    <p className="reserve-footer">Report this listing</p>
+
+                     
+                            {/* <Dropdown.Toggle variant="success" id="dropdown-basic">
+          <div className="icon-humburger">
+            <FiMenu />
+          </div>
+          <div className="icon-user">
+            <BsPersonCircle />
+          </div>
+        </Dropdown.Toggle> */}
+                            <Dropdown>
+                                <Dropdown.Menu>
+                                    <Dropdown.Item>Adults</Dropdown.Item>
+                                    <Dropdown.Item>Children</Dropdown.Item>
+                                    <Dropdown.Item>Infants</Dropdown.Item>
+                                    <Dropdown.Item>Pets</Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
+
+
+                            <button className='sidenav-submit'>Reserve</button>
+                            <p className='under-line-reserve'>You won't be charged yet</p>
+                            <div className='fees'>
+                                <span className='total-nights'>{stay.price} x 5 nights</span>
+                                <span className='nights-fee'>₪981</span>
+                            </div>
+                            <div className='service'>
+                                <span className='service-txt'>Service fee</span>
+                                <span className='service-fee'>₪150</span>
+                            </div>
+                            <div className='reserve-total'>
+                                <span>Total</span>
+                                <span>₪1,216</span>
+                            </div>
+                    </form>
                 </section >
 
                 <section className='details-calendar reserve-border'>
@@ -373,11 +273,13 @@ export const StayDetails = () => {
                         {
                             stay.reviews.map((review, index) => {
                                 if (index < 6) {
-                                    // console.log(review.txt.length)
-                                    if (review.txt.length > 140) { // prep for read more
+                                    console.log(review.txt.length)
+                                    if (review.txt.length > 140) {
                                         const reviewText = review
+                                        console.log('first', reviewText)
                                     } else {
                                         const reviewText = review
+                                        console.log('second', reviewText)
                                     }
                                     return (
                                         <div className='review'>
@@ -403,6 +305,6 @@ export const StayDetails = () => {
                 </div>
             </section>
 
-    </div>
-)
+        </div >
+    )
 }
