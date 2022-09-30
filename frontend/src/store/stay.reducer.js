@@ -1,9 +1,11 @@
 const initialState = {
   stays: [],
+  countStays: [],
   cart: [],
   lastRemovedStay: null,
   test: true,
   test2: false,
+  filterBy:{name:'',type:'',amenities:'',price:0,room:{bathrooms:0,bedrooms:0,roomType:''}}
 }
 export function stayReducer(state = initialState, action) {
   var newState = state
@@ -11,8 +13,12 @@ export function stayReducer(state = initialState, action) {
   var cart
   switch (action.type) {
     case 'SET_STAYS':
-      console.log('SET_STAYS:', action)
+      console.log('SET_STAYS:', action.stays)
       newState = { ...state, stays: action.stays }
+      break
+    case 'SET_COUNT_STAYS':
+      console.log('SET_COUNT_STAYS:', action.stays)
+      newState = { ...state, countStays: action.stays }
       break
     case 'REMOVE_STAY':
       const lastRemovedStay = state.stays.find(

@@ -23,13 +23,31 @@ export function getActionUpdateStay(stay) {
 }
 
 export function loadStays(filterBy) {
+  console.log('filterBy from action:',filterBy )
   return async (dispatch) => {
     try {
-      console.log('filterBy from action:', filterBy)
+      console.log('filterBy from action2:', filterBy)
       const stays = await stayService.query(filterBy)
       console.log('Stays from DB action:', stays)
       dispatch({
         type: 'SET_STAYS',
+        stays,
+      })
+    } catch (err) {
+      showErrorMsg('Cannot load stays')
+      console.log('Cannot load stays', err)
+    }
+  }
+}
+export function countStays(filterBy) {
+  console.log('filterBy from action:',filterBy )
+  return async (dispatch) => {
+    try {
+      console.log('filterBy from action2:', filterBy)
+      const stays = await stayService.query(filterBy)
+      console.log('Stays from DB action:', stays)
+      dispatch({
+        type: 'SET_COUNT_STAYS',
         stays,
       })
     } catch (err) {

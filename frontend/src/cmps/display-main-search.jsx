@@ -3,8 +3,9 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { ModalCalendarFilter } from './modal-calendar-filter'
 import { ModalMapFilter } from './modal-map-filter'
 import { WhoFilter } from './modal-who-filter'
-
+import { Link } from 'react-router-dom'
 import { BiSearch } from 'react-icons/bi'
+import pinMap from '../assets/img/pin-map.png'
 
 export const DisplayMainSearch = () => {
   const [type, setType] = useState({
@@ -15,10 +16,18 @@ export const DisplayMainSearch = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [filterBy, setFilterBy] = useState({ txt: '' })
   const navigate = useNavigate()
+  const inputRef = useRef()
+
+  useEffect(() => {
+    console.log('hellooo:')
+    // inputRef.current.focus()
+  },[])
+  
 
   const openInputSearch = () => {
     console.log(isSearchOpen)
     setIsSearchOpen(!isSearchOpen)
+   
   }
   const handleChange = ({ target }) => {
     const field = target.name
@@ -28,25 +37,77 @@ export const DisplayMainSearch = () => {
   }
 
   const doSearch = () => {
-    console.log('doSearch:')
+    
+    setIsSearchOpen(!isSearchOpen)
     navigate(`/stay/explore/${filterBy.txt}`)
   }
 
   return (
     <section className="display-main-search">
       <div className="top-header-selected">
+        
+        <Link to={``}>
         <button>Stays</button>
+        </Link>
+        
+        <Link to={`/stay/explore/Lakefront`} >
         <button>Experiences</button>
+        </Link>
+        <Link to={`/stay/explore/National parks`} >
         <button>Online Experiences</button>
+        </Link>
+       
       </div>
       <div className="bottom-header-selected">
         <article className="where">
           <button className=" btn-where" onClick={openInputSearch}>
-            {!isSearchOpen && <ModalMapFilter />}
+          {!isSearchOpen && (
+            <div className="btn-txt-where">
+          <h3>Where</h3>
+          <h4>Search destinations</h4>
+          </div>)}
           </button>
+            {(isSearchOpen&&!filterBy.txt ) && <ModalMapFilter />}
+            {(isSearchOpen&&filterBy.txt )&&
+             (<section className="filter-search-list">
+              <ul>
+                <Link to={`/stay/explore/us`} >
+                <li>
+                       <img src={pinMap} />
+                       <h4>United States</h4>
+                </li>
+                  </Link>
+                <Link to={`/stay/explore/Canada`} >
+                <li>
+                       <img src={pinMap} />
+                       <h4>Canada</h4>
+                </li>
+                  </Link>
+                <Link to={`/stay/explore/Portugal`} >
+                <li>
+                       <img src={pinMap} />
+                       <h4>Portugal</h4>
+                </li>
+                  </Link>
+                <Link to={`/stay/explore/Spain`} >
+                <li>
+                       <img src={pinMap} />
+                       <h4>Spain</h4>
+                </li>
+                  </Link>
+                <Link to={`/stay/explore/Turkey`} >
+                <li>
+                       <img src={pinMap} />
+                       <h4>Turkey</h4>
+                </li>
+                  </Link>
+              </ul>
+
+             </section>)}
           {isSearchOpen && (
             <input
-              type="text"
+            ref={inputRef}
+            type="text"
               name="txt"
               placeholder="Search..."
               value={filterBy.txt}

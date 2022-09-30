@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 
+
 const flatpickr = require('flatpickr')
 
 // import { FormFilterModal } from './form-filter-modal'
@@ -24,7 +25,8 @@ export const WhoFilter = () => {
           <Modal.Header closeButton>
             <Modal.Title>choose dates</Modal.Title>
           </Modal.Header>
-          <Modal.Body>Calendar</Modal.Body>
+
+          <Modal.Body></Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
               Exact dates

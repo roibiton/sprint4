@@ -9,13 +9,15 @@ import { StayList } from '../cmps/stay-list'
 export const Explore = () => {
   const { stays } = useSelector((state) => state.stayModule)
   const dispatch = useDispatch()
+  const queryParams = useParams()
 
   useEffect(() => {
-    setTimeout(doLoadStays, 400)
-  }, [])
+  doLoadStays()
+  }, [queryParams])
 
-  const params = useParams()
-  console.log('params:', params)
+  
+  console.log('queryParams:', queryParams)
+var params =queryParams
 
   const doLoadStays = () => {
     dispatch(loadStays(params))

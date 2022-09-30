@@ -1,16 +1,17 @@
 .app-header {
-  width: 95%;
+  // width: 95%;
   margin-inline-start: auto;
   margin-inline-end: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 10px;
+  border-bottom: 1px solid gray;
+  margin-bottom:20px;
 
   .top-header {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid gray;
     margin-top: 10px;
     width: 100%;
 
@@ -31,6 +32,7 @@
     margin-top: 10px;
     position: relative;
     display: flex;
+   
   }
   .main-search button {
     width: 100%;

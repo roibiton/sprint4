@@ -38,7 +38,7 @@ export const StayDetails = () => {
         const [showDropdown, setShowDropdown] = useState('showDropdown-reserve')
         const params = useParams()
         const loggedInUser = userService.getLoggedinUser()
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
         
 
     useEffect(() => {

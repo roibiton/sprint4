@@ -175,3 +175,31 @@
   text-align: center;
   height: 3em;
 }
+
+.filter-search-list{
+   background-color: white;
+   width:300px;
+   height:360px;
+   position:relative;
+   z-index:10;
+   border-radius:1em;
+   border:1px solid gray;
+   
+   li{
+     color:black;
+    display:flex;
+    margin:20px 0px;
+    list-style:none;
+   }
+   img{
+    width:3em;
+    height:3em;
+    border-radius:1em;
+    border:1px solid gray;
+    margin-right:20px;
+   }
+   h4{
+    margin-top:10px;
+    font-size:22px;
+   }
+}

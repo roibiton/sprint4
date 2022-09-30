@@ -28,7 +28,17 @@ const routes = [
     label: 'Details',
   },
   {
-    path: 'stay/explore/:filter',
+    path: 'stay/explore/:name',
+    component: <Explore />,
+    label: 'Explore',
+  },
+  {
+    path: 'stay/explore/type/:type',
+    component: <Explore />,
+    label: 'Explore',
+  },
+  {
+    path: 'stay/explore/amenities/:amenities/room/:room',
     component: <Explore />,
     label: 'Explore',
   },
