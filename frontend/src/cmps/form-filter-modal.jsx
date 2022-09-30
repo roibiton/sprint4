@@ -29,7 +29,7 @@ export const FormFilterModal =({setDataFilterBy ,filterBy})=> {
     return (
       <div>
         <h3 className="title-element">{element}</h3>
-        <button className="btn btn-room any" >Any</button>
+        <button className="btn btn-room any" onClick={()=>{onSelectedBedAndRoom(element,0)}}>Any</button>
         <button className="btn btn-room" onClick={()=>{onSelectedBedAndRoom(element,1)}}>1</button>
         <button className="btn btn-room" onClick={()=>{onSelectedBedAndRoom(element,2)}}>2</button>
         <button className="btn btn-room" onClick={()=>{onSelectedBedAndRoom(element,3)}}>3</button>

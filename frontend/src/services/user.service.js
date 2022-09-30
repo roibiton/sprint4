@@ -61,7 +61,7 @@ async function update(user) {
 
 async function login(userCred) {
     const users = await storageService.query('user')
-    const user = users.find(user => user.username === userCred.username)
+    const user = users.find(user => user.fullname === userCred.username)
     // const user = await httpService.post('auth/login', userCred)
     if (user) {
         // socketService.login(user._id)
@@ -69,7 +69,7 @@ async function login(userCred) {
     }
 }
 async function signup(userCred) {
-    userCred.score = 10000;
+    // userCred.score = 10000;
     const user = await storageService.post('user', userCred)
     // const user = await httpService.post('auth/signup', userCred)
     // socketService.login(user._id)
@@ -105,6 +105,16 @@ function getLoggedinUser() {
     //     await userService.signup({_id: 'u102', fullname: 'Master Adminov', username: 'admin', password:'123', score: 10000, isAdmin: true})
     //     await userService.signup({_id: 'u103', fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
     // })()
+    // ;(async ()=>{
+    //     await userService.signup({_id: 'u101', fullname: "Puki", username: "puki",password: "1234",imgUrl: "https://xsgames.co/randomusers/assets/avatars/male/1.jpg", isAdmin: true})
+    //     await userService.signup({_id: 'u102', fullname: "Edgar", username: "75091963",password: "Edgar",imgUrl: "https://xsgames.co/randomusers/assets/avatars/male/2.jpg", isAdmin: false})
+    //     await userService.signup({_id: 'u103', fullname: "Leo", username: "75091962",password: "Leo",imgUrl: "https://xsgames.co/randomusers/assets/avatars/male/3.jpg", isAdmin: false})
+    //     await userService.signup({_id: 'u104', fullname: "Margaux", username: "75091961",password: "Margaux",imgUrl: "https://xsgames.co/randomusers/assets/avatars/male/4.jpg", isAdmin: false})
+    //     await userService.signup({_id: 'u109', fullname: "Roti", username: "75091968",password: "1234",imgUrl: "https://xsgames.co/randomusers/assets/avatars/female/3.jpg", isAdmin: false})
+    //     await userService.signup({_id: 'u110', fullname: "Francine", username: "75091969",password: "Francine",imgUrl: "https://xsgames.co/randomusers/assets/avatars/female/4.jpg", isAdmin: false})
+       
+    // })()
 
-
+   
+	
 

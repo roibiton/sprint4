@@ -73,7 +73,7 @@ const routes = [
     label: 'Admin Only',
   },
   {
-    path: 'login',
+    path: 'login/:login',
     component: <LogInApp />,
     label: 'log in',
   },

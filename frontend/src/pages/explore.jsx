@@ -17,7 +17,39 @@ export const Explore = () => {
 
   
   console.log('queryParams:', queryParams)
-var params =queryParams
+
+
+
+const getParams = () => {
+  
+  if (queryParams.name)return queryParams
+  
+  else if (queryParams.type)return queryParams
+  // {
+  //   'amenities':{'Wifi':false ,'Washer':false ,'AirConditioning':false ,'Kitchen':false , }
+  //   ,'price':0,
+  //   'room':{bathrooms:0,bedrooms:0,roomType:''}}
+  else{
+   const amenities = queryParams.amenities.split('&&').map((item)=>{
+   const items=item.split('=')
+   return {[items[0]]:items[1].trim()}
+   })
+   const room = queryParams.room.split('&&').map((item)=>{
+   const items=item.split('=')
+   return {[items[0]]:items[1]}
+   })
+   
+console.log('amenities:',amenities)
+console.log('room:',room)
+return {
+  'amenities':{...amenities[0],...amenities[1],...amenities[2],...amenities[3]},
+  'room':{...room[0],...room[1],...room[2]}
+}
+
+  }
+}
+
+var params =getParams()
 
   const doLoadStays = () => {
     dispatch(loadStays(params))
