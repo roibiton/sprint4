@@ -34,8 +34,8 @@ export const StayDetails = () => {
 
 
         // Prints the output as an object
-            const [stay, setStay] = useState(null)
-        const [showDropdown, setShowDropdown] = useState('showDropdown-reserve')
+        const [stay, setStay] = useState(null)
+        const [toggleDropdown, setToggleDropdown] = useState('toggleDropdown-reserve')
         const params = useParams()
         const loggedInUser = userService.getLoggedinUser()
     // const navigate = useNavigate()
