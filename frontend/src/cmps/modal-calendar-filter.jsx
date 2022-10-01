@@ -1,44 +1,62 @@
-import React, { useState } from 'react'
-import Button from 'react-bootstrap/Button'
-import Modal from 'react-bootstrap/Modal'
+import "../assets/styles/cmps/react_dates_overrides.css"
+import React, { useState } from "react"
+import "react-dates/initialize"
+// import "react-dates/lib/css/_datepicker.css"
+import { FaRegKeyboard } from "react-icons/fa";
 
-// const flatpickr = require('flatpickr')
+import { DayPickerRangeController } from "react-dates"
 
-import { CalendarFilter } from './calendar-filter'
+import moment from "moment"
 
-export const ModalCalendarFilter = () => {
-  const [show, setShow] = useState(false)
+export const ModalCalendarFilter=({type})=> {
+    const [dates, setDates] = useState({ startDate: null, endDate: null })
+    const [isDayPicker, setIsDayPicker] = useState(false)
+// console.log('type:',type)
+    const defaultFocusedInput = "startDate"
+    const [focusedInput, setFocusedInput] = useState(defaultFocusedInput)
+    const handleDatesChange = (dates) => {
+        setDates(dates)
+    }
 
-  const handleClose = () => setShow(false)
-  const handleShow = () => setShow(true)
+    const onFocusChange = (focusedInput) => {
+        // console.log(onFocusChange)
+        setFocusedInput(focusedInput)
+    }
 
-  return (
-    <div className="modal-calendar">
-      <section className="calendar-filter">
-        <Button variant="primary" onClick={handleShow}>
-          <h2>Check in</h2>
-          <h3>Add dates</h3>
-        </Button>
+    //   const renderDate = (date) => {
+    //     return date ? moment(date).format("MM/DD/YY") : null
+    //   }
 
-        <Modal show={show} onHide={handleClose} className="modal-calendar">
-          <Modal.Header closeButton>
-            <Modal.Title>choose dates</Modal.Title>
-          </Modal.Header>
-          <Modal.Body className="calendar-filter-body">
-            <section>
-              <CalendarFilter />
-            </section>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Exact dates
-            </Button>
-            {/* <Button variant="primary" onClick={handleClose}>
-            Show Stays
-          </Button> */}
-          </Modal.Footer>
-        </Modal>
-      </section>
-    </div>
-  )
+    return (
+      <section className="header-filter-calendar">
+        <button onClick={()=>{setIsDayPicker(!isDayPicker)}}>
+        <h3 >Check in</h3>
+            <h4>Add dates</h4>
+        </button>
+            {/* <h1>
+            {renderDate(dates.startDate)} | {renderDate(dates.endDate)}
+            </h1> */}
+            {/* <h3 className="details-calendar-headline">Check in</h3>
+            <span>Add dates</span> */}
+            {/* <Wrapper> */}
+            <div className="content-filter-calendar">
+              {isDayPicker&&(
+            <DayPickerRangeController
+         
+                startDate={dates.startDate}
+                endDate={dates.endDate}
+                onDatesChange={handleDatesChange}
+                focusedInput={focusedInput || defaultFocusedInput}
+                onFocusChange={onFocusChange}
+                numberOfMonths={2}
+                showClearDates={true}
+                // renderKeyboardShortcutsButton={<FaRegKeyboard />}
+                // minimumNights={3}
+            />)}
+            {/* </Wrapper> */}
+        </div>
+        </section>
+    )
 }
+
+

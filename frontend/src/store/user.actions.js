@@ -26,14 +26,21 @@ export function removeUser(userId) {
   }
 }
 
-export function onLogin(credentials) {
+export function onLogin(newUser) {
   return async (dispatch) => {
     try {
-      const user = await userService.login(credentials)
+      const credentials = await userService.login(newUser)
+      if(credentials){
       dispatch({
         type: 'SET_USER',
-        user,
-      })
+        credentials,
+      })}
+      else{
+        dispatch({
+          type: 'SET_MSG',
+          msg:'Do you need to sign up?'
+        })
+      }
     } catch (err) {
       showErrorMsg('Cannot login')
       console.log('Cannot login', err)
@@ -41,11 +48,10 @@ export function onLogin(credentials) {
   }
 }
 
-export function onSignup(credentials) {
-  console.log('onSignup:', credentials)
+export function onSignup(newUser) {
   return async (dispatch) => {
     try {
-      // const user = await userService.signup(credentials)
+      const credentials = await userService.signup(newUser)
       dispatch({
         type: 'SET_USER',
         credentials,
@@ -60,7 +66,7 @@ export function onSignup(credentials) {
 export function onLogout() {
   return async (dispatch) => {
     try {
-      // await userService.logout()
+      await userService.logout()
       dispatch({
         type: 'SET_USER',
         user: null,

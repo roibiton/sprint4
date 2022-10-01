@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 
+
 const flatpickr = require('flatpickr')
 
 // import { FormFilterModal } from './form-filter-modal'
@@ -16,15 +17,16 @@ export const WhoFilter = () => {
     <div className="modal-who">
       <section className="calendar-filter">
         <Button variant="primary" onClick={handleShow}>
-          <h2>Who</h2>
-          <h3>Add guests</h3>
+          <h3>Who</h3>
+          <h4>Add guests</h4>
         </Button>
 
         <Modal show={show} onHide={handleClose} className="modal-who">
           <Modal.Header closeButton>
             <Modal.Title>choose dates</Modal.Title>
           </Modal.Header>
-          <Modal.Body>Calendar</Modal.Body>
+
+          <Modal.Body></Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
               Exact dates

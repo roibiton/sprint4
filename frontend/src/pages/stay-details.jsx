@@ -33,12 +33,13 @@ export const StayDetails = () => {
     // console.log(process.showMemory())
 
 
-    // Prints the output as an object
-    const [stay, setStay] = useState(null)
-    const [toggleDropdown, setToggleDropdown] = useState(false)
-    const params = useParams()
-    // const [user, setUser] = useState(userService.getLoggedinUser())
-
+        // Prints the output as an object
+            const [stay, setStay] = useState(null)
+        const [showDropdown, setShowDropdown] = useState('showDropdown-reserve')
+        const params = useParams()
+        const loggedInUser = userService.getLoggedinUser()
+    // const navigate = useNavigate()
+        
 
 
     const [guestsNum, setGuestsNum] = useState({

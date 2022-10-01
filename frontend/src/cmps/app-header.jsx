@@ -33,6 +33,7 @@ export const AppHeader = () => {
 
   return (
     <header className="app-header ">
+     <div className="main-layout ">
       <div className="top-header">
         <NavLink key="//" to="/">
           <div className="main-logo">
@@ -58,6 +59,7 @@ export const AppHeader = () => {
         <div className="btn-filter">
           <ModalFilter />
         </div>
+      </div>
       </div>
     </header>
   )
