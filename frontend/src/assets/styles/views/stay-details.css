@@ -412,7 +412,7 @@
 
 .button-23 {
     background-color: #FFFFFF;
-    border: 3px solid #222222;
+    border: 1px solid #222222;
     border-radius: 8px;
     box-sizing: border-box;
     color: #222222;
@@ -589,10 +589,10 @@ span.reserve-reviews {
     /* margin-top: 15px; */
     width: 100%;
     height: 50px;
-    cursor: pointer;
+    /* cursor: pointer; */
     caret-color: transparent;
     border-top: 1px solid #00000050;
-
+    cursor: pointer;
 }
 
 .guests-input::before {
@@ -635,51 +635,119 @@ span.reserve-reviews {
 .guests-input .reserve-guests-options {
     position: absolute;
     top: 4em;
-    width: 130%;
-    margin-left: -5em;
-    background: #fff;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-    /* border-radius: 10px; */
-    overflow: hidden;
-    z-index: 1;
-    display: none;
     border-radius: 4px;
+    background-color: aqua;
+    width: 112%;
+    margin-left: -2em;
+    background: #fff;
+    /* box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); */
+    /* border-radius: 10px; */
+    /* overflow: hidden; */
+    z-index: 100;
+    display: block;
+    /* border-radius: 4px; */
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: space-between; */
+    /* padding: .9em 1.8em; */
+    /* cursor: pointer; */
     
-    /* box-shadow: rgb(0 0 0) 0px 2px 6px, rgb(0 0 0) 0px 0px 0px 1px; */
+    /* box-shadow: rgba(0, 0, 0, 0.49) 0px 2px 6px, rgba(0, 0, 0, 0.49) 0px 0px 0px 1px; */
 
 }
 
-.guests-input:active .reserve-guests-options {
+/* .guests-input:active .reserve-guests-options {
+    display: block;
+} */
+
+/* .toggleDropdown-reserve {
     display: none;
+} */
+
+.reserve-pets {
+    text-decoration: underline;
+    font-weight: 600;
+    width: 160px;
+    word-wrap: break-word;
+    margin-right: 13px;
 }
 
-.showDropdown-reserve {
-    display: none;
+.reserve-guests-options {
+    box-shadow: rgba(128, 128, 128, 0.52) 0px 6px 16px;
+    display: flex;
+    align-items: center;
+    padding: 16px
+    /* border: 1px black solid; */
 }
 
-.guests-input .reserve-guests-options div {
-    padding: .9em 1.8em;
-    cursor: pointer;
+.reserve-guests-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* padding: .9em 1.8em; */
+    /* cursor: pointer; */
+    -webkit-box-align: center !important;
     
 }
 
-.guests-input .reserve-guests-options div:hover {
-    background: #62baea;
-    color: #fff;
+.age-group-container {
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.age-group-counter {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    margin-top: 8px;
 }
 
 .reserve-counter-headline {
-    display: flex;
+    font-weight: 700;
+    flex: 1 1 0%;
+    padding-bottom: 4px;
 }
 
 .reserve-counter {
     display: flex;
+    align-items: baseline;
 }
 
-/* .reserve-participants {
-    display: flex;
-} */
+.reserve-participants {
+    font-size: .9em
+}
 
 .guest-count {
     display: flex;
+}
+
+.circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    /* padding: 8px; */
+    background: #fff;
+    border: 2px solid #666;
+    color: #666;
+    text-align: center;
+}
+
+.reserve-counter-capicity {
+    font-size: .7em;
+    line-height: 1px;
+    color: rgb(34, 34, 34);
+    margin-bottom: 16px;
+}
+
+.close-reserve-counter {
+    border: 0px transparent none;
+    text-decoration: underline;
+    float: right;
+    
 }

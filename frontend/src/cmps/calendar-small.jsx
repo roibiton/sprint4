@@ -32,7 +32,7 @@ export default function App() {
                 small={true}
                 startDatePlaceholderText='CheckIn'
                 endDatePlaceholderText='CheckOut'
-                startDateAriaLabel='erw'
+                startDateAriaLabel=''
                 // id="datetime-local"
                 // name="endDate"
                 // label="End date"
