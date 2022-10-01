@@ -6,6 +6,8 @@ import { stayService } from '../services/stay.service'
 import { loadStays, setFilterBy } from '../store/stay.actions'
 import { StayList } from '../cmps/stay-list'
 
+import LoadingScreen from "react-loading-screen"
+
 export const Explore = () => {
   const { stays } = useSelector((state) => state.stayModule)
   const dispatch = useDispatch()
@@ -60,7 +62,14 @@ var params =getParams()
     stayService.remove()
   }
 
-  if (!stays) return <div>Loading...</div>
+  if (!stays) return <LoadingScreen
+  loading={true}
+  bgColor="rgba(255,255,255,0.5)"
+  spinnerColor="#4850b9"
+  textColor="#676767"
+  logoSrc=""
+  text="details loading!"
+>  {" "}</LoadingScreen>
   return (
     <section className="explore main-layout">
       <StayList stays={stays} onRemoveStay={onRemoveStay} />

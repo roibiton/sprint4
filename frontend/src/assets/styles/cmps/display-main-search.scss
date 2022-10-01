@@ -1,13 +1,13 @@
 .top-header {
   .display-main-search {
-    width: 85%;
+    width: 1000px;
     margin-top: 20px;
     margin-bottom: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+font-size:18px;
     button {
       background: none;
       color: black;
@@ -29,12 +29,15 @@
       border-radius: 3em;
       display: flex;
       align-items: center;
+      justify-content: left;
 
       article.where {
         position: relative;
         height: 100%;
-        width: 30%;
-
+        width: 330px;
+      .btn-where{
+        margin-top:18px;
+      }
         .btn.btn-primary {
           width: 80%;
           top: 0;
@@ -47,46 +50,50 @@
           color: black;
         }
       }
+      article.where.active{
+        background:white;
+        border-radius: 3em;
+        border:1px solid rgb(234, 231, 231);
+      }
       article.check-in {
+        // background:red;
         position: relative;
         height: 100%;
-        width: 20%;
-        .btn.btn-primary {
-          width: 100%;
-          top: 0;
-          border: none;
+        width: 180px;
+        // margin-left:-40px;
+        // margin-top:-25px;
+        .btn-check-in{
+          width: 200px;
+          padding-right:20px;
+          padding-top:0px;
+          margin-left:-20px;
+          // margin-right:0px;
+        // margin-top:-25px;
         }
-        .btn.btn-primary:hover {
-          border: none;
-          box-shadow: none;
-          background: none;
-          color: black;
-        }
+        
+        
       }
       article.check-out {
         position: relative;
         height: 100%;
-        width: 20%;
-        .btn.btn-primary {
-          width: 100%;
-          top: 0;
-          border: none;
+        width: 180px;
+        .btn-check-out{
+          margin-top:18px;
         }
-        .btn.btn-primary:hover {
-          border: none;
-          box-shadow: none;
-          background: none;
-          color: black;
-        }
+        
       }
       article.who-search {
         position: relative;
         height: 100%;
-        width: 30%;
+        width: 350px;
         display: flex;
+        
         .btn.btn-primary {
-          width: 120%;
-          top: 0;
+          // background:red;
+          width: 160px;
+          margin-left:-10px;
+      margin-right:-30px;
+      margin-top:0px;
           border: none;
         }
         .btn.btn-primary:hover {
@@ -102,7 +109,7 @@
       }
 
       .btn-border {
-        border-left: 1px solid gray;
+        border-right: 1px solid gray;
       }
 
       button {
@@ -115,10 +122,15 @@
       }
 
       h2 {
-        font-size: 14px;
+        font-size: 18px;
+        // background:red;
       }
       h3 {
-        font-size: 14px;
+        font-size: 18px;
+        color: black;
+      }
+      h4{
+        font-size: 18px;
         color: gray;
       }
 

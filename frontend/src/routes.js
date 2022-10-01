@@ -9,6 +9,7 @@ import { StayDetails } from './pages/stay-details.jsx'
 import { UserDetails } from './pages/user-details.jsx'
 import { Explore } from './pages/explore.jsx'
 import { LogInApp } from './pages/login.jsx'
+import { BecomeHost } from './pages/become-host.jsx'
 
 // Routes accesible from the main navigation (in AppHeader)
 const routes = [
@@ -81,6 +82,11 @@ const routes = [
     path: 'user-details/:id',
     component: <UserDetails />,
     label: 'user-details',
+  },
+  {
+    path: 'become-host',
+    component: <BecomeHost />,
+    label: 'become-host',
   },
 ]
 

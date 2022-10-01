@@ -53,7 +53,7 @@ export const LogInApp = () => {
     event.preventDefault()
     const data = new FormData(event.currentTarget)
     const credentials = {
-      username: data.get('username'),
+      fullname: data.get('fullname'),
       password:  data.get('password'),
       email: isLogIn?'': data.get('email'),
       country: isLogIn?'': data.get('country'),
@@ -93,10 +93,10 @@ export const LogInApp = () => {
               margin="normal"
               required
               fullWidth
-              id="username"
-              label="User Name"
-              name="username"
-              autoComplete="username"
+              id="fullname"
+              label="Fullname"
+              name="fullname"
+              autoComplete="fullname"
               autoFocus
             />
             <TextField

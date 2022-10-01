@@ -1,32 +1,42 @@
-.calendar-filter {
-  button.btn.btn-primary {
-    width: 9em;
-    height: 100%;
-    left: 30%;
-    top: -3px;
+.header-filter-calendar{
+  // background: red;
+  width:200px;
+  // .content-filter-calendar{
+  //   background: red;
+  //   width:700px;
+  //   position:relative;
+  //   z-index:10;
+  // }
 
-    display: flex;
-    flex-direction: column;
-    background: none;
-    border: none;
+  .DayPicker.DayPicker_1{
+    right:50px;
+    background: white;
+    z-index:10;
+    margin:20px 20px;
+    
   }
-  button.btn.btn-primary:hover {
-    border: none;
-    box-shadow: none;
+  
+  .DayPicker_weekHeaders.DayPicker_weekHeaders_1{
+    // background: blue;
+    width:300px;
+    
+    
   }
+  
+  .CalendarMonth.CalendarMonth_1{
+    // background: orange;
+    width:270px;
+    margin-top:10px;
+    
+  }
+  
 }
 
-.modal-calendar {
-  // top: 10vh;
-  // width: 70vw;
-  // height: 70vh;
-  // background-color: aqua;
-  .calendar-filter-body {
-    // background-color: aquamarine;
 
-    .calendar-filter {
-      width: 90%;
-      height: 50%;
-    }
-  }
-}
+
+
+
+
+
+
+

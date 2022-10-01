@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom'
 import { BiSearch } from 'react-icons/bi'
 import pinMap from '../assets/img/pin-map.png'
 
+// import ModalCalendarFilter from '../cmps/calendar-large';
+
 export const DisplayMainSearch = () => {
   const [type, setType] = useState({
     stays: true,
@@ -29,7 +31,9 @@ export const DisplayMainSearch = () => {
     setIsSearchOpen(!isSearchOpen)
    
   }
-  const handleChange = ({ target }) => {
+  const handleChange = (ev) => {
+    ev.preventDefault()
+    const target=ev.target
     const field = target.name
     let value = target.type === 'range' ? +target.value : target.value
 
@@ -40,6 +44,10 @@ export const DisplayMainSearch = () => {
     
     setIsSearchOpen(!isSearchOpen)
     navigate(`/stay/explore/${filterBy.txt}`)
+  }
+
+  const getClassName=()=>{
+  return !isSearchOpen?'where':'where active'
   }
 
   return (
@@ -58,9 +66,9 @@ export const DisplayMainSearch = () => {
         </Link>
        
       </div>
-      <div className="bottom-header-selected">
-        <article className="where">
-          <button className=" btn-where" onClick={openInputSearch}>
+      <div className='bottom-header-selected'>
+        <article className={getClassName()}>
+          <button className=" btn-where btn-border" onClick={openInputSearch}>
           {!isSearchOpen && (
             <div className="btn-txt-where">
           <h3>Where</h3>
@@ -116,21 +124,25 @@ export const DisplayMainSearch = () => {
             />
           )}
         </article>
-
+        
+ 
         <article className="check-in">
           <button className="btn-border btn-check-in">
-            <ModalCalendarFilter />
+            <ModalCalendarFilter type={'check-in'}/>
+            {/* <DatePicker /> */}
           </button>
         </article>
 
         <article className="check-out">
           <button className="btn-border btn-check-out">
-            <ModalCalendarFilter />
+            {/* <ModalCalendarFilter type={'check-out'}/> */}
+            <h3 >Check out</h3>
+            <h4>Add dates</h4>
           </button>
         </article>
 
         <article className="who-search">
-          <button className="btn-border btn-who">
+          <button className=" btn-who">
             <WhoFilter />
           </button>
           <button className="btn-search" onClick={doSearch}>

@@ -2,6 +2,8 @@ import React from 'react'
 import Dropdown from 'react-bootstrap/Dropdown'
 import {  useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import { ModalLogin } from './modal-login'
 
 import { BsPersonCircle } from 'react-icons/bs'
@@ -13,6 +15,7 @@ import { onLogout} from '../store/user.actions.js'
 export function AppUser() {
   const { user } = useSelector((state) => state.userModule)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   
    useEffect(() => {
     console.log('user:', user)
@@ -20,7 +23,7 @@ export function AppUser() {
 
   return (
     <section className="user-login">
-      {user&& <button className="host">Become a Host</button>}
+      {user&& <button className="host" onClick={()=>{navigate(`/become-host`)}}>Become a Host</button>}
      
       <Dropdown>
         <Dropdown.Toggle variant="success" id="dropdown-basic">
