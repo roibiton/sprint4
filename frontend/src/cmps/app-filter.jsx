@@ -5,30 +5,29 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 //---------ICONS-------------
 
-import {
-  FaCampground,
-  FaCity,
-  FaHome,
-  FaSwimmingPool,
-  FaUmbrellaBeach,
-} from 'react-icons/fa'
-import { SiInkscape } from 'react-icons/si'
-import { BiSliderAlt } from 'react-icons/bi'
-import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
-import { GrOverview } from 'react-icons/gr'
-import {
-  GiFamilyHouse,
-  GiIsland,
-  GiPalmTree,
-  GiWaveSurfer,
-  GiWoodCabin,
-  GiMushroomHouse,
-  GiPisaTower,
-  GiCaveEntrance,
-  GiFarmTractor,
-  GiCastle,
-  GiChefToque,
-} from 'react-icons/gi'
+import AmazingPools from '../assets/img/img-icon-carousel/AmazingPools.jpeg'
+import AmazingViews from '../assets/img/img-icon-carousel/AmazingViews.jpeg'
+import Arctic from '../assets/img/img-icon-carousel/Arctic.jpeg'
+import Beach from '../assets/img/img-icon-carousel/Beach.jpeg'
+import Beachfront from '../assets/img/img-icon-carousel/Beachfront.jpeg'
+import Cabins from '../assets/img/img-icon-carousel/Cabins.jpeg'
+import Camping from '../assets/img/img-icon-carousel/Camping.jpeg'
+import Castles from '../assets/img/img-icon-carousel/Castles.jpeg'
+import Caves from '../assets/img/img-icon-carousel/Caves.jpeg'
+import Countryside from '../assets/img/img-icon-carousel/Countryside.jpeg'
+import Desert from '../assets/img/img-icon-carousel/Desert.jpeg'
+import Design from '../assets/img/img-icon-carousel/Design.jpeg'
+import Domes from '../assets/img/img-icon-carousel/Domes.jpeg'
+import Farms from '../assets/img/img-icon-carousel/Farms.jpeg'
+import Islands from '../assets/img/img-icon-carousel/Islands.jpeg'
+import Lakefront from '../assets/img/img-icon-carousel/Lakefront.jpeg'
+import Luxe from '../assets/img/img-icon-carousel/Luxe.jpeg'
+import NationalParks from '../assets/img/img-icon-carousel/NationalParks.jpeg'
+import OMG from '../assets/img/img-icon-carousel/OMG.jpeg'
+import Surfing from '../assets/img/img-icon-carousel/Surfing.jpeg'
+import Towers from '../assets/img/img-icon-carousel/Towers.jpeg'
+import Tropical from '../assets/img/img-icon-carousel/Tropical.jpeg'
+import Yurts from '../assets/img/img-icon-carousel/Yurts.jpeg'
 
 export class AppFilter extends Component {
   render() {
@@ -70,190 +69,146 @@ export class AppFilter extends Component {
       <section className="container-carousel">
         <div className="main-carousel">
           <Slider {...settings}>
-            <Link to={`/stay/explore/Island`} className="explore">
-              <div>
-                <h3>
-                  <GiIsland />
-                </h3>
-                <h4>Island</h4>
+
+            <Link to={`/stay/explore/type/Amazing pools`} >
+              <div className="content-carousel">
+                <img src={AmazingPools} />
+                <h4>Amazing pools</h4>
               </div>
             </Link>
-            <Link to={`/stay/explore/Homes`} className="explore">
-              <div>
-                <h3>
-                  <FaHome />
-                </h3>
-                <h4>Homes</h4>
-              </div>
-            </Link>
-            <Link to={`/stay/explore/House`} className="explore">
-              <div>
-                <h3>
-                  <GiFamilyHouse />
-                </h3>
-                <h4>House</h4>
-              </div>
-            </Link>
-            <Link to={`/stay/explore/City`} className="explore">
-              <div>
-                <h3>
-                  <FaCity />
-                </h3>
-                <h4>City</h4>
-              </div>
-            </Link>
-            <Link to={`/stay/explore/Camping`} className="explore">
-              <div>
-                <h3>
-                  <FaCampground />
-                </h3>
-                <h4>Camping</h4>
-              </div>
-            </Link>
-            <Link to={`/stay/explore/Mounte`} className="explore">
-              <div>
-                <h3>
-                  <SiInkscape />
-                </h3>
-                <h4>Mounte</h4>
-              </div>
-            </Link>
-            <Link to={`/stay/explore/Beach`} className="explore">
-              <div>
-                <h3>
-                  <GiWaveSurfer />
-                </h3>
-                <h4>Beach</h4>
-              </div>
-            </Link>
-            <Link to={`/stay/explore/Tropical`} className="explore">
-              <div>
-                <h3>
-                  <GiPalmTree />
-                </h3>
-                <h4>Tropical</h4>
-              </div>
-            </Link>
-            <Link to={`/stay/explore/Pool`} className="explore">
-              <div>
-                <h3>
-                  <FaSwimmingPool />
-                </h3>
-                <h4>Pool</h4>
-              </div>
-            </Link>
-            <Link to={`/stay/explore/Beach`} className="explore">
-              <div>
-                <h3>
-                  <FaUmbrellaBeach />
-                </h3>
-                <h4>Beach</h4>
-              </div>
-            </Link>
-            <Link to={`/stay/explore/WoodCabin`} className="explore">
-              <div>
-                <h3>
-                  <GiWoodCabin />
-                </h3>
-                <h4>WoodCabin</h4>
-              </div>
-            </Link>
-            <Link to={`/stay/explore/Special`} className="explore">
-              <div>
-                <h3>
-                  <GiMushroomHouse />
-                </h3>
-                <h4>Special</h4>
-              </div>
-            </Link>
-            <Link to={`/stay/explore/FamilyHouse`} className="explore">
-              <div>
-                <h3>
-                  <GiFamilyHouse />
-                </h3>
-                <h4>FamilyHouse</h4>
-              </div>
-            </Link>
-            <Link to={`/stay/explore/Tower`} className="explore">
-              <div>
-                <h3>
-                  <GiPisaTower />
-                </h3>
-                <h4>Tower</h4>
-              </div>
-            </Link>
-            <Link to={`/stay/explore/Amazing-views`} className="explore">
-              <div>
-                <h3>
-                  <GrOverview />
-                </h3>
+            <Link to={`/stay/explore/type/Amazing views`} >
+              <div className="content-carousel">
+                <img src={AmazingViews} />
                 <h4>Amazing views</h4>
               </div>
             </Link>
-            <Link to={`/stay/explore/Cave`} className="explore">
-              <div>
-                <h3>
-                  <GiCaveEntrance />
-                </h3>
-                <h4>Cave</h4>
+            <Link to={`/stay/explore/type/Arctic`} >
+              <div className="content-carousel">
+                <img src={Arctic} />
+                <h4>Arctic</h4>
               </div>
             </Link>
-            <Link to={`/stay/explore/Farm`} className="explore">
-              <div>
-                <h3>
-                  <GiFarmTractor />
-                </h3>
-                <h4>Farm</h4>
-              </div>
-            </Link>
-            <Link to={`/stay/explore/Castle`} className="explore">
-              <div>
-                <h3>
-                  <GiCastle />
-                </h3>
-                <h4>Castle</h4>
-              </div>
-            </Link>
-            <Link to={`/stay/explore/Chef`} className="explore">
-              <div>
-                <h3>
-                  <GiChefToque />
-                </h3>
-                <h4>Chef</h4>
-              </div>
-            </Link>
-            <Link to={`/stay/explore/Beach`} className="explore">
-              <div>
-                <h3>
-                  <GiWaveSurfer />
-                </h3>
+            <Link to={`/stay/explore/type/Beach`} >
+              <div className="content-carousel">
+                <img src={Beach} />
                 <h4>Beach</h4>
               </div>
             </Link>
-            <Link to={`/stay/explore/Tropical`} className="explore">
-              <div>
-                <h3>
-                  <GiPalmTree />
-                </h3>
+            <Link to={`/stay/explore/type/Beachfront`} >
+              <div className="content-carousel">
+                <img src={Beachfront} />
+                <h4>Beachfront</h4>
+              </div>
+            </Link>
+            <Link to={`/stay/explore/type/Cabins`} >
+              <div className="content-carousel">
+                <img src={Cabins} />
+                <h4>Cabins</h4>
+              </div>
+            </Link>
+            <Link to={`/stay/explore/type/Camping`} >
+              <div className="content-carousel">
+                <img src={Camping} />
+                <h4>Camping</h4>
+              </div>
+            </Link>
+            <Link to={`/stay/explore/type/Castles`} >
+              <div className="content-carousel">
+                <img src={Castles} />
+                <h4>Castles</h4>
+              </div>
+            </Link>
+            <Link to={`/stay/explore/type/Caves`} >
+              <div className="content-carousel">
+                <img src={Caves} />
+                <h4>Caves</h4>
+              </div>
+            </Link>
+            <Link to={`/stay/explore/type/Countryside`} >
+              <div className="content-carousel">
+                <img src={Countryside} />
+                <h4>Countryside</h4>
+              </div>
+            </Link>
+            <Link to={`/stay/explore/type/Desert`} >
+              <div className="content-carousel">
+                <img src={Desert} />
+                <h4>Desert</h4>
+              </div>
+            </Link>
+            <Link to={`/stay/explore/type/Design`} >
+              <div className="content-carousel">
+                <img src={Design} />
+                <h4>Design</h4>
+              </div>
+            </Link>
+            <Link to={`/stay/explore/type/Domes`} >
+              <div className="content-carousel">
+                <img src={Domes} />
+                <h4>Domes</h4>
+              </div>
+            </Link>
+            <Link to={`/stay/explore/type/Farms`} >
+              <div className="content-carousel">
+                <img src={Farms} />
+                <h4>Farms</h4>
+              </div>
+            </Link>
+            <Link to={`/stay/explore/type/Islands`} >
+              <div className="content-carousel">
+                <img src={Islands} />
+                <h4>Islands</h4>
+              </div>
+            </Link>
+            <Link to={`/stay/explore/type/Lakefront`} >
+              <div className="content-carousel">
+                <img src={Lakefront} />
+                <h4>Lakefront</h4>
+              </div>
+            </Link>
+            <Link to={`/stay/explore/type/Luxe`} >
+              <div className="content-carousel">
+                <img src={Luxe} />
+                <h4>Luxe</h4>
+              </div>
+            </Link>
+            <Link to={`/stay/explore/type/National parks`} >
+              <div className="content-carousel">
+                <img src={NationalParks} />
+                <h4>National parks</h4>
+              </div>
+            </Link>
+            <Link to={`/stay/explore/type/OMG`} >
+              <div className="content-carousel">
+                <img src={OMG} />
+                <h4>OMG!</h4>
+              </div>
+            </Link>
+            <Link to={`/stay/explore/type/Surfing`} >
+              <div className="content-carousel">
+                <img src={Surfing} />
+                <h4>Surfing</h4>
+              </div>
+            </Link>
+            <Link to={`/stay/explore/type/Towers`} >
+              <div className="content-carousel">
+                <img src={Towers} />
+                <h4>Towers</h4>
+              </div>
+            </Link>
+            <Link to={`/stay/explore/type/Tropical`} >
+              <div className="content-carousel">
+                <img src={Tropical} />
                 <h4>Tropical</h4>
               </div>
             </Link>
-            <Link to={`/stay/explore/Pool`} className="explore">
-              <div>
-                <h3>
-                  <FaSwimmingPool />
-                </h3>
-                <h4>Pool</h4>
+            <Link to={`/stay/explore/type/Yurts`} >
+              <div className="content-carousel">
+                <img src={Yurts} />
+                <h4>Yurts</h4>
               </div>
             </Link>
-            <Link to={`/stay/explore/Beach`} className="explore">
-              <div>
-                <h3>
-                  <FaUmbrellaBeach />
-                </h3>
-                <h4>Beach</h4>
-              </div>
-            </Link>
+            
           </Slider>
         </div>
       </section>

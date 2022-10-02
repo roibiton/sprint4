@@ -1,11 +1,10 @@
 import { userService } from '../services/user.service.js'
 
 const initialState = {
-  count: 10,
-  // user: { username: '', email: '', password: '' },
   user: userService.getLoggedinUser(),
   users: [],
   watchedUser: null,
+  msg: null,
 }
 export function userReducer(state = initialState, action) {
   var newState = state
@@ -20,8 +19,7 @@ export function userReducer(state = initialState, action) {
       newState = { ...state, count: state.count + action.diff }
       break
     case 'SET_USER':
-      console.log('SET_USER:', action.credentials)
-      newState = { ...state, user: action.credentials }
+      newState = { ...state, user: action.credentials , msg:'Successfully'}
       break
     case 'SET_WATCHED_USER':
       newState = { ...state, watchedUser: action.user }
@@ -37,6 +35,9 @@ export function userReducer(state = initialState, action) {
       break
     case 'SET_SCORE':
       newState = { ...state, user: { ...state.user, score: action.score } }
+      break
+    case 'SET_MSG':
+      newState = { ...state, msg:action.msg  }
       break
     default:
   }

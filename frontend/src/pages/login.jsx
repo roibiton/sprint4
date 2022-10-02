@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 
 import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'
@@ -27,35 +29,42 @@ import {
 const theme = createTheme()
 
 export const LogInApp = () => {
-  const { user } = useSelector((state) => state.userModule)
+  
+  const { user , msg } = useSelector((state) => state.userModule)
   console.log('user:', user)
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  if (!user.username) console.log('empty user')
-  if (user.username) console.log('hello user')
-  const logout = user.username ? true : false
-  console.log('logout:', logout)
+  const isLogIn = useParams().login==='log-in'?true:false
+
+  
+
+  
+  useEffect(() => {
+  console.log(' msg:', msg)
+  if(user && msg==='Successfully'){
+    console.log('shallloooo,,,,,,');
+    setTimeout(() => {
+      navigate(`/`)
+    }, 500);
+  }
+   }, [ msg, user])
 
   const handleSubmit = (event) => {
     event.preventDefault()
     const data = new FormData(event.currentTarget)
-    const user = {
-      username: logout ? '' : data.get('username'),
-      email: logout ? '' : data.get('email'),
-      password: logout ? '' : data.get('password'),
+    const credentials = {
+      fullname: data.get('fullname'),
+      password:  data.get('password'),
+      email: isLogIn?'': data.get('email'),
+      country: isLogIn?'': data.get('country'),
     }
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-      username: data.get('username'),
-    })
-    if (logout) {
-      dispatch(onSignup(user))
+   
+    if (isLogIn) {
+      dispatch(onLogin(credentials))
+      
     } else {
-      dispatch(onLogout(user))
+      dispatch(onSignup(credentials))
     }
-    navigate(`/`)
-
   }
 
   return (
@@ -70,11 +79,9 @@ export const LogInApp = () => {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
-          </Avatar>
+         
           <Typography component="h1" variant="h5">
-            Sign in
+            {isLogIn?"Log in":"Sign up"}
           </Typography>
           <Box
             component="form"
@@ -86,20 +93,10 @@ export const LogInApp = () => {
               margin="normal"
               required
               fullWidth
-              id="username"
-              label="User Name"
-              name="username"
-              autoComplete="username"
-              autoFocus
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
+              id="fullname"
+              label="Fullname"
+              name="fullname"
+              autoComplete="fullname"
               autoFocus
             />
             <TextField
@@ -112,26 +109,45 @@ export const LogInApp = () => {
               id="password"
               autoComplete="current-password"
             />
-            {!logout && (
+            {!isLogIn&&
+             
+                    <TextField
+                      margin="normal"
+                      required
+                      fullWidth
+                      id="email"
+                      label="Email Address"
+                      name="email"
+                      autoComplete="email"
+                      autoFocus
+                      />
+             
+            }
+            {!isLogIn&&
+             
+                    <TextField
+                      margin="normal"
+                      required
+                      fullWidth
+                      id="country"
+                      label=" Country"
+                      name="country"
+                      autoComplete="country"
+                      autoFocus
+                      />
+             
+            }
+           {msg}
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Sign In
+               {isLogIn?"Log in":"Sign up"}
               </Button>
-            )}
-            {logout && (
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Log Out
-              </Button>
-            )}
+            
+            
           </Box>
         </Box>
       </Container>

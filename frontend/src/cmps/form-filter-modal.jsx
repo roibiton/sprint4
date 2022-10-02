@@ -1,125 +1,141 @@
-import { Component, React } from 'react'
+import * as React from 'react';
+import { pink } from '@mui/material/colors';
+import Checkbox from '@mui/material/Checkbox';
+// import { Component, React } from 'react'
+import "rheostat/initialize";
+import "rheostat/css/rheostat.css";
+import Rheostat from "rheostat";
 
-export class FormFilterModal extends Component {
-  getRoomsBeds = (element) => {
+import { FilterPriceRange } from './filter-price-range'
+
+import Apartment from '../assets/img/img-modal-filter/Apartment.jpeg'
+import House from '../assets/img/img-modal-filter/House.jpeg'
+import Hotel from '../assets/img/img-modal-filter/Hotel.jpeg'
+import Guesthouse from '../assets/img/img-modal-filter/Guesthouse.jpeg'
+
+export const FormFilterModal =({setDataFilterBy ,filterBy})=> {
+  
+  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+
+  const onSelectedTypeHouse=(element)=>{
+   setDataFilterBy('room','roomType',element)
+  }
+
+  const onSelectedBedAndRoom=(element,num)=>{
+    setDataFilterBy('room',element,num)
+  }
+  const onSelectedCheackBox=(element)=>{
+    setDataFilterBy('amenities',element,)
+  }
+
+  const getRoomsBeds = (element) => {
     return (
       <div>
-        <h3>element</h3>
-        <button>Any</button>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button>7</button>
-        <button>8+</button>
+        <h3 className="title-element">{element}</h3>
+        <button className="btn btn-room any" onClick={()=>{onSelectedBedAndRoom(element,0)}}>Any</button>
+        <button className="btn btn-room" onClick={()=>{onSelectedBedAndRoom(element,1)}}>1</button>
+        <button className="btn btn-room" onClick={()=>{onSelectedBedAndRoom(element,2)}}>2</button>
+        <button className="btn btn-room" onClick={()=>{onSelectedBedAndRoom(element,3)}}>3</button>
+        <button className="btn btn-room" onClick={()=>{onSelectedBedAndRoom(element,4)}}>4</button>
+        <button className="btn btn-room" onClick={()=>{onSelectedBedAndRoom(element,5)}}>5</button>
+        <button className="btn btn-room" onClick={()=>{onSelectedBedAndRoom(element,6)}}>6</button>
+        <button className="btn btn-room" onClick={()=>{onSelectedBedAndRoom(element,7)}}>7</button>
+        <button className="btn btn-room" onClick={()=>{onSelectedBedAndRoom(element,8)}}>8+</button>
       </div>
     )
   }
-  getFilterPropertyType = () => {
+  const getFilterPropertyType = () => {
     return (
       <div>
-        <button>
-          <h2>🏠</h2>
+        <button className="btn btn-proerty-type" onClick={()=>{onSelectedTypeHouse('house')}}>
+        <img src={House} />
           <h3>House</h3>
         </button>
-        <button>
-          <h2>🏠</h2>
+        <button className="btn btn-proerty-type"  onClick={()=>{onSelectedTypeHouse('apartment')}}>
+        <img src={Apartment} />
           <h3>Apartment</h3>
         </button>
-        <button>
-          <h2>🏡</h2>
+        <button className="btn btn-proerty-type"  onClick={()=>{onSelectedTypeHouse('guesthouse')}}>
+        <img src={Guesthouse} />
           <h3>Guesthouse</h3>
         </button>
-        <button>
-          <h2>🏩</h2>
+        <button className="btn btn-proerty-type"  onClick={()=>{onSelectedTypeHouse('hotel')}}>
+        <img src={Hotel} />
           <h3>Hotel</h3>
         </button>
       </div>
     )
   }
-  render() {
+ 
+
+  
     return (
       <section className="main-form-filter">
-        <article className="price-range">Price Range</article>
 
-        <article className="type-of-place">
-          <h1>Type of place</h1>
-          <div className="entire-place">
-            <input type="checkbox" id="entire-place"></input>
-            <label htmlFor="entire-place">Entire place</label>
-            <h3>A place all to yourself</h3>
-          </div>
-          <div className="shared-room">
-            <input type="checkbox" id="shared-room"></input>
-            <label htmlFor="shared-room">Shared room</label>
-            <h3>
-              A sleeping space and common areas that may be shared with others
-            </h3>
-          </div>
-          <div className="private-room">
-            <input type="checkbox" id="private-room"></input>
-            <label htmlFor="private-room">Private room</label>
-            <h3>
-              Your own room in a home or a hotel, plus some shared common spaces
-            </h3>
-          </div>
-        </article>
+        <article className="price-range">
+          <PriceRange/>
+          </article>
 
+       
         <article className="rooms-and-beds">
-          {this.getRoomsBeds('Bedrooms')}
-          {this.getRoomsBeds('Beds')}
-          {this.getRoomsBeds('Bathrooms')}
+        <article>{getRoomsBeds('Bedrooms')}</article>
+        <article>{getRoomsBeds('Beds')}</article>
+        <article> {getRoomsBeds('Bathrooms')}</article>
+          
+          
+         
         </article>
 
         <article className="property-type">
           <h1>Property type</h1>
-          {this.getFilterPropertyType()}
+          {getFilterPropertyType()}
         </article>
 
         <article className="amenities">
           <h1>Amenities</h1>
           <h3>Essentials</h3>
-          <div className="wifi">
-            <input type="checkbox" id="wifi"></input>
+          <div className="container-amenities">
+          <div className="btn-checkbox wifi">
+          <Checkbox {...label} className="box-checkbox"  defaultChecked color="default" checked={filterBy.amenities.Wifi}
+           onClick={()=>{onSelectedCheackBox("Wifi")}}/>
             <label htmlFor="wifi">Wifi</label>
           </div>
-          <div className="washer">
-            <input type="checkbox" id="washer"></input>
+          <div className="btn-checkbox washer">
+          <Checkbox {...label} defaultChecked color="default" checked={filterBy.amenities.Washer}
+          onClick={()=>{onSelectedCheackBox("Washer")}}/>
             <label htmlFor="washer">Washer</label>
           </div>
-          <div className="air-conditioning">
-            <input type="checkbox" id="air-conditioning"></input>
+          <div className="btn-checkbox air-conditioning">
+          <Checkbox {...label} defaultChecked color="default" checked={filterBy.amenities.AirConditioning}
+          onClick={()=>{onSelectedCheackBox("AirConditioning")}}/>
             <label htmlFor="air-conditioning">Air conditioning</label>
           </div>
-          <div className="kitchen">
-            <input type="checkbox" id="kitchen"></input>
+          <div className="btn-checkbox kitchen">
+          <Checkbox {...label} defaultChecked color="default" checked={filterBy.amenities.Kitchen} 
+          onClick={()=>{onSelectedCheackBox("kitchen")}}/>
             <label htmlFor="kitchen">Kitchen</label>
           </div>
-        </article>
-
-        <article className="language">
-          <h1>Host language</h1>
-
-          <div className="english">
-            <input type="checkbox" id="english"></input>
-            <label htmlFor="english">English</label>
-          </div>
-          <div className="german">
-            <input type="checkbox" id="german"></input>
-            <label htmlFor="german">German</label>
-          </div>
-          <div className="french">
-            <input type="checkbox" id="french"></input>
-            <label htmlFor="french">French</label>
-          </div>
-          <div className="japanese">
-            <input type="checkbox" id="japanese"></input>
-            <label htmlFor="japanese">Japanese</label>
           </div>
         </article>
+
+        
       </section>
     )
-  }
+  
 }
+
+export const PriceRange = (props) => {
+  return (
+    <div className="PriceRange">
+      <h3>Price Range</h3>
+      <Rheostat
+        min={1}
+        max={1000}
+        values={[100, 300]}
+        pitComponent={"span"}
+        pitPoints={[100, 200, 300,400,500,600,700,800,900]}
+      />
+    </div>
+  );
+};
+

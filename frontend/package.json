@@ -26,7 +26,6 @@
     "react-bootstrap": "^2.5.0",
     "react-chartjs-2": "^4.3.1",
     "react-date-range": "^1.4.0",
-    "react-dates": "^21.8.0",
     "react-dom": "^16.14.0",
     "react-icons": "^4.4.0",
     "react-loading-screen": "^0.0.17",
@@ -39,8 +38,10 @@
     "reactstrap": "^9.1.4",
     "recharts": "^2.1.14",
     "redux-thunk": "^2.3.0",
+    "rheostat": "^4.1.1",
     "slick-carousel": "^1.8.1",
     "socket.io-client": "^4.2.0",
+    "storybook": "^6.5.12",
     "web-vitals": "^1.0.1"
   },
   "scripts": {

@@ -34,6 +34,7 @@ function _AppHeader({ onLogin, onSignup, onLogout, user }) {
 
   return (
     <header className="app-header ">
+     <div className="main-layout ">
       <div className="top-header">
         <NavLink key="//" to="/">
           <div className="main-logo">
@@ -59,6 +60,7 @@ function _AppHeader({ onLogin, onSignup, onLogout, user }) {
         <div className="btn-filter">
           <ModalFilter />
         </div>
+      </div>
       </div>
     </header>
   )

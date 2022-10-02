@@ -9,7 +9,7 @@ import { StayDetails } from './pages/stay-details.jsx'
 import { UserDetails } from './pages/user-details.jsx'
 import { Explore } from './pages/explore.jsx'
 import { LogInApp } from './pages/login.jsx'
-import { LoginSignup } from './cmps/login-signup'
+import { BecomeHost } from './pages/become-host.jsx'
 
 // Routes accesible from the main navigation (in AppHeader)
 const routes = [
@@ -29,7 +29,17 @@ const routes = [
     label: 'Details',
   },
   {
-    path: 'stay/explore/:filter',
+    path: 'stay/explore/:name',
+    component: <Explore />,
+    label: 'Explore',
+  },
+  {
+    path: 'stay/explore/type/:type',
+    component: <Explore />,
+    label: 'Explore',
+  },
+  {
+    path: 'stay/explore/amenities/:amenities/room/:room',
     component: <Explore />,
     label: 'Explore',
   },
@@ -64,12 +74,7 @@ const routes = [
     label: 'Admin Only',
   },
   {
-    path: 'login-signup',
-    component: <LoginSignup />,
-    label: 'log in',
-  },
-  {
-    path: 'login',
+    path: 'login/:login',
     component: <LogInApp />,
     label: 'log in',
   },
@@ -77,6 +82,11 @@ const routes = [
     path: 'user/:id',
     component: <UserDetails />,
     label: 'user-details',
+  },
+  {
+    path: 'become-host',
+    component: <BecomeHost />,
+    label: 'become-host',
   },
 ]
 

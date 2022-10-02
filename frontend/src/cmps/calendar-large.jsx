@@ -2,7 +2,6 @@ import "../assets/styles/cmps/react_dates_overrides.css"
 import React, { useState } from "react"
 import "react-dates/initialize"
 // import "react-dates/lib/css/_datepicker.css"
-import { FaRegKeyboard } from "react-icons/fa";
 
 import { DayPickerRangeController } from "react-dates"
 
@@ -18,13 +17,12 @@ function DatePicker() {
     }
 
     const onFocusChange = (focusedInput) => {
-        // console.log(onFocusChange)
         setFocusedInput(focusedInput)
     }
 
-    //   const renderDate = (date) => {
+    // const renderDate = (date) => {
     //     return date ? moment(date).format("MM/DD/YY") : null
-    //   }
+    // }
 
     return (
         <div className="App">
@@ -42,8 +40,8 @@ function DatePicker() {
                 onFocusChange={onFocusChange}
                 numberOfMonths={2}
                 showClearDates={true}
-                // renderKeyboardShortcutsButton={<FaRegKeyboard />}
-                // minimumNights={3}
+            // renderKeyboardShortcutsButton={<FaRegKeyboard />}
+            // minimumNights={3}
             />
             {/* </Wrapper> */}
         </div>
