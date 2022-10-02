@@ -1,12 +1,12 @@
 import React from 'react'
 import Dropdown from 'react-bootstrap/Dropdown'
-
+import { Link, NavLink } from 'react-router-dom'
 import { ModalLogin } from './modal-login'
 
 import { BsPersonCircle } from 'react-icons/bs'
 import { FiMenu } from 'react-icons/fi'
 
-export function AppUser() {
+export function AppUser({user,onLogout}) {
   console.log('shaloomm:')
   return (
     <section className="user-login">
@@ -21,7 +21,10 @@ export function AppUser() {
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
-          <Dropdown.Item href="/login">sign up</Dropdown.Item>
+
+          <Dropdown.Item href="/login-signup" >
+                  login </Dropdown.Item>
+
           <Dropdown.Item href="#/action-3">log out</Dropdown.Item>
           <Dropdown.Item href="#/action-1">Wishlist</Dropdown.Item>
           <Dropdown.Item href="#/action-2">About</Dropdown.Item>

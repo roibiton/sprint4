@@ -9,6 +9,7 @@ import { StayDetails } from './pages/stay-details.jsx'
 import { UserDetails } from './pages/user-details.jsx'
 import { Explore } from './pages/explore.jsx'
 import { LogInApp } from './pages/login.jsx'
+import { LoginSignup } from './cmps/login-signup'
 
 // Routes accesible from the main navigation (in AppHeader)
 const routes = [
@@ -63,12 +64,17 @@ const routes = [
     label: 'Admin Only',
   },
   {
+    path: 'login-signup',
+    component: <LoginSignup />,
+    label: 'log in',
+  },
+  {
     path: 'login',
     component: <LogInApp />,
     label: 'log in',
   },
   {
-    path: 'user-details/:id',
+    path: 'user/:id',
     component: <UserDetails />,
     label: 'user-details',
   },

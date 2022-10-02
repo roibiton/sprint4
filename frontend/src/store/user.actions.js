@@ -45,7 +45,7 @@ export function onSignup(credentials) {
   console.log('onSignup:', credentials)
   return async (dispatch) => {
     try {
-      // const user = await userService.signup(credentials)
+      const user = await userService.signup(credentials)
       dispatch({
         type: 'SET_USER',
         credentials,

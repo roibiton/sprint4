@@ -2,8 +2,8 @@ import { userService } from '../services/user.service.js'
 
 const initialState = {
   count: 10,
-  user: { username: '', email: '', password: '' },
-  // user: userService.getLoggedinUser(),
+  // user: { username: '', email: '', password: '' },
+  user: userService.getLoggedinUser(),
   users: [],
   watchedUser: null,
 }

@@ -5,9 +5,10 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 // import { addDays } from 'date-fns';
 
 // import ClampLines from 'react-clamp-lines';
+
 import { React, Component } from 'react'
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams,Link } from 'react-router-dom'
 import { stayService } from '../services/stay.service'
 import LoadingScreen from "react-loading-screen"
 import { MdIosShare } from 'react-icons/md'
@@ -33,30 +34,30 @@ export const StayDetails = () => {
     // console.log(process.showMemory())
 
 
-        // Prints the output as an object
-            const [stay, setStay] = useState(null)
-        const [showDropdown, setShowDropdown] = useState('showDropdown-reserve')
-        const params = useParams()
-        const loggedInUser = userService.getLoggedinUser()
-    const navigate = useNavigate()
-        
+    // Prints the output as an object
+    const [stay, setStay] = useState(null)
+    const [showDropdown, setShowDropdown] = useState('showDropdown-reserve')
+    const params = useParams()
+    const loggedInUser = userService.getLoggedinUser()
+    // const navigate = useNavigate()
+
 
     useEffect(() => {
-            // console.log('details params', params)
-            console.log('stay', typeof stay)
-            console.log('details is up')
-            loadStay()
+        // console.log('details params', params)
+        // console.log('stay', typeof stay)
+        // console.log('details is up')
+        loadStay()
         // console.log(stay.reviews)
-        }, [])
+    }, [])
 
 
-        const loadStay = () => {
-            const stayId = params.id
-            stayService.getById(stayId).then(stay => {
-                setStay(stay)
+    const loadStay = () => {
+        const stayId = params.id
+        stayService.getById(stayId).then(stay => {
+            setStay(stay)
 
-            })
-        }
+        })
+    }
     const addOrder = () => {
         const order = {
 
@@ -317,8 +318,8 @@ export const StayDetails = () => {
                                         </div>
                                     </div>
                                     <div className="reserve-counter-headline" onSelect={() => handleClick()} value="Pats">Pats
-                                    <div className="reserve-participants">Bringing a service animal?</div>
-                                    <div className="reserve-counter">
+                                        <div className="reserve-participants">Bringing a service animal?</div>
+                                        <div className="reserve-counter">
                                             <div className="guest-count-down">-</div>
                                             <div className="guest-count-num">5</div>
                                             <div className="guest-count-up">+</div>
@@ -344,9 +345,17 @@ export const StayDetails = () => {
                         <div className="reserve-btn-container">
                             <div className="cell"></div>
                             <div className="reserve-content">
-                                <button className="reserve-action-btn">
-                                    <span className="reserve-span">Check availability</span>
-                                </button>
+                                <button onClick={addOrder} className='reserve-action-btn reserve-trigger'><span className="reserve-span">Check availability</span></button>
+                                <div className="reserve-modal">
+                                    <div className="reserve-modal-content">
+                                        <span className="reserve-close-button">&times;</span>
+                                        <h1>thank you for you'r order!</h1>
+                                        {/* <p>{stay.name},</p> */}
+                                        <span>will confirm your order soon..</span>
+                                        {/* <p><Link to={`/user/${loggedInUser._id}`} className='user-orders-link'>my orders</Link></p> */}
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </section>
@@ -403,6 +412,6 @@ export const StayDetails = () => {
                 </div>
             </section>
 
-    </div>
-)
+        </div>
+    )
 }
