@@ -2,7 +2,7 @@ import "../assets/styles/cmps/react_dates_overrides.css"
 import "react-dates/lib/css/_datepicker.css"
 // import "react-date-range/dist/styles.css"; // main css file
 // import "react-date-range/dist/theme/default.css"; // theme css file
-// import { DateRangePicker } from "react-date-range"
+import { DateRangePicker } from "react-date-range"
 // import { addDays } from "date-fns";
 
 // import ClampLines from "react-clamp-lines";
