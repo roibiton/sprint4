@@ -2,8 +2,11 @@ import * as React from 'react';
 import { pink } from '@mui/material/colors';
 import Checkbox from '@mui/material/Checkbox';
 // import { Component, React } from 'react'
+import "rheostat/initialize";
+import "rheostat/css/rheostat.css";
+import Rheostat from "rheostat";
 
-
+import { FilterPriceRange } from './filter-price-range'
 
 import Apartment from '../assets/img/img-modal-filter/Apartment.jpeg'
 import House from '../assets/img/img-modal-filter/House.jpeg'
@@ -68,35 +71,19 @@ export const FormFilterModal =({setDataFilterBy ,filterBy})=> {
   
     return (
       <section className="main-form-filter">
-        <article className="price-range">Price Range</article>
 
-        <article className="type-of-place">
-          <h1>Type of place</h1>
-          <div className="entire-place">
-            <input type="checkbox" id="entire-place"></input>
-            <label htmlFor="entire-place">Entire place</label>
-            <h3>A place all to yourself</h3>
-          </div>
-          <div className="shared-room">
-            <input type="checkbox" id="shared-room"></input>
-            <label htmlFor="shared-room">Shared room</label>
-            <h3>
-              A sleeping space and common areas that may be shared with others
-            </h3>
-          </div>
-          <div className="private-room">
-            <input type="checkbox" id="private-room"></input>
-            <label htmlFor="private-room">Private room</label>
-            <h3>
-              Your own room in a home or a hotel, plus some shared common spaces
-            </h3>
-          </div>
-        </article>
+        <article className="price-range">
+          <PriceRange/>
+          </article>
 
+       
         <article className="rooms-and-beds">
-          {getRoomsBeds('Bedrooms')}
-          {getRoomsBeds('Beds')}
-          {getRoomsBeds('Bathrooms')}
+        <article>{getRoomsBeds('Bedrooms')}</article>
+        <article>{getRoomsBeds('Beds')}</article>
+        <article> {getRoomsBeds('Bathrooms')}</article>
+          
+          
+         
         </article>
 
         <article className="property-type">
@@ -109,7 +96,7 @@ export const FormFilterModal =({setDataFilterBy ,filterBy})=> {
           <h3>Essentials</h3>
           <div className="container-amenities">
           <div className="btn-checkbox wifi">
-          <Checkbox {...label} defaultChecked color="default" checked={filterBy.amenities.Wifi}
+          <Checkbox {...label} className="box-checkbox"  defaultChecked color="default" checked={filterBy.amenities.Wifi}
            onClick={()=>{onSelectedCheackBox("Wifi")}}/>
             <label htmlFor="wifi">Wifi</label>
           </div>
@@ -136,3 +123,19 @@ export const FormFilterModal =({setDataFilterBy ,filterBy})=> {
     )
   
 }
+
+export const PriceRange = (props) => {
+  return (
+    <div className="PriceRange">
+      <h3>Price Range</h3>
+      <Rheostat
+        min={1}
+        max={1000}
+        values={[100, 300]}
+        pitComponent={"span"}
+        pitPoints={[100, 200, 300,400,500,600,700,800,900]}
+      />
+    </div>
+  );
+};
+
