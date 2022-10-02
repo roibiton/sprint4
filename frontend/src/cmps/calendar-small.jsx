@@ -29,10 +29,12 @@ export default function App() {
                 focusedInput={focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
                 onFocusChange={focusedInput => setFocusedInput(focusedInput)} // PropTypes.func.isRequired,
                 showClearDates={true}
-                small={true}
-                startDatePlaceholderText='CheckIn'
-                endDatePlaceholderText='CheckOut'
+                // small={true}
+                startDatePlaceholderText='Add date'
+                endDatePlaceholderText='Add date'
                 startDateAriaLabel=''
+                customArrowIcon={' '}
+                noBorder
                 // id="datetime-local"
                 // name="endDate"
                 // label="End date"
@@ -41,6 +43,6 @@ export default function App() {
                 // InputLabelProps={{ shrink: true }}
 
 />
-        // </div>
-    )
-}
+        // </div> 
+    ) 
+} 

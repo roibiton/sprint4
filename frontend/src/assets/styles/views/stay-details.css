@@ -490,21 +490,35 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
-    padding: 7px 12px;
+    /* padding: 7px 12px; */
     color: gray;
     font-size: 0.75rem;
 }
 
-.date-input:last-of-type {
+/* .date-input:last-of-type {
     border-left: 1px solid #00000050;
+} */
+
+.reserve-textbox-headline {
+    margin-left: 5px;
+    margin-top: 3px;
+    font-size: .6em;
 }
 
+.reserve-gustsnum-input {
+    margin-left: 5px;
+    margin-top: 3px;
+    font-size: 1em;
+
+}
+
+/* 
 .reserve-input {
     border: none;
     padding: 0 0;
     width: 100%;
     outline: none;
-}
+} */
 
 .reserve-label {
     font-weight: 600;
@@ -640,11 +654,11 @@ span.reserve-reviews {
     width: 112%;
     margin-left: -2em;
     background: #fff;
+    z-index: 100;
+    display: block;
     /* box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); */
     /* border-radius: 10px; */
     /* overflow: hidden; */
-    z-index: 100;
-    display: block;
     /* border-radius: 4px; */
     /* display: flex; */
     /* align-items: center; */
@@ -674,20 +688,14 @@ span.reserve-reviews {
 
 .reserve-guests-options {
     box-shadow: rgba(128, 128, 128, 0.52) 0px 6px 16px;
-    display: flex;
-    align-items: center;
-    padding: 16px
+    padding: 16px;
+    position: absolute;
+    border-radius: 4px;
+    background: #fff;
+    z-index: 100;
+    display: block;
+    margin-left: -30px;
     /* border: 1px black solid; */
-}
-
-.reserve-guests-options {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /* padding: .9em 1.8em; */
-    /* cursor: pointer; */
-    -webkit-box-align: center !important;
-    
 }
 
 .age-group-container {
