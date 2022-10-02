@@ -128,7 +128,7 @@ export const DisplayMainSearch = () => {
  
         <article className="check-in">
           <button className="btn-border btn-check-in">
-            {/* <ModalCalendarFilter type={'check-in'}/> */}
+            <ModalCalendarFilter type={'check-in'}/>
             {/* <DatePicker /> */}
           </button>
         </article>
