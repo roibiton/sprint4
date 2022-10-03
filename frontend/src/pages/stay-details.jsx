@@ -21,6 +21,7 @@ import { GiPoolDive } from "react-icons/gi"
 import DatePicker from "../cmps/calendar-large"
 import { userService } from "../services/user.service"
 import { utilService } from "../services/util.service"
+import { orderService } from "../services/order.service"
 
 // import { memoryUsage } from "node:process";
 // import process from "process";
@@ -37,7 +38,7 @@ export const StayDetails = () => {
     const [stay, setStay] = useState(null)
     const [toggleDropdown, setToggleDropdown] = useState(false)
     const params = useParams()
-    // const loggedInUser = userService.getLoggedinUser()
+    const loggedInUser = userService.getLoggedinUser()
     // const navigate = useNavigate()
 
 
@@ -53,16 +54,24 @@ export const StayDetails = () => {
         console.log("details is up")
         // const loggedInUser = userService.getLoggedinUser()
         loadStay()
+
     }, [])
 
 
-        const loadStay = () => {
-            const stayId = params.id
-            stayService.getById(stayId).then(stay => {
-                setStay(stay)
+    const loadStay = () => {
+        const stayId = params.id
+        stayService.getById(stayId).then(stay => {
+            setStay(stay)
 
-            })
-        }
+        })
+    }
+
+
+    const handleDropdown = (ev) => {
+        setToggleDropdown(toggleDropdown === true ? false : true)
+    }
+
+
     const addOrder = () => {
         const order = {
 
@@ -86,17 +95,9 @@ export const StayDetails = () => {
             },
             status: "pending"
         }
-        toggleReservemodal()
         orderService.save(order)
+        console.log('order made')
         // navigate(`user/${loggedInUser._id}`)
-    }
-    const toggleReservemodal = () => {
-        const modal = document.querySelector(".reserve-modal");
-        const trigger = document.querySelector(".reserve-trigger");
-        const closeButton = document.querySelector(".reserve-close-button");
-
-    const addOrder = () => {
-        console.log("add order")
     }
 
 
@@ -215,9 +216,11 @@ export const StayDetails = () => {
                                     <li className="baths">{bathrooms}</li>
                                 </ol>
                             </div>
+                            <Link to={`/user/${stay.host._id}`} >
                             <div className="host-avatar-container">
-                                <img src={stay.host.thumbnailUrl} href="" className="host-avatar" alt="Whoops!"></img>
+                                <img src={stay.host.thumbnailUrl} className="host-avatar" href="" alt="Whoops!"></img>
                             </div>
+                            </Link>
                         </div>
                     </section>
 
@@ -275,7 +278,7 @@ export const StayDetails = () => {
                             {
                                 stay.amenities.map((amenity, idx) => {
                                     if (idx < 10) {
-                                        return (<li>{amenity}</li>)
+                                        return (<li key={amenity.slice(0, 5)}>{amenity}</li>)
                                     }
                                 }
                                 )}
@@ -358,13 +361,13 @@ export const StayDetails = () => {
                             <div className="cell"></div>
                             <div className="reserve-content">
                                 <button className="reserve-action-btn sidenav-submit reserve-trigger">
-                                    <span className="reserve-span">Check availability</span>
+                                    <span className="reserve-span" onClick={addOrder}>Check availability</span>
                                     <div className="reserve-modal">
                                         <div className="reserve-modal-content">
                                             <span className="reserve-close-button">&times;</span>
                                             <h1>thank you for you"r order!</h1> {<p>{stay.name},</p>}
                                             <span>will confirm your order soon..</span>
-                                            <p><Link to={`/user/u101`} className="user-orders-link">my orders</Link></p>
+                                            {/* <p><Link to={`/user/${loggedInUser._id}`} className="user-orders-link">my orders</Link></p> */}
                                         </div>
                                     </div>
                                 </button>
@@ -401,7 +404,7 @@ export const StayDetails = () => {
                                         const reviewText = review
                                     }
                                     return (
-                                        <div className="review">
+                                        <div className="review" key={review.by.fullname}>
                                             <div className="reviewer-avatar-container">
                                                 <img src={review.by.imgUrl} className="reviewer-avatar" alt="Whoops!"></img>
                                             </div>
@@ -409,7 +412,6 @@ export const StayDetails = () => {
                                                 <ol className="name-date">
                                                     <li className="reviewr-name">{review.by.fullname}</li>
                                                     <li className="review-created">May 2022</li>
-
                                                     <li className="review-content">{review.txt}</li>
 
 
@@ -426,4 +428,4 @@ export const StayDetails = () => {
 
         </div >
     )
-                    }}
+}
