@@ -4,7 +4,8 @@ export const utilService = {
     getRandomIntInclusive,
     delay,
     getFormattedTime,
-    limitNumInRange
+    limitNumInRange,
+    getRandomColor
 }
 
 function makeId(length = 6) {
@@ -33,6 +34,15 @@ function getRandomIntInclusive(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
 }
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+  
 
 function delay(ms = 1500) {
     return new Promise(resolve => {

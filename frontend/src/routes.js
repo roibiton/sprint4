@@ -79,7 +79,7 @@ const routes = [
     label: 'log in',
   },
   {
-    path: 'user-details/:id',
+    path: 'user/:id',
     component: <UserDetails />,
     label: 'user-details',
   },

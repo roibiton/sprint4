@@ -59,7 +59,7 @@ export function StayPreview({ stay, onRemoveStay, onUpdateStay }) {
             <section className='actions'>
                 {/* <button onClick={() => { onRemoveStay(stay._id) }}>❌</button> */}
                 {(stay?.owner === loggedinUser) && <Link to={`/stay/edit/${stay._id}`} ><button>🖍</button></Link>}
-                { <Link to={`/stay/edit/${stay._id}`} ><button>🖍</button></Link>}
+                {/* { <Link to={`/stay/edit/${stay._id}`} ><button>🖍</button></Link>} */}
             </section>
 
         </div>

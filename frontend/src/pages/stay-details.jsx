@@ -56,16 +56,44 @@ export const StayDetails = () => {
     }, [])
 
 
-    const loadStay = () => {
-        const stayId = params.id
-        stayService.getById(stayId).then(stay => {
-            setStay(stay)
-        })
-    }
+        const loadStay = () => {
+            const stayId = params.id
+            stayService.getById(stayId).then(stay => {
+                setStay(stay)
 
-    const handleDropdown = (ev) => {
-        setToggleDropdown(toggleDropdown === true ? false : true)
+            })
+        }
+    const addOrder = () => {
+        const order = {
+
+            hostId: stay.host._id,
+            createdAt: Date.now(),
+            buyer: {
+                _id: loggedInUser._id,
+                fullname: loggedInUser.fullname
+            },
+            totalPrice: 160,
+            startDate: "2025/10/15",
+            endDate: "2025/10/17",
+            guests: {
+                adults: 2,
+                kids: 1
+            },
+            stay: {
+                _id: stay._id,
+                name: stay.name,
+                price: stay.price
+            },
+            status: "pending"
+        }
+        toggleReservemodal()
+        orderService.save(order)
+        // navigate(`user/${loggedInUser._id}`)
     }
+    const toggleReservemodal = () => {
+        const modal = document.querySelector(".reserve-modal");
+        const trigger = document.querySelector(".reserve-trigger");
+        const closeButton = document.querySelector(".reserve-close-button");
 
     const addOrder = () => {
         console.log("add order")
@@ -398,4 +426,4 @@ export const StayDetails = () => {
 
         </div >
     )
-}
+                    }}

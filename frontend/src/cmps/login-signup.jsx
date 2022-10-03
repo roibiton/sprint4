@@ -26,14 +26,14 @@ export function LoginSignup(props) {
     const onLogin = (ev = null) => {
         if (ev) ev.preventDefault()
         if (!credentials.username) return
-        props.onLogin(credentials)
+        onLogin(credentials)
         clearState()
     }
 
     const onSignup = (ev = null) => {
         if (ev) ev.preventDefault()
         if (!credentials.username || !credentials.password || !credentials.fullname) return
-        props.onSignup(credentials)
+       onSignup(credentials)
         clearState()
     }
 
@@ -61,7 +61,7 @@ export function LoginSignup(props) {
                 {/* <input
                         type="text"
                         name="username"
-                        value={username}
+                        // value={username}
                         placeholder="Username"
                         onChange={this.handleChange}
                         required
@@ -70,7 +70,7 @@ export function LoginSignup(props) {
                     <input
                         type="password"
                         name="password"
-                        value={password}
+                        // value={password}
                         placeholder="Password"
                         onChange={this.handleChange}
                         required

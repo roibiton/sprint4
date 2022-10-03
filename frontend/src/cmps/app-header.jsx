@@ -1,8 +1,9 @@
 import React from 'react'
 import { useEffect, useState, useRef } from 'react'
-// import { connect } from 'react-redux'
+import { connect } from 'react-redux'
 import { Link, NavLink, useParams, useLocation } from 'react-router-dom'
-
+import { onLogin, onLogout, onSignup, loadUsers, removeUser } from '../store/user.actions.js'
+import { LoginSignup } from './login-signup.jsx'
 import routes from '../routes'
 
 import { AppFilter } from './app-filter'
@@ -14,7 +15,7 @@ import { AppUser } from './app-user'
 
 import { FaAirbnb } from 'react-icons/fa'
 
-export const AppHeader = () => {
+function _AppHeader({ onLogin, onSignup, onLogout, user }) {
   const [isOpenUser, setIsOpenUser] = useState(false)
   const [isOpenMainSearch, setIsOpenMainSearch] = useState(true)
   // const [isOpenDetails, setIsOpenDetails] = useState(false)
@@ -51,7 +52,7 @@ export const AppHeader = () => {
         {!isOpenMainSearch && !isOpenDetails() && <DisplayMainSearch />}
         {isOpenDetails() && <SimpelSearch />}
 
-        <AppUser />
+        <AppUser user={user} onLogout={onLogout}  />
       </div>
 
       <div className="bottom-header">
@@ -64,3 +65,22 @@ export const AppHeader = () => {
     </header>
   )
 }
+function mapStateToProps(state) {
+  return {
+      users: state.userModule.users,
+      user: state.userModule.user,
+      count: state.userModule.count,
+      isLoading: state.systemModule.isLoading
+  }
+}
+const mapDispatchToProps = {
+  onLogin,
+  onSignup,
+  onLogout,
+  loadUsers,
+  removeUser
+}
+
+
+
+export const AppHeader = connect(mapStateToProps, mapDispatchToProps)(_AppHeader)
