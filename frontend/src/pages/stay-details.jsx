@@ -2,7 +2,7 @@ import "../assets/styles/cmps/react_dates_overrides.css"
 import "react-dates/lib/css/_datepicker.css"
 // import "react-date-range/dist/styles.css"; // main css file
 // import "react-date-range/dist/theme/default.css"; // theme css file
-import { DateRangePicker } from "react-date-range"
+// import { DateRangePicker } from "react-date-range"
 // import { addDays } from "date-fns";
 
 // import ClampLines from "react-clamp-lines";
@@ -72,13 +72,8 @@ export const StayDetails = () => {
     }
 
 
-    const capacityLeft = () => {
-        const capLeft = stay.capacity - guestsNum.adults - guestsNum.kids
-        return capLeft
-    }
-
-
     const updateGuestCount = (ev) => {
+        console.log(guestsNum.total)
         const currGroup = ev.target.name
         if (ev.target.value === "+") {
             setGuestsNum({
@@ -122,7 +117,7 @@ export const StayDetails = () => {
 
     const infantOrInfants = () => {
         if (guestsNum.infants === 1) return ', 1 infant'
-        else if (guestsNum.infants >= 2) return `, ${guestsNum.infants} infants` 
+        else if (guestsNum.infants >= 2) return `, ${guestsNum.infants} infants`
         else return ''
     }
 
@@ -278,10 +273,11 @@ export const StayDetails = () => {
 
                                 </div>
                             </div>
-
-                            <div className="guests-input" onClick={(ev) => handleDropdown(ev)} >
-                                <div className="reserve-textbox-headline" value="GUESTS" readOnly>GUESTS</div>
-                                <span className="reserve-gustsnum-input">{guestsNumTxtOutput + infantOrInfants()}</span>
+                            <div className="guests-input-container">
+                                <div className="guests-input" type="checkbox" onClick={(ev) => handleDropdown(ev)} >
+                                    <div className="reserve-textbox-headline" value="GUESTS" readOnly>GUESTS</div>
+                                    <span className="reserve-gustsnum-input">{guestsNumTxtOutput + infantOrInfants()}</span>
+                                </div>
                             </div>
                             <div className="reserve-guests-options" style={{ display: toggleDropdown ? "block" : "none" }}>
                                 <div className="age-group-counter">
@@ -318,7 +314,7 @@ export const StayDetails = () => {
                                 </div>
                                 <div className="age-group-counter">
                                     <div className="age-group-container">
-                                        <div className="reserve-counter-headline" value="Pats">Pats</div>
+                                        <div className="reserve-counter-headline" value="Pets">Pets</div>
                                         <div className="reserve-participants reserve-pets">Bringing a service animal?</div>
                                     </div>
                                     <div className="reserve-counter">
