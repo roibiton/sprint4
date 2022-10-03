@@ -1,4 +1,4 @@
-// import React, { useState } from 'react'
+import React, { useState } from 'react'
 // import PropTypes from 'prop-types'
 // import { Carousel } from 'react-responsive-carousel'
 
@@ -175,3 +175,13 @@
 //         return this.props.children;
 //     }
 // }
+
+
+
+export class AboutUs extends React.Component {
+    render() {
+        return <section>
+            <h1>About</h1>
+        </section>
+    }
+}
