@@ -1,6 +1,7 @@
 :root {
     --clr1: rgb(34, 34, 34);
     --clr2: rgb(247, 247, 247);
+    --clr3: rgb(113, 113, 113);
 }
 
 .DateRangePickerInput__showClearDates {

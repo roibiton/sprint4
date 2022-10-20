@@ -15,16 +15,16 @@
 //     grid-template-columns: 80px 1fr 80px;
 //     padding: 0 40px;
 
-//     // .main-layout>* {
-//     //     grid-column: 2;
-//     // }
+    // .main-layout>* {
+    //     grid-column: 2;
+    // }
 // }
 
 .main-layout{
     display: grid;
     grid-template-columns: minmax(40px,1fr) minmax(auto,1600px) minmax(40px,1fr);
-    margin: 0 1em
-
+    margin: 0 1em;
+    padding-top: 50px
 }
 .main-layout>* {
     grid-column: 2;

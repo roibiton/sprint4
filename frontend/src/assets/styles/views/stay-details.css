@@ -6,8 +6,6 @@
     line-height: 1.43;
 }
 
-.headline {}
-
 .headline-content {
     font-size: x-large;
     font-weight: 900;
@@ -363,7 +361,7 @@
     flex-direction: column;
     /* border: solid black 1px; */
     /* width: 20em; */
-    height: 31%;
+    height: 48%;
     /* align-items: center; */
     border: 1px solid rgb(221, 221, 221);
     box-shadow: rgba(128, 128, 128, 0.522) 0px 6px 16px;
@@ -403,11 +401,6 @@
 .reserve-header {
     display: flex;
     justify-content: space-between;
-}
-
-.reserve-border {
-    padding-top: 1em;
-    border-top: 1px solid rgb(221, 221, 221);
 }
 
 /* reserve button */
@@ -696,7 +689,7 @@ span.reserve-reviews {
     border-radius: 4px;
     background: #fff;
     z-index: 100;
-    display: block;
+    display: none;
     margin-left: -30px;
     /* border: 1px black solid; */
 }
@@ -735,18 +728,32 @@ span.reserve-reviews {
     display: flex;
 }
 
-.circle {
+.guest-counter-round-border {
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     width: 2em;
     height: 2em;
-    /* padding: 8px; */
     background: #fff;
     border: 2px solid #666;
     color: #666;
     text-align: center;
+
+}
+.guest-counter-round-border-OFF {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    background: #fff;
+    border: 2px solid #666;
+    color: #666;
+    text-align: center;
+    cursor: not-allowed;
+    opacity: 0;
 }
 
 .reserve-counter-capicity {
@@ -761,4 +768,16 @@ span.reserve-reviews {
     text-decoration: underline;
     float: right;
     
+}
+
+.total-container{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.total-fee-inline {
+    display: inline-flex;
+    justify-content: space-between;
+    padding-bottom: .5em;
 }

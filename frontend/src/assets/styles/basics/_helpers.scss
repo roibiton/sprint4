@@ -38,3 +38,14 @@
 .portrait-ratio {
     @include aspect-ratio(9, 16);
 }
+
+.border-line {
+    padding-top: 1em;
+    border-top: 1px solid rgb(221, 221, 221);
+}
+
+.border-bottom {
+    padding-bottom: 1em;
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+

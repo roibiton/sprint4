@@ -70,7 +70,7 @@ var params =getParams()
   logoSrc=""
   text="details loading!"
 >  {" "}</LoadingScreen>
-  return (
+  return ( 
     <section className="explore main-layout">
       <StayList stays={stays} onRemoveStay={onRemoveStay} />
     </section>

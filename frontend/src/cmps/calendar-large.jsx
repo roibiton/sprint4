@@ -5,23 +5,38 @@ import React, { useState } from "react"
 
 import { DayPickerRangeController } from "react-dates"
 
-import moment from "moment"
+// import moment from "moment"
 
-function DatePicker() {
-    const [dates, setDates] = useState({ startDate: null, endDate: null })
+export const Context = React.createContext()
+
+function DatePicker(props) {
+    const [dates, setDates] = useState({ startDate: null, endDate: null, totalDays: null })
 
     const defaultFocusedInput = "startDate"
     const [focusedInput, setFocusedInput] = useState(defaultFocusedInput)
+
     const handleDatesChange = (dates) => {
         setDates(dates)
+        // console.log(dates)
+        // console.log(dates)
+        props.handleDates(
+            // moment(dates.startDate).format('DD, MM, YY'),
+            // moment(dates.endDate).format('DD, MM, YY')
+            dates.startDate,
+            dates.endDate
+        )
     }
+
+    // useEffect(() => {
+    //     console.log('Use Effected')
+    //   }, [handleDatesChange])
 
     const onFocusChange = (focusedInput) => {
         setFocusedInput(focusedInput)
     }
 
     // const renderDate = (date) => {
-    //     return date ? moment(date).format("MM/DD/YY") : null
+    // return date ? moment(date).format() : null
     // }
 
     return (
@@ -29,7 +44,7 @@ function DatePicker() {
             {/* <h1> */}
             {/* {renderDate(dates.startDate)} | {renderDate(dates.endDate)} */}
             {/* </h1> */}
-            <h3 className="details-calendar-headline">Select checkout date</h3>
+            {/* <h3 className="details-calendar-headline">Select checkout date</h3> */}
             <span>Add your travel dates for exact pricing</span>
             {/* <Wrapper> */}
             <DayPickerRangeController
@@ -39,11 +54,12 @@ function DatePicker() {
                 focusedInput={focusedInput || defaultFocusedInput}
                 onFocusChange={onFocusChange}
                 numberOfMonths={2}
-                showClearDates={true}
+            // showClearDates={true}
             // renderKeyboardShortcutsButton={<FaRegKeyboard />}
             // minimumNights={3}
             />
             {/* </Wrapper> */}
+
         </div>
     )
 }
